@@ -23,28 +23,33 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
-<meta property="og:type" content="website">
-<meta property="og:title" content="JOKEthel的个人博客">
-<meta property="og:url" content="http://example.com/index.html">
+<meta name="description" content="方法一：resolve 这一种方法较常见。它主要是使用了resolve的异步机制，用require代替了import,实现按需加载，下面是代码示例：  123456789101112131415161718import Vue from &amp;#x27;vue&amp;#x27;import Router from &amp;#x27;vue-router&amp;#x27;&#x2F;&#x2F; import HelloWorld from">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue路由懒加载">
+<meta property="og:url" content="http://example.com/uncategorized/vue%E8%B7%AF%E7%94%B1%E6%87%92%E5%8A%A0%E8%BD%BD/index.html">
 <meta property="og:site_name" content="JOKEthel的个人博客">
+<meta property="og:description" content="方法一：resolve 这一种方法较常见。它主要是使用了resolve的异步机制，用require代替了import,实现按需加载，下面是代码示例：  123456789101112131415161718import Vue from &amp;#x27;vue&amp;#x27;import Router from &amp;#x27;vue-router&amp;#x27;&#x2F;&#x2F; import HelloWorld from">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-08-06T06:38:15.000Z">
+<meta property="article:modified_time" content="2020-12-25T07:29:15.168Z">
 <meta property="article:author" content="Ethel">
+<meta property="article:tag" content="vue">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/">
+<link rel="canonical" href="http://example.com/uncategorized/vue%E8%B7%AF%E7%94%B1%E6%87%92%E5%8A%A0%E8%BD%BD/">
 
 
 <script class="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
-<title>JOKEthel的个人博客</title>
+<title>vue路由懒加载 | JOKEthel的个人博客</title>
   
 
 
@@ -162,7 +167,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -175,6 +180,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9Aresolve"><span class="nav-number">1.</span> <span class="nav-text">方法一：resolve</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C-%E5%AE%98%E7%BD%91%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">方法二 官网方法</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -230,9 +236,10 @@
 </noscript>
 
 
-    <div class="main-inner index posts-expand">
+    <div class="main-inner post posts-expand">
 
-    
+
+  
 
 
 <div class="post-block">
@@ -252,9 +259,9 @@
       <meta itemprop="name" content="JOKEthel的个人博客">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/uncategorized/vue%E8%B7%AF%E7%94%B1%E6%87%92%E5%8A%A0%E8%BD%BD/" class="post-title-link" itemprop="url">vue路由懒加载</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          vue路由懒加载
+        </h1>
 
         <div class="post-meta-container">
           <div class="post-meta">
@@ -277,7 +284,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h3 id="方法一：resolve"><a href="#方法一：resolve" class="headerlink" title="方法一：resolve"></a>方法一：resolve</h3><blockquote>
+        <h3 id="方法一：resolve"><a href="#方法一：resolve" class="headerlink" title="方法一：resolve"></a>方法一：resolve</h3><blockquote>
 <p>这一种方法较常见。它主要是使用了<code>resolve</code>的异步机制，用<code>require</code>代替了<code>import</code>,实现按需加载，下面是代码示例：</p>
 </blockquote>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> Router <span class="keyword">from</span> <span class="string">&#x27;vue-router&#x27;</span></span><br><span class="line"><span class="comment">// import HelloWorld from &#x27;@/components/HelloWorld&#x27;</span></span><br><span class="line">Vue.use(Router)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Router(&#123;</span><br><span class="line">  routes: [</span><br><span class="line"><span class="comment">//     &#123;</span></span><br><span class="line"><span class="comment">//       path: &#x27;/&#x27;,</span></span><br><span class="line"><span class="comment">//       name: &#x27;HelloWorld&#x27;,</span></span><br><span class="line"><span class="comment">//       component: HelloWorld</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line">        &#123;</span><br><span class="line">          path: <span class="string">&#x27;/&#x27;</span>,</span><br><span class="line">          name: <span class="string">&#x27;HelloWorld&#x27;</span>,</span><br><span class="line">          component: <span class="function"><span class="params">resolve</span> =&gt;</span> <span class="built_in">require</span>([<span class="string">&#x27;@/components/HelloWorld&#x27;</span>], resolve)</span><br><span class="line">        &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;) </span><br></pre></td></tr></table></figure>
@@ -286,7 +293,6 @@
 <p><code>vue-router</code>在官网提供了一种方法，可以理解也是为通过<code>Promise</code>的<code>resolve</code>机制。因为<code>Promise</code>函数返回的<code>Promise</code>为<code>resolve</code>组件本身，而我们又可以使用<code>import</code>来导入组件。整合起来代码示例如下：</p>
 </blockquote>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> Router <span class="keyword">from</span> <span class="string">&#x27;vue-router&#x27;</span></span><br><span class="line"><span class="comment">// import HelloWorld from &#x27;@/components/HelloWorld&#x27;</span></span><br><span class="line">Vue.use(Router)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Router(&#123;</span><br><span class="line">  routes: [</span><br><span class="line"><span class="comment">//     &#123;</span></span><br><span class="line"><span class="comment">//       path: &#x27;/&#x27;,</span></span><br><span class="line"><span class="comment">//       name: &#x27;HelloWorld&#x27;,</span></span><br><span class="line"><span class="comment">//       component: HelloWorld</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line">        &#123;</span><br><span class="line">          path: <span class="string">&#x27;/&#x27;</span>,</span><br><span class="line">          name: <span class="string">&#x27;HelloWorld&#x27;</span>,</span><br><span class="line">          component: <span class="function">() =&gt;</span> <span class="keyword">import</span>(<span class="string">&#x27;@/components/HelloWorld.vue&#x27;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;) </span><br></pre></td></tr></table></figure>
-      
     </div>
 
     
@@ -294,180 +300,25 @@
     
 
     <footer class="post-footer">
-        <div class="post-eof"></div>
-      
+          <div class="post-tags">
+              <a href="/tags/vue/" rel="tag"># vue</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/uncategorized/http%E5%8D%8F%E8%AE%AE/" rel="prev" title="http协议">
+                  <i class="fa fa-chevron-left"></i> http协议
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
     </footer>
   </article>
 </div>
 
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/uncategorized/http%E5%8D%8F%E8%AE%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/%E5%A4%B4%E5%83%8F12.jpeg">
-      <meta itemprop="name" content="Ethel">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="JOKEthel的个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/uncategorized/http%E5%8D%8F%E8%AE%AE/" class="post-title-link" itemprop="url">http协议</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-08-01 10:25:33" itemprop="dateCreated datePublished" datetime="2019-08-01T10:25:33+08:00">2019-08-01</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="http协议"><a href="#http协议" class="headerlink" title="http协议"></a>http协议</h2><h3 id="什么是BS架构"><a href="#什么是BS架构" class="headerlink" title="什么是BS架构"></a>什么是BS架构</h3><blockquote>
-<p>浏览器/服务器模式<br>优点 分布性强 易维护</p>
-</blockquote>
-<h3 id="什么是协议"><a href="#什么是协议" class="headerlink" title="什么是协议"></a>什么是协议</h3><blockquote>
-<p>信号的传输总要基于一定的规则，这个规则就是协议<br>协议很多 http https ws DNS FTP SMTP</p>
-</blockquote>
-<h3 id="什么是http协议"><a href="#什么是http协议" class="headerlink" title="什么是http协议"></a>什么是http协议</h3><blockquote>
-<p>http定义（超文本传输协议）<br>http特点</p>
-</blockquote>
-<ul>
-<li>一定是浏览器主动向服务器发起请求</li>
-<li>一次请求都会对应一次响应</li>
-<li>服务器响应时间不一定是即时的，但它一定会响应</li>
-</ul>
-<h3 id="http状态码"><a href="#http状态码" class="headerlink" title="http状态码"></a>http状态码</h3><p>由三个数字组成，第一个数字是响应的类别，分五种类别</p>
-<ul>
-<li>1XX：我已经收到你的消息了，我正在处理</li>
-<li>2XX：表示我们的请求已经被成功接收，接受</li>
-<li>3XX：重定向</li>
-<li>4XX：客户端错误–请求语法或者请求无法实现</li>
-<li>5XX：服务器端错误</li>
-</ul>
-<h3 id="请求方式"><a href="#请求方式" class="headerlink" title="请求方式"></a>请求方式</h3><p>GET/POST/PUT/DELETE<br>区别 （一个数据包还是两个数据包，传参方式不同）</p>
-<h3 id="浏览器对地址长度的限制"><a href="#浏览器对地址长度的限制" class="headerlink" title="浏览器对地址长度的限制"></a>浏览器对地址长度的限制</h3><blockquote>
-<ol>
-<li>IE浏览器对<em>URL</em>的限制为2048字节</li>
-<li>360极速浏览器对<em>URL</em>的限制为2118字节</li>
-<li>Firefox(Browser)对<em>URL</em>的长度限制为65536字节</li>
-<li>Safari(Browser)对<em>URL</em>的长度限制为80000字节</li>
-<li>Opera(Browser)对<em>URL</em>的长度限制为190000字节</li>
-</ol>
-</blockquote>
-<h3 id="http工作原理"><a href="#http工作原理" class="headerlink" title="http工作原理"></a>http工作原理</h3><blockquote>
-<p>首先客户端连接服务器<br>发送http请求<br>服务器接收请求并返回http响应<br>客户端解析HTML内容</p>
-</blockquote>
-<h3 id="http通信"><a href="#http通信" class="headerlink" title="http通信"></a>http通信</h3><blockquote>
-<p>http通信机制是在一次完整的http通信过程中，Web浏览器与Web服务器之间将完成下列7个步骤</p>
-</blockquote>
-<ol>
-<li>建立TCP连接</li>
-</ol>
-<blockquote>
-<p>在HTTP工作开始之前，Web浏览器首先要通过网络与Web服务器建立连接，该连接是通过TCP来完成的，该协议与IP协议共同构建Internet，即著名的TCP/IP协议族，因此Internet又被称作是TCP/IP网络。HTTP是比TCP更高层次的应用层协议，根据规则，只有低层协议建立之后才能进行更深层协议的连接，因此，首先要建立TCP连接，一般TCP连接的端口号是80。</p>
-</blockquote>
-<ol start="2">
-<li>Web浏览器向Web服务器发送请求命令</li>
-</ol>
-<blockquote>
-<p>一旦建立了TCP连接，Web浏览器就会向Web服务器发送请求命令<br>例如：GET/sample/hello.jsp HTTP/1.1。</p>
-</blockquote>
-<ol start="3">
-<li>Web浏览器发送请求头信息</li>
-</ol>
-<blockquote>
-<p>浏览器发送其请求命令之后，还要以头信息的形式向Web服务器发送一些别的信息，之后浏览器发送了一空白行来通知服务器，它已经结束了该头信息的发送。</p>
-</blockquote>
-<ol start="4">
-<li>Web服务器应答</li>
-</ol>
-<blockquote>
-<p>客户机向服务器发出请求后，服务器会客户机回送应答，<br>HTTP/1.1 200 OK<br>应答的第一部分是协议的版本号和应答状态码。</p>
-</blockquote>
-<ol start="5">
-<li>Web服务器发送应答头信息</li>
-</ol>
-<blockquote>
-<p>正如客户端会随同请求发送关于自身的信息一样，服务器也会随同应答向用户发送关于它自己的数据及被请求的文档。</p>
-</blockquote>
-<ol start="6">
-<li>Web服务器向浏览器发送数据</li>
-</ol>
-<blockquote>
-<p>Web服务器向浏览器发送头信息后，它会发送一个空白行来表示头信息的发送到此为结束，接着，它就以Content-Type应答头信息所描述的格式发送用户所请求的实际数据。</p>
-</blockquote>
-<ol start="7">
-<li>Web服务器关闭TCP连接</li>
-</ol>
-<blockquote>
-<p>一般情况下，一旦Web服务器向浏览器发送了请求数据，它就要关闭TCP连接，然后如果浏览器或者服务器在其头信息加入了这行代码<br>Connection:keep-alive<br>TCP连接在发送后将仍然保持打开状态，于是，浏览器可以继续通过相同的连接发送请求。保持连接节省了为每个请求建立新连接所需的时间，还节约了网络带宽。</p>
-</blockquote>
-<h3 id="B-S想要通信"><a href="#B-S想要通信" class="headerlink" title="B/S想要通信"></a>B/S想要通信</h3><blockquote>
-<ol>
-<li>确定基于什么协议（http)</li>
-<li>表明请求方式（协商数据发送的方式）</li>
-<li>建立连接（进行三次握手)</li>
-<li>开始通信</li>
-<li>断开连接（进行四次挥手)</li>
-</ol>
-</blockquote>
-<h3 id="什么是跨域"><a href="#什么是跨域" class="headerlink" title="什么是跨域"></a>什么是跨域</h3><blockquote>
-<p><strong>什么是源？</strong><br>如果两个页面(接口) 的协议，域名，端口号都相同 我们就认为它们具有相同的 源</p>
-</blockquote>
-<blockquote>
-<p><strong>什么是同源策略？</strong><br>同源策略就是浏览器的一个安全限制，它阻止不相同的【域】之间进行数据交互</p>
-</blockquote>
-<blockquote>
-<p><strong>安全限制具体限制了哪些东西不可以被访问?（非同源限制）</strong><br>无法读取非同源下的cookie localstorage<br>无法接触非同源的dom<br>无法向非同源的地址发送 ajax请求</p>
-</blockquote>
-<blockquote>
-<p><strong>想要进行数据交互怎么办？</strong><br>跨【域】<br><strong>怎么跨域？</strong></p>
-<ol>
-<li>jsonp方式 （利用js访问不受同源策略限制特性）</li>
-<li>跨域资源共享 （ S端 cors )</li>
-<li>设置反向代理 （ B端 ）</li>
-</ol>
-</blockquote>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
 
 
 
