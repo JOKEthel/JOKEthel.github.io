@@ -14,4 +14,31 @@
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
   </entry>
+  <entry>
+    <title>vue路由懒加载</title>
+    <url>/2019/12/25/vue%E8%B7%AF%E7%94%B1%E6%87%92%E5%8A%A0%E8%BD%BD/</url>
+    <content><![CDATA[<h3 id="方法一：resolve"><a href="#方法一：resolve" class="headerlink" title="方法一：resolve"></a>方法一：resolve</h3><blockquote>
+<p>这一种方法较常见。它主要是使用了<code>resolve</code>的异步机制，用<code>require</code>代替了<code>import</code>,实现按需加载，下面是代码示例：</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> Router <span class="keyword">from</span> <span class="string">&#x27;vue-router&#x27;</span></span><br><span class="line"><span class="comment">// import HelloWorld from &#x27;@/components/HelloWorld&#x27;</span></span><br><span class="line">Vue.use(Router)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Router(&#123;</span><br><span class="line">  routes: [</span><br><span class="line"><span class="comment">//     &#123;</span></span><br><span class="line"><span class="comment">//       path: &#x27;/&#x27;,</span></span><br><span class="line"><span class="comment">//       name: &#x27;HelloWorld&#x27;,</span></span><br><span class="line"><span class="comment">//       component: HelloWorld</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line">        &#123;</span><br><span class="line">          path: <span class="string">&#x27;/&#x27;</span>,</span><br><span class="line">          name: <span class="string">&#x27;HelloWorld&#x27;</span>,</span><br><span class="line">          component: <span class="function"><span class="params">resolve</span> =&gt;</span> <span class="built_in">require</span>([<span class="string">&#x27;@/components/HelloWorld&#x27;</span>], resolve)</span><br><span class="line">        &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;) </span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="方法二-官网方法"><a href="#方法二-官网方法" class="headerlink" title="方法二 官网方法"></a>方法二 <a href="https://router.vuejs.org/zh/guide/advanced/lazy-loading.html">官网方法</a></h3><blockquote>
+<p><code>vue-router</code>在官网提供了一种方法，可以理解也是为通过<code>Promise</code>的<code>resolve</code>机制。因为<code>Promise</code>函数返回的<code>Promise</code>为<code>resolve</code>组件本身，而我们又可以使用<code>import</code>来导入组件。整合起来代码示例如下：</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> Router <span class="keyword">from</span> <span class="string">&#x27;vue-router&#x27;</span></span><br><span class="line"><span class="comment">// import HelloWorld from &#x27;@/components/HelloWorld&#x27;</span></span><br><span class="line">Vue.use(Router)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Router(&#123;</span><br><span class="line">  routes: [</span><br><span class="line"><span class="comment">//     &#123;</span></span><br><span class="line"><span class="comment">//       path: &#x27;/&#x27;,</span></span><br><span class="line"><span class="comment">//       name: &#x27;HelloWorld&#x27;,</span></span><br><span class="line"><span class="comment">//       component: HelloWorld</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line">        &#123;</span><br><span class="line">          path: <span class="string">&#x27;/&#x27;</span>,</span><br><span class="line">          name: <span class="string">&#x27;HelloWorld&#x27;</span>,</span><br><span class="line">          component: <span class="function">() =&gt;</span> <span class="keyword">import</span>(<span class="string">&#x27;@/components/HelloWorld.vue&#x27;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;) </span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>写给张可鑫的一封信</title>
+    <url>/2020/12/25/%E5%86%99%E7%BB%99%E5%BC%A0%E5%8F%AF%E9%91%AB%E7%9A%84%E4%B8%80%E5%B0%81%E4%BF%A1/</url>
+    <content><![CDATA[<h3 id="我厉害吧"><a href="#我厉害吧" class="headerlink" title="我厉害吧"></a>我厉害吧</h3><blockquote>
+<p>假噶嘛噶的写点东西来掩饰我不知道说点啥</p>
+</blockquote>
+<h3 id="放一只傻狗图"><a href="#放一只傻狗图" class="headerlink" title="放一只傻狗图"></a>放一只傻狗图</h3><p>![](<a href="http://phototj.photo.store.qq.com/psc?/V14PucH42tBQBn/4YNML3SP3kohrZcOJ8e1uo*8n*hXtBDE3i8T8I5L7H*R.DyKsV8aU7jg3tG*34yyotZD6AzoNkQOH2iocR8kt*hT8BRyiitygC4RoOtwpxg!/b&amp;bo=QAZABsAGwAYRKR4!&amp;rf=viewer_4">http://phototj.photo.store.qq.com/psc?/V14PucH42tBQBn/4YNML3SP3kohrZcOJ8e1uo*8n*hXtBDE3i8T8I5L7H*R.DyKsV8aU7jg3tG*34yyotZD6AzoNkQOH2iocR8kt*hT8BRyiitygC4RoOtwpxg!/b&amp;bo=QAZABsAGwAYRKR4!&amp;rf=viewer_4</a> ‘’附上一张傻狗图’’)</p>
+<hr>
+<h3 id="再放一张爸爸图"><a href="#再放一张爸爸图" class="headerlink" title="再放一张爸爸图"></a>再放一张爸爸图</h3><p>![](<a href="http://phototj.photo.store.qq.com/psc?/V14PucH42tBQBn/9XwfBMWIaa5Dh0kEemxh*ElALQrnprHkF4tIB6I9uUeTxvxa3gUjk5LcGefCb2ArRsHhp.5lVDz9zm4bUQFCBA!!/b&amp;bo=QAZABsAGwAYRCT4!&amp;rf=viewer_4">http://phototj.photo.store.qq.com/psc?/V14PucH42tBQBn/9XwfBMWIaa5Dh0kEemxh*ElALQrnprHkF4tIB6I9uUeTxvxa3gUjk5LcGefCb2ArRsHhp.5lVDz9zm4bUQFCBA!!/b&amp;bo=QAZABsAGwAYRCT4!&amp;rf=viewer_4</a> ‘’再附上一张爸爸图’’)</p>
+<h1 id="看完记得打赏，一块钱以上，两万左右"><a href="#看完记得打赏，一块钱以上，两万左右" class="headerlink" title="看完记得打赏，一块钱以上，两万左右"></a>看完记得打赏，一块钱以上，两万左右</h1>]]></content>
+  </entry>
 </search>
