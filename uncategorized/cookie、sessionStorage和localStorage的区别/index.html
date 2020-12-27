@@ -23,16 +23,21 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
-<meta property="og:type" content="website">
-<meta property="og:title" content="JOKEthel的个人博客">
-<meta property="og:url" content="http://example.com/archives/2019/08/index.html">
+<meta name="description" content="基本概念 cookie：主要用来保存登录信息，像现在有的网站会有“记住密码”，这就是通过cookie中存入一段辨别用户身份的数据来实现的。 sessionStorage：可以将一段数据在当前的会话中保存下来，刷新页面数据依旧存在，但页面关闭时，sessionStorage中的数据就会被清空。 localStorage：在IE6时代，就有一个userData的东西用来本地储存，当时考虑到浏览器的兼容">
+<meta property="og:type" content="article">
+<meta property="og:title" content="cookie、sessionStorage和localStorage的区别">
+<meta property="og:url" content="http://example.com/uncategorized/cookie%E3%80%81sessionStorage%E5%92%8ClocalStorage%E7%9A%84%E5%8C%BA%E5%88%AB/index.html">
 <meta property="og:site_name" content="JOKEthel的个人博客">
+<meta property="og:description" content="基本概念 cookie：主要用来保存登录信息，像现在有的网站会有“记住密码”，这就是通过cookie中存入一段辨别用户身份的数据来实现的。 sessionStorage：可以将一段数据在当前的会话中保存下来，刷新页面数据依旧存在，但页面关闭时，sessionStorage中的数据就会被清空。 localStorage：在IE6时代，就有一个userData的东西用来本地储存，当时考虑到浏览器的兼容">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-09-08T00:57:07.000Z">
+<meta property="article:modified_time" content="2020-12-26T01:51:48.635Z">
 <meta property="article:author" content="Ethel">
+<meta property="article:tag" content="html">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/archives/2019/08/">
+<link rel="canonical" href="http://example.com/uncategorized/cookie%E3%80%81sessionStorage%E5%92%8ClocalStorage%E7%9A%84%E5%8C%BA%E5%88%AB/">
 
 
 <script class="page-configurations">
@@ -40,11 +45,11 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
-<title>归档 | JOKEthel的个人博客</title>
+<title>cookie、sessionStorage和localStorage的区别 | JOKEthel的个人博客</title>
   
 
 
@@ -162,7 +167,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -175,6 +180,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8C%BA%E5%88%AB"><span class="nav-number">2.</span> <span class="nav-text">区别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%9C%89%E6%95%88%E6%9C%9F"><span class="nav-number">2.1.</span> <span class="nav-text">数据有效期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-number">2.2.</span> <span class="nav-text">作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9A%E4%BF%A1"><span class="nav-number">2.3.</span> <span class="nav-text">通信</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">2.4.</span> <span class="nav-text">应用场景</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -230,169 +236,119 @@
 </noscript>
 
 
-    <div class="main-inner archive posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
-  
-  
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共计 16 篇日志。 继续努力。</span>
-      </div>
 
-      
-    <div class="collection-year">
-      <span class="collection-header">2019</span>
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/uncategorized/cookie%E3%80%81sessionStorage%E5%92%8ClocalStorage%E7%9A%84%E5%8C%BA%E5%88%AB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/%E5%A4%B4%E5%83%8F12.jpeg">
+      <meta itemprop="name" content="Ethel">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JOKEthel的个人博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          cookie、sessionStorage和localStorage的区别
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-09-08 08:57:07" itemprop="dateCreated datePublished" datetime="2019-09-08T08:57:07+08:00">2019-09-08</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ol>
+<li>cookie：主要用来保存登录信息，像现在有的网站会有“记住密码”，这就是通过cookie中存入一段辨别用户身份的数据来实现的。</li>
+<li>sessionStorage：可以将一段数据在当前的会话中保存下来，刷新页面数据依旧存在，但页面关闭时，sessionStorage中的数据就会被清空。</li>
+<li>localStorage：在IE6时代，就有一个userData的东西用来本地储存，当时考虑到浏览器的兼容性，更通用的是flash，现在localStorage被大多数浏览器所支持。localStorage中的键值以字符串的形式储存。localStorage类似于sessionStorage，但区别在于储存在localStorage的数据可以长期保留。</li>
+<li>补充：同源：协议相同、域名相同、端口相同。</li>
+</ol>
+<h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><ul>
+<li>cookie：一般不超过4k</li>
+<li>sessionStorage：5M甚至更多</li>
+<li>localStorage：5M甚至更多</li>
+</ul>
+<h3 id="数据有效期"><a href="#数据有效期" class="headerlink" title="数据有效期"></a>数据有效期</h3><ul>
+<li>cookie：般由服务器生成，可以设置失效时间；若没有设置时间，关闭浏览器cookie失效，如果设置了时间，cookie就会存储在硬盘中，过期失效</li>
+<li>sessionStorage：仅在当前浏览器窗口关闭之前有效，关闭页面或者浏览器会被清除</li>
+<li>localStorage：永久有效，窗口或者浏览器关闭也会一直保存，除非手动永久删除</li>
+</ul>
+<h3 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h3><ul>
+<li>cookie：在所有同源窗口中都是共享的</li>
+<li>sessionStorage：在同一个浏览器窗口是共享的（不同浏览器，即使是统一页面也不共享）</li>
+<li>localStorage：在所有同源窗口中共享</li>
+</ul>
+<h3 id="通信"><a href="#通信" class="headerlink" title="通信"></a>通信</h3><ul>
+<li>cookie：cookie在浏览器和服务器之间来回传递，如果使用cookie保存过多数据会造成性能问题</li>
+<li>sessionStorage：仅在客户端（浏览器）中保存，不参与服务器的通信</li>
+<li>localStorage：仅在客户端（浏览器）中保存，不参与服务器的通信</li>
+</ul>
+<h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><ul>
+<li>cookie：判断用户是否登录过网站，以便实现下次自动登录或记住密码；保存事件信息</li>
+<li>sessionStorage：敏感账号一次性登录，单页面用的较多</li>
+<li>localStorage：用于长期登录，适于长期保存在本地的数据</li>
+</ul>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2019-08-26T10:34:06+08:00"
-              content="2019-08-26">
-          08-26
-        </time>
-      </div>
+    
+    
+    
 
-      <div class="post-title">
-          <a class="post-title-link" href="/uncategorized/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%9A%E7%B1%BB%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E7%BB%A7%E6%89%BF%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/" itemprop="url">
-            <span itemprop="name">面向对象：类的定义和继承的几种方式</span>
-          </a>
-      </div>
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/html/" rel="tag"># html</a>
+          </div>
 
-      
-    </header>
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/uncategorized/BFC%EF%BC%88%E8%BE%B9%E8%B7%9D%E9%87%8D%E5%8F%A0%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%EF%BC%89/" rel="prev" title="BFC（边距重叠解决方案）">
+                  <i class="fa fa-chevron-left"></i> BFC（边距重叠解决方案）
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/uncategorized/ES6-Symbol/" rel="next" title="ES6-Symbol">
+                  ES6-Symbol <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
   </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2019-08-22T09:59:17+08:00"
-              content="2019-08-22">
-          08-22
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/uncategorized/%E5%87%BD%E6%95%B0%E7%9A%84%E5%A3%B0%E6%98%8E%E5%8F%8A%E5%87%BD%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F/" itemprop="url">
-            <span itemprop="name">函数的声明及函数表达式</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2019-08-20T09:38:25+08:00"
-              content="2019-08-20">
-          08-20
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/uncategorized/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E6%9C%BA%E5%88%B6/" itemprop="url">
-            <span itemprop="name">浏览器渲染机制</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2019-08-15T09:35:37+08:00"
-              content="2019-08-15">
-          08-15
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/uncategorized/%E9%98%B2%E6%8A%96%E3%80%81%E8%8A%82%E6%B5%81/" itemprop="url">
-            <span itemprop="name">防抖、节流</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2019-08-08T08:55:12+08:00"
-              content="2019-08-08">
-          08-08
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/uncategorized/%E5%8E%9F%E5%9E%8B%EF%BC%8C%E5%8E%9F%E5%9E%8B%E9%93%BE/" itemprop="url">
-            <span itemprop="name">原型，原型链</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2019-08-06T14:38:15+08:00"
-              content="2019-08-06">
-          08-06
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/uncategorized/vue%E8%B7%AF%E7%94%B1%E6%87%92%E5%8A%A0%E8%BD%BD/" itemprop="url">
-            <span itemprop="name">vue路由懒加载</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2019-08-01T10:25:33+08:00"
-              content="2019-08-01">
-          08-01
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/uncategorized/http%E5%8D%8F%E8%AE%AE/" itemprop="url">
-            <span itemprop="name">http协议</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
+</div>
 
 
-    </div>
-  </div>
-  
-  
-  
+
+
+
 
 
 <script>

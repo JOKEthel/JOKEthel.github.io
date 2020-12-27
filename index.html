@@ -189,12 +189,12 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
@@ -204,7 +204,7 @@
         <a href="https://github.com/JOKEthel" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;JOKEthel" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
       <span class="links-of-author-item">
-        <a href="/931199480@qq..com" title="E-Mail → 931199480@qq..com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+        <a href="/931199480@qq.com" title="E-Mail → 931199480@qq.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
       </span>
   </div>
 
@@ -240,7 +240,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/uncategorized/vue%E8%B7%AF%E7%94%B1%E6%87%92%E5%8A%A0%E8%BD%BD/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/uncategorized/%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/%E5%A4%B4%E5%83%8F12.jpeg">
@@ -253,7 +253,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/uncategorized/vue%E8%B7%AF%E7%94%B1%E6%87%92%E5%8A%A0%E8%BD%BD/" class="post-title-link" itemprop="url">vue路由懒加载</a>
+          <a href="/uncategorized/%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D/" class="post-title-link" itemprop="url">深浅拷贝</a>
         </h2>
 
         <div class="post-meta-container">
@@ -264,7 +264,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2019-08-06 14:38:15" itemprop="dateCreated datePublished" datetime="2019-08-06T14:38:15+08:00">2019-08-06</time>
+      <time title="创建时间：2020-08-30 08:59:32" itemprop="dateCreated datePublished" datetime="2020-08-30T08:59:32+08:00">2020-08-30</time>
     </span>
 
   
@@ -277,15 +277,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h3 id="方法一：resolve"><a href="#方法一：resolve" class="headerlink" title="方法一：resolve"></a>方法一：resolve</h3><blockquote>
-<p>这一种方法较常见。它主要是使用了<code>resolve</code>的异步机制，用<code>require</code>代替了<code>import</code>,实现按需加载，下面是代码示例：</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> Router <span class="keyword">from</span> <span class="string">&#x27;vue-router&#x27;</span></span><br><span class="line"><span class="comment">// import HelloWorld from &#x27;@/components/HelloWorld&#x27;</span></span><br><span class="line">Vue.use(Router)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Router(&#123;</span><br><span class="line">  routes: [</span><br><span class="line"><span class="comment">//     &#123;</span></span><br><span class="line"><span class="comment">//       path: &#x27;/&#x27;,</span></span><br><span class="line"><span class="comment">//       name: &#x27;HelloWorld&#x27;,</span></span><br><span class="line"><span class="comment">//       component: HelloWorld</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line">        &#123;</span><br><span class="line">          path: <span class="string">&#x27;/&#x27;</span>,</span><br><span class="line">          name: <span class="string">&#x27;HelloWorld&#x27;</span>,</span><br><span class="line">          component: <span class="function"><span class="params">resolve</span> =&gt;</span> <span class="built_in">require</span>([<span class="string">&#x27;@/components/HelloWorld&#x27;</span>], resolve)</span><br><span class="line">        &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;) </span><br></pre></td></tr></table></figure>
-<hr>
-<h3 id="方法二-官网方法"><a href="#方法二-官网方法" class="headerlink" title="方法二 官网方法"></a>方法二 <a target="_blank" rel="noopener" href="https://router.vuejs.org/zh/guide/advanced/lazy-loading.html">官网方法</a></h3><blockquote>
-<p><code>vue-router</code>在官网提供了一种方法，可以理解也是为通过<code>Promise</code>的<code>resolve</code>机制。因为<code>Promise</code>函数返回的<code>Promise</code>为<code>resolve</code>组件本身，而我们又可以使用<code>import</code>来导入组件。整合起来代码示例如下：</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> Router <span class="keyword">from</span> <span class="string">&#x27;vue-router&#x27;</span></span><br><span class="line"><span class="comment">// import HelloWorld from &#x27;@/components/HelloWorld&#x27;</span></span><br><span class="line">Vue.use(Router)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Router(&#123;</span><br><span class="line">  routes: [</span><br><span class="line"><span class="comment">//     &#123;</span></span><br><span class="line"><span class="comment">//       path: &#x27;/&#x27;,</span></span><br><span class="line"><span class="comment">//       name: &#x27;HelloWorld&#x27;,</span></span><br><span class="line"><span class="comment">//       component: HelloWorld</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line">        &#123;</span><br><span class="line">          path: <span class="string">&#x27;/&#x27;</span>,</span><br><span class="line">          name: <span class="string">&#x27;HelloWorld&#x27;</span>,</span><br><span class="line">          component: <span class="function">() =&gt;</span> <span class="keyword">import</span>(<span class="string">&#x27;@/components/HelloWorld.vue&#x27;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;) </span><br></pre></td></tr></table></figure>
+          <h2 id="浅拷贝和深拷贝的区别"><a href="#浅拷贝和深拷贝的区别" class="headerlink" title="浅拷贝和深拷贝的区别"></a>浅拷贝和深拷贝的区别</h2><p>浅拷贝，就是两个变量都是指向一个地址，改变了一个变量，那另一个变量也随之改变。这就是浅拷贝带来的副作用，两个变量会相互影响到，因为它们指向同一个地址。</p>
+<p>深拷贝，就是互相独立，指向的是不同的地址，一个变量改变了，另一个变量不会被影响到。</p>
+<p>父组件传给子组件的attr，在子组件通过props.attr直接复制给childAttr，这就是浅拷贝，父组件的attr与子组件的childAttr指向同一个地址，在子组件中改变childAttr，那么父组件中的attr也会随之改变。这时再将attr传入这个子组件，attr的值就是被改变之后的值。所以要想数据源头attr不会被改变，这时就需要在父组件中深拷贝attr，然后再一一传入子组件；或者在子组件中将props.attr深拷贝给childAttr。</p>
+<h3 id="对于数组的浅拷贝与深拷贝的数据格式："><a href="#对于数组的浅拷贝与深拷贝的数据格式：" class="headerlink" title="对于数组的浅拷贝与深拷贝的数据格式："></a>对于数组的浅拷贝与深拷贝的数据格式：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//浅拷贝：</span></span><br><span class="line">newArray = array</span><br><span class="line"><span class="comment">//深拷贝：</span></span><br><span class="line">newArray = _.map(array,  <span class="function">(<span class="params">a</span>) =&gt;</span> &#123; <span class="keyword">return</span> a &#125;) </span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -311,7 +306,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/uncategorized/http%E5%8D%8F%E8%AE%AE/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/uncategorized/React%E4%B8%AD%E7%9A%84hook/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/%E5%A4%B4%E5%83%8F12.jpeg">
@@ -324,7 +319,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/uncategorized/http%E5%8D%8F%E8%AE%AE/" class="post-title-link" itemprop="url">http协议</a>
+          <a href="/uncategorized/React%E4%B8%AD%E7%9A%84hook/" class="post-title-link" itemprop="url">React中的hook</a>
         </h2>
 
         <div class="post-meta-container">
@@ -335,7 +330,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2019-08-01 10:25:33" itemprop="dateCreated datePublished" datetime="2019-08-01T10:25:33+08:00">2019-08-01</time>
+      <time title="创建时间：2019-10-06 09:00:16" itemprop="dateCreated datePublished" datetime="2019-10-06T09:00:16+08:00">2019-10-06</time>
     </span>
 
   
@@ -348,112 +343,171 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="http协议"><a href="#http协议" class="headerlink" title="http协议"></a>http协议</h2><h3 id="什么是BS架构"><a href="#什么是BS架构" class="headerlink" title="什么是BS架构"></a>什么是BS架构</h3><blockquote>
-<p>浏览器/服务器模式<br>优点 分布性强 易维护</p>
+          <h2 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h2><p>Hook是React16.8的新增特性，可以在不使用类组件的情况下使用<code>state</code>及React的其它特性。</p>
+<h2 id="七大Hook"><a href="#七大Hook" class="headerlink" title="七大Hook"></a>七大Hook</h2><ol>
+<li><code>useState</code> 状态</li>
+<li><code>useEffect</code> 钩子，还有它的兄弟 <code>useLayoutEffect</code></li>
+<li><code>useContext</code> 上下文</li>
+<li><code>useReducer</code> 代替 Redux</li>
+<li><code>useMemo</code> 缓存，还有它的小弟 <code>useCallback</code></li>
+<li><code>useRef</code> 引用</li>
+<li>自定义 <code>Hook</code> 混合</li>
+</ol>
+<hr>
+<h3 id="useState"><a href="#useState" class="headerlink" title="useState"></a>useState</h3><p><strong>基本语法</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> [X, setX] = React.useState(X的初始值)</span><br></pre></td></tr></table></figure>
+<p><strong>简单示例</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">App</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> [user,setUser] = useState(&#123;<span class="attr">name</span>:<span class="string">&#x27;Varian&#x27;</span>, <span class="attr">age</span>: <span class="number">18</span>&#125;)</span><br><span class="line">  <span class="keyword">const</span> onClick = <span class="function">()=&gt;</span>&#123;</span><br><span class="line">    setUser(&#123;</span><br><span class="line">      name: <span class="string">&#x27;Janye&#x27;</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div className=<span class="string">&quot;App&quot;</span>&gt;</span><br><span class="line">      &lt;h1&gt;&#123;user.name&#125;&lt;/h1&gt;</span><br><span class="line">      &lt;h2&gt;&#123;user.age&#125;&lt;/h2&gt;</span><br><span class="line">      &lt;button onClick=&#123;onClick&#125;&gt;Click&lt;/button&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们会发现，点击按钮之后，<code>age</code> 消失了，而我们明明只改了 <code>name</code> 呀，为什么呢？</p>
+<p>简单来说就是前后是两个完全不相关的对象。</p>
+<p>展开讲的话 <code>React</code> 在数据变化时会创建新的虚拟 <code>DOM</code> 对象，然后将这个虚拟 <code>DOM</code> 对象跟原虚拟 DOM 进行一个 <code>DOM Diff</code>，得到一个最小的变化过程 <code>Patch</code>，并把这个 <code>Patch</code> 渲染到页面上，<code>Diff</code> 的时候发现新对象没有 <code>age</code> 这个属性，于是就把它删除了。</p>
+<p>于是在使用 <code>useState</code> 的时候我们需要注意两个地方：</p>
+<ol>
+<li>想要原来的值，必须在 setX 里先进行复制，类似这样<code>setUser(&#123;...user, name: &#39;Janye&#39;&#125;)</code></li>
+<li><code>setX(obj)</code> 时，<code>obj</code> 的地址必须改变</li>
+</ol>
+<hr>
+<h3 id="useEffect"><a href="#useEffect" class="headerlink" title="useEffect"></a>useEffect</h3><p><code>useEffect</code> 的作用主要是用来解决函数组件如何像类组件一样使用生命周期钩子的问题。</p>
+<p>它有三个使用场景：</p>
+<ol>
+<li>作为 <code>componentDidMount</code> 使用，第二个参数为空数组 <code>[]</code></li>
+<li>作为 <code>componentDidUpdate</code> 使用，第二个参数为指定依赖</li>
+<li>作为 <code>componentWillUnmount</code> 使用，通过 <code>return</code></li>
+</ol>
+<p><strong>简单示例</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> BlinkyRender = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> [value, setValue] = useState(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">  useEffect(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#x&#x27;</span>).innerText = <span class="string">`value: 1000`</span></span><br><span class="line">  &#125;, [value]);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div id=<span class="string">&quot;x&quot;</span> onClick=&#123;<span class="function">() =&gt;</span> setValue(<span class="number">0</span>)&#125;&gt;value: &#123;value&#125;&lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;BlinkyRender /&gt;,</span><br><span class="line">  <span class="built_in">document</span>.querySelector(<span class="string">&quot;#root&quot;</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>它跟 <code>useLayoutEffect</code> 有什么区别？</p>
+<p><code>useEffect</code> 在浏览器渲染完成后执行，<code>useLayoutEffect</code> 在浏览器渲染前执行，<code>useLayoutEffect</code> 总是比 <code>useEffect</code> 先执行。</p>
+<p>为了用户体验（先渲染就能先看到），通常我们应该先用<code>useEffect</code>。</p>
+<hr>
+<h3 id="useContext"><a href="#useContext" class="headerlink" title="useContext"></a>useContext</h3><p>如果我们想在组件之间共享状态的话，可以使用 <code>useContext</code>。</p>
+<p>它的使用可以分为三个步骤：</p>
+<ol>
+<li>使用<code>C = createContext(initial)</code> 创建上下文</li>
+<li>使用<code>&lt;C.provider&gt;</code> 圈定作用域</li>
+<li>在作用域内使用 <code>useContext(C)</code> 来使用上下文</li>
+</ol>
+<p><strong>简单示例</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> C = createContext(<span class="literal">null</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">App</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;App 执行了&quot;</span>);</span><br><span class="line">  <span class="keyword">const</span> [n, setN] = useState(<span class="number">0</span>);</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;C.Provider value=&#123;&#123; n, setN &#125;&#125;&gt;</span><br><span class="line">      &lt;div className=<span class="string">&quot;App&quot;</span>&gt;</span><br><span class="line">        &lt;Baba /&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    &lt;/C.Provider&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Baba</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; n, setN &#125; = useContext(C);</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      我是爸爸 n: &#123;n&#125; &lt;Child /&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; n, setN &#125; = useContext(C);</span><br><span class="line">  <span class="keyword">const</span> onClick = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    setN(<span class="function"><span class="params">i</span> =&gt;</span> i + <span class="number">1</span>);</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      我是儿子 我得到的 n: &#123;n&#125;</span><br><span class="line">      &lt;button onClick=&#123;onClick&#125;&gt;+<span class="number">1</span>&lt;/button&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="useReducer"><a href="#useReducer" class="headerlink" title="useReducer"></a>useReducer</h3><p>如果要一句话解释 <code>useReducer</code> 的话，它是用来代替 Redux 的，或者说，是一个加强版的 <code>useState</code>。</p>
+<p>使用上来说，一共有四步：</p>
+<ol>
+<li>创建初始值 <code>initialState</code></li>
+<li>创建所有操作 <code>reducer(state, action)</code></li>
+<li>传给 <code>useReducer</code>，得到读和写 <code>API</code></li>
+<li>调用 写<code>(&#123;type: &#39;操作类型&#39;&#125;)</code></li>
+</ol>
+<p><strong>简单示例</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> initial = &#123;</span><br><span class="line">  n: <span class="number">0</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> reducer = <span class="function">(<span class="params">state, action</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (action.type === <span class="string">&quot;add&quot;</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123; <span class="attr">n</span>: state.n + action.number &#125;;</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (action.type === <span class="string">&quot;multi&quot;</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123; <span class="attr">n</span>: state.n * <span class="number">2</span> &#125;;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">&quot;unknown type&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">App</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> [state, dispatch] = useReducer(reducer, initial);</span><br><span class="line">  <span class="keyword">const</span> &#123; n &#125; = state;</span><br><span class="line">  <span class="keyword">const</span> onClick = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    dispatch(&#123; <span class="attr">type</span>: <span class="string">&quot;add&quot;</span>, <span class="attr">number</span>: <span class="number">1</span> &#125;);</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">const</span> onClick2 = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    dispatch(&#123; <span class="attr">type</span>: <span class="string">&quot;add&quot;</span>, <span class="attr">number</span>: <span class="number">2</span> &#125;);</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div className=<span class="string">&quot;App&quot;</span>&gt;</span><br><span class="line">      &lt;h1&gt;n: &#123;n&#125;&lt;/h1&gt;</span><br><span class="line"></span><br><span class="line">      &lt;button onClick=&#123;onClick&#125;&gt;+<span class="number">1</span>&lt;/button&gt;</span><br><span class="line">      &lt;button onClick=&#123;onClick2&#125;&gt;+<span class="number">2</span>&lt;/button&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="useMemo"><a href="#useMemo" class="headerlink" title="useMemo"></a>useMemo</h3><p>基本语法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useMemo(回调函数, [依赖])</span><br></pre></td></tr></table></figure>
+<p>类似与 Vue 的计算属性 <code>computed</code>，<code>useMemo</code> 具有缓存，依赖改变才重新渲染的功能。</p>
+<p>跟它的小弟 <code>useCallback</code> 的唯一区别是：<code>useMemo</code>可以缓存所有对象，<code>useCallback</code>只能缓存函数。</p>
+<p><code>useCallback(x =&gt; log(x), [m])</code> 等价于 <code>useMemo(() =&gt; x =&gt; log(x), [m])</code></p>
+<hr>
+<h3 id="useRef"><a href="#useRef" class="headerlink" title="useRef"></a>useRef</h3><p>主要作用是创建一个数据的引用，并让这个数据在 <code>render</code> 过程中始终保持不变。</p>
+<p>基本语法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> count = useRef(<span class="number">0</span>)，读取用 count.current</span><br></pre></td></tr></table></figure>
+<p><strong>封装 Echarts 时的例子</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">ReactEcharts</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> &#123;option, loading&#125; = props</span><br><span class="line">  <span class="keyword">const</span> container = useRef(<span class="literal">null</span>)</span><br><span class="line">  <span class="keyword">const</span> chart = useRef(<span class="literal">null</span>)</span><br><span class="line"></span><br><span class="line">  useEffect(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> width = <span class="built_in">document</span>.documentElement.clientWidth</span><br><span class="line">    <span class="keyword">const</span> c = container.current</span><br><span class="line">    <span class="built_in">console</span>.log(c)</span><br><span class="line">    c.style.width = <span class="string">`<span class="subst">$&#123;width - <span class="number">20</span>&#125;</span>px`</span></span><br><span class="line">    c.style.height = <span class="string">`<span class="subst">$&#123;(width - <span class="number">20</span>) * <span class="number">1.2</span>&#125;</span>px`</span></span><br><span class="line">    chart.current = echarts.init(c, <span class="string">&#x27;dark&#x27;</span>)</span><br><span class="line"></span><br><span class="line">  &#125;, []) <span class="comment">// [] - mounted on first time</span></span><br><span class="line"></span><br><span class="line">  useEffect(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    chart.current.setOption(option)</span><br><span class="line">  &#125;, [option]) <span class="comment">// when option change 类似 vue 的 watch</span></span><br><span class="line"></span><br><span class="line">  useEffect(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (loading) chart.current.showLoading()</span><br><span class="line">    <span class="keyword">else</span> chart.current.hideLoading()</span><br><span class="line">  &#125;, [loading])</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div ref=&#123;container&#125;/&gt;</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="自定义Hook"><a href="#自定义Hook" class="headerlink" title="自定义Hook"></a>自定义Hook</h3><p>可以理解为我们可以把上面的 <code>Hook</code> 按照实际的需求混合起来，封装成一个函数，给一个简单示例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> useList = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> [list, setList] = useState(<span class="literal">null</span>);</span><br><span class="line">  useEffect(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    ajax(<span class="string">&quot;/list&quot;</span>).then(<span class="function"><span class="params">list</span> =&gt;</span> &#123;</span><br><span class="line">      setList(list);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;, []); <span class="comment">// [] 确保只在第一次运行</span></span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    list: list,</span><br><span class="line">    setList: setList</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> useList;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/uncategorized/React%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/%E5%A4%B4%E5%83%8F12.jpeg">
+      <meta itemprop="name" content="Ethel">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JOKEthel的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/uncategorized/React%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" class="post-title-link" itemprop="url">React生命周期</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-10-02 10:57:36" itemprop="dateCreated datePublished" datetime="2019-10-02T10:57:36+08:00">2019-10-02</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="生命周期简介"><a href="#生命周期简介" class="headerlink" title="生命周期简介"></a>生命周期简介</h2><p><code>React</code>组件的生命周期实际是提供给<code>React</code>用于将<code>React</code>元素构建渲染挂载到真实的<code>Dom</code>节点的各个时期的钩子函数。各个生命周期函数提供，使得在开发组件时可以控制各个时期执行不同的操作，如异步的获取数据等。<br><img src="https://img-blog.csdnimg.cn/2020121820353631.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pPS0V0aGVs,size_16,color_FFFFFF,t_70" alt="生命周期"></p>
+<blockquote>
+<p>上图是基于<code>React: &#39;^16.4&#39;</code>的生命周期</p>
 </blockquote>
-<h3 id="什么是协议"><a href="#什么是协议" class="headerlink" title="什么是协议"></a>什么是协议</h3><blockquote>
-<p>信号的传输总要基于一定的规则，这个规则就是协议<br>协议很多 http https ws DNS FTP SMTP</p>
-</blockquote>
-<h3 id="什么是http协议"><a href="#什么是http协议" class="headerlink" title="什么是http协议"></a>什么是http协议</h3><blockquote>
-<p>http定义（超文本传输协议）<br>http特点</p>
-</blockquote>
+<h3 id="挂载"><a href="#挂载" class="headerlink" title="挂载"></a>挂载</h3><p>组件首次被实例化创建并插入<code>DOM</code>中需要执行的生命周期函数：</p>
 <ul>
-<li>一定是浏览器主动向服务器发起请求</li>
-<li>一次请求都会对应一次响应</li>
-<li>服务器响应时间不一定是即时的，但它一定会响应</li>
+<li>constructor()：需要在组件内初始化<code>state</code>或进行方法绑定时，需要定义<code>constructor()</code>函数。不可在<code>constructor()</code>函数中调用<code>setState()</code>。</li>
+<li>static getDerivedStateFromProps()：执行<code>getDerivedStateFromProps</code>函数返回我们要的更新的<code>state</code>，<code>React</code>会根据函数的返回值拿到新的属性。</li>
+<li>render()：函数类组件必须定义的<code>render()</code>函数，是类组件中唯一必须实现的方法。<code>render()</code>函数应为纯函数，也就是说只要组件<code>state</code>和<code>props</code>没有变化，返回的结果是相同的。其返回结果可以是：1、<code>React</code>元素；2、数组或 <code>fragments</code>；3、<code>Portals</code>；4、字符串或数值类型；5、布尔值或<code>null</code>。不可在<code>render()</code>函数中调用<code>setState()</code>。</li>
+<li>componentDidMount()：组件被挂载插入到<code>Dom</code>中调用此方法，可以在此方法内执行副作用操作，如获取数据，更新<code>state</code>等操作。</li>
 </ul>
-<h3 id="http状态码"><a href="#http状态码" class="headerlink" title="http状态码"></a>http状态码</h3><p>由三个数字组成，第一个数字是响应的类别，分五种类别</p>
+<h3 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h3><p>当组件的<code>props</code>或<code>state</code>改变时会触发更新需要执行的生命周期函数：</p>
 <ul>
-<li>1XX：我已经收到你的消息了，我正在处理</li>
-<li>2XX：表示我们的请求已经被成功接收，接受</li>
-<li>3XX：重定向</li>
-<li>4XX：客户端错误–请求语法或者请求无法实现</li>
-<li>5XX：服务器端错误</li>
+<li>static getDerivedStateFromProps()：<code>getDerivedStateFromProps</code>会在调用 <code>render</code>方法之前调用，并且在初始挂载及后续更新时都会被调用。它应返回一个对象来更新<code>state</code>，如果返回<code>null</code>则不更新任何内容。</li>
+<li>shouldComponentUpdate()：根据<code>shouldComponentUpdate()</code>的返回值，判断<code>React</code>组件的是否执行更新操作。<code>React.PureComponent</code>就是基于浅比较进行性能优化的。一般在实际组件实践中，不建议使用该方法阻断更新过程，如果有需要建议使用<code>React.PureComponent</code>。</li>
+<li>render()：在组件更新阶段时如果<code>shouldComponentUpdate()</code>返回<code>false</code>值时，将不执行<code>render()</code>函数。</li>
+<li>getSnapshotBeforeUpdate()：该生命周期函数执行在<code>pre-commit</code>阶段，此时已经可以拿到<code>Dom</code>节点数据了，该声明周期返回的数据将作为<code>componentDidUpdate()</code>第三个参数进行使用。</li>
+<li>componentDidUpdate()：<code>shouldComponentUpdate()</code>返回值<code>false</code>时，则不会调用<code>componentDidUpdate()</code>。</li>
 </ul>
-<h3 id="请求方式"><a href="#请求方式" class="headerlink" title="请求方式"></a>请求方式</h3><p>GET/POST/PUT/DELETE<br>区别 （一个数据包还是两个数据包，传参方式不同）</p>
-<h3 id="浏览器对地址长度的限制"><a href="#浏览器对地址长度的限制" class="headerlink" title="浏览器对地址长度的限制"></a>浏览器对地址长度的限制</h3><blockquote>
-<ol>
-<li>IE浏览器对<em>URL</em>的限制为2048字节</li>
-<li>360极速浏览器对<em>URL</em>的限制为2118字节</li>
-<li>Firefox(Browser)对<em>URL</em>的长度限制为65536字节</li>
-<li>Safari(Browser)对<em>URL</em>的长度限制为80000字节</li>
-<li>Opera(Browser)对<em>URL</em>的长度限制为190000字节</li>
-</ol>
-</blockquote>
-<h3 id="http工作原理"><a href="#http工作原理" class="headerlink" title="http工作原理"></a>http工作原理</h3><blockquote>
-<p>首先客户端连接服务器<br>发送http请求<br>服务器接收请求并返回http响应<br>客户端解析HTML内容</p>
-</blockquote>
-<h3 id="http通信"><a href="#http通信" class="headerlink" title="http通信"></a>http通信</h3><blockquote>
-<p>http通信机制是在一次完整的http通信过程中，Web浏览器与Web服务器之间将完成下列7个步骤</p>
-</blockquote>
-<ol>
-<li>建立TCP连接</li>
-</ol>
-<blockquote>
-<p>在HTTP工作开始之前，Web浏览器首先要通过网络与Web服务器建立连接，该连接是通过TCP来完成的，该协议与IP协议共同构建Internet，即著名的TCP/IP协议族，因此Internet又被称作是TCP/IP网络。HTTP是比TCP更高层次的应用层协议，根据规则，只有低层协议建立之后才能进行更深层协议的连接，因此，首先要建立TCP连接，一般TCP连接的端口号是80。</p>
-</blockquote>
-<ol start="2">
-<li>Web浏览器向Web服务器发送请求命令</li>
-</ol>
-<blockquote>
-<p>一旦建立了TCP连接，Web浏览器就会向Web服务器发送请求命令<br>例如：GET/sample/hello.jsp HTTP/1.1。</p>
-</blockquote>
-<ol start="3">
-<li>Web浏览器发送请求头信息</li>
-</ol>
-<blockquote>
-<p>浏览器发送其请求命令之后，还要以头信息的形式向Web服务器发送一些别的信息，之后浏览器发送了一空白行来通知服务器，它已经结束了该头信息的发送。</p>
-</blockquote>
-<ol start="4">
-<li>Web服务器应答</li>
-</ol>
-<blockquote>
-<p>客户机向服务器发出请求后，服务器会客户机回送应答，<br>HTTP/1.1 200 OK<br>应答的第一部分是协议的版本号和应答状态码。</p>
-</blockquote>
-<ol start="5">
-<li>Web服务器发送应答头信息</li>
-</ol>
-<blockquote>
-<p>正如客户端会随同请求发送关于自身的信息一样，服务器也会随同应答向用户发送关于它自己的数据及被请求的文档。</p>
-</blockquote>
-<ol start="6">
-<li>Web服务器向浏览器发送数据</li>
-</ol>
-<blockquote>
-<p>Web服务器向浏览器发送头信息后，它会发送一个空白行来表示头信息的发送到此为结束，接着，它就以Content-Type应答头信息所描述的格式发送用户所请求的实际数据。</p>
-</blockquote>
-<ol start="7">
-<li>Web服务器关闭TCP连接</li>
-</ol>
-<blockquote>
-<p>一般情况下，一旦Web服务器向浏览器发送了请求数据，它就要关闭TCP连接，然后如果浏览器或者服务器在其头信息加入了这行代码<br>Connection:keep-alive<br>TCP连接在发送后将仍然保持打开状态，于是，浏览器可以继续通过相同的连接发送请求。保持连接节省了为每个请求建立新连接所需的时间，还节约了网络带宽。</p>
-</blockquote>
-<h3 id="B-S想要通信"><a href="#B-S想要通信" class="headerlink" title="B/S想要通信"></a>B/S想要通信</h3><blockquote>
-<ol>
-<li>确定基于什么协议（http)</li>
-<li>表明请求方式（协商数据发送的方式）</li>
-<li>建立连接（进行三次握手)</li>
-<li>开始通信</li>
-<li>断开连接（进行四次挥手)</li>
-</ol>
-</blockquote>
-<h3 id="什么是跨域"><a href="#什么是跨域" class="headerlink" title="什么是跨域"></a>什么是跨域</h3><blockquote>
-<p><strong>什么是源？</strong><br>如果两个页面(接口) 的协议，域名，端口号都相同 我们就认为它们具有相同的 源</p>
-</blockquote>
-<blockquote>
-<p><strong>什么是同源策略？</strong><br>同源策略就是浏览器的一个安全限制，它阻止不相同的【域】之间进行数据交互</p>
-</blockquote>
-<blockquote>
-<p><strong>安全限制具体限制了哪些东西不可以被访问?（非同源限制）</strong><br>无法读取非同源下的cookie localstorage<br>无法接触非同源的dom<br>无法向非同源的地址发送 ajax请求</p>
-</blockquote>
-<blockquote>
-<p><strong>想要进行数据交互怎么办？</strong><br>跨【域】<br><strong>怎么跨域？</strong></p>
-<ol>
-<li>jsonp方式 （利用js访问不受同源策略限制特性）</li>
-<li>跨域资源共享 （ S端 cors )</li>
-<li>设置反向代理 （ B端 ）</li>
-</ol>
-</blockquote>
+<h3 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h3><p><code>componentWillUnmount()</code>会在组件卸载及销毁之前直接调用。一般使用此方法用于执行副作用的清理操作，如取消定时器，取消事件绑定等。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">CancelDocumentEffect</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">	handleDocumentClick = <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">`document has clicked: <span class="subst">$&#123;e&#125;</span>`</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="title">componentDidMount</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">		<span class="built_in">document</span>.addEventLister(<span class="string">&#x27;click&#x27;</span>, <span class="built_in">this</span>.handleDocumentClick, <span class="literal">false</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="title">componentWillUnmount</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">		<span class="built_in">document</span>.removeEventLister(<span class="string">&#x27;click&#x27;</span>, <span class="built_in">this</span>.handleDocumentClick, <span class="literal">false</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="title">render</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> (<span class="xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span>this is test!<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h2><p>当渲染过程，生命周期，或子组件的构造函数中抛出错误会执行<code>static getDerivedStateFromError()</code>或<code>componentDidCatch()</code>生命周期函数。且基于此，<code>React: &#39;^16.0.0&#39;</code>提出了错误边界的概念。错误边界其实是一种能够捕获它的子组件树所产生的错误的<code>React</code>组件，主要目标是在部分<code>UI</code>的<code>JavaScript</code>错误不会导致整个应用崩溃，而可以进行错误处理，并进行优雅降级，渲染备用的<code>UI</code>。但是错误边界有一定的局限性。</p>
+<h3 id="错误边界无法捕获以下场景中产生的错误："><a href="#错误边界无法捕获以下场景中产生的错误：" class="headerlink" title="错误边界无法捕获以下场景中产生的错误："></a>错误边界无法捕获以下场景中产生的错误：</h3><ul>
+<li>事件处理</li>
+<li>异步代码（例如<code>setTimeout</code>或<code>requestAnimationFrame</code>回调函数）</li>
+<li>服务端渲染</li>
+<li>组件自身抛出来的错误而非其子组件 分别的作用：</li>
+<li><code>static getDerivedStateFromError(error)</code>：在渲染阶段调用，不允许执行副作用，因此用户渲染降级备用的<code>UI</code></li>
+<li><code>componentDidCatch(error, errorInfo)</code>：在提交阶段调用，可以执行副作用。 因此可用于记录错误之类的情况</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">ErrorBoundary</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="title">constructor</span>(<span class="params">props</span>)</span> &#123;</span><br><span class="line">		<span class="built_in">super</span>(props);</span><br><span class="line">		<span class="built_in">this</span>.state = &#123;</span><br><span class="line">			hasError: <span class="literal">false</span></span><br><span class="line">		&#125;;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">static</span> <span class="function"><span class="title">getDerivedStateFromError</span>(<span class="params">error</span>)</span> &#123;</span><br><span class="line">		<span class="built_in">this</span>.setState(&#123;<span class="attr">hasError</span>: <span class="literal">true</span>&#125;);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="title">componentDidCatch</span>(<span class="params">error, errorInfo</span>)</span> &#123;</span><br><span class="line">		logService(error, errorInfo);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="title">render</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">		<span class="keyword">const</span> &#123;hasError&#125; = <span class="built_in">this</span>.state;</span><br><span class="line">		<span class="keyword">const</span> backupUI = <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>发生错误<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">		<span class="keyword">return</span> hasError ? backupUI : <span class="built_in">this</span>.props.children;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -472,6 +526,727 @@
 
 
 
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/uncategorized/vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/%E5%A4%B4%E5%83%8F12.jpeg">
+      <meta itemprop="name" content="Ethel">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JOKEthel的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/uncategorized/vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" class="post-title-link" itemprop="url">vue生命周期</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-10-01 12:23:24" itemprop="dateCreated datePublished" datetime="2019-10-01T12:23:24+08:00">2019-10-01</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="vue生命周期"><a href="#vue生命周期" class="headerlink" title="vue生命周期"></a>vue生命周期</h2><h3 id="beforeCreate"><a href="#beforeCreate" class="headerlink" title="beforeCreate"></a>beforeCreate</h3><blockquote>
+<p>在这个钩子函数里只是刚开始初始化实例，拿不到实例里的任何东西，比如<code>data</code>和<code>methods</code>和事件监听等。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">data: &#123;</span><br><span class="line">    msg: <span class="string">&#x27;Ethel&#x27;</span></span><br><span class="line">&#125;,</span><br><span class="line">methods: &#123;</span><br><span class="line">	<span class="function"><span class="title">getLists</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">&#x27;beauty&#x27;</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;,</span><br><span class="line"><span class="function"><span class="title">beforeCreate</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">&#x27;beforeCreate&#x27;</span>,<span class="built_in">this</span>.msg,<span class="built_in">this</span>.getLists())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果会报错<br><img src="https://img-blog.csdnimg.cn/20201217202025993.png#pic_center" alt="beforeCreate"></p>
+<h3 id="created"><a href="#created" class="headerlink" title="created"></a>created</h3><blockquote>
+<p>在实例创建完成后立即调用。此时，实例已经完成以下配置：数据观测（data observer），属性和方法的运算，<code>watch/evevt</code>事件回调。但挂载阶段还没开始，<code>$el</code>属性目前不客观。<br>这是最早能拿到实例里面的数据和方法的一个钩子函数。<strong>应用场景：异步数据的获取和对实例数据的初始化操作都在这里面进行</strong>。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">data: &#123;</span><br><span class="line">    msg: <span class="string">&#x27;Ethel&#x27;</span>,</span><br><span class="line">	imgs: <span class="literal">null</span></span><br><span class="line">&#125;,</span><br><span class="line">methods: &#123;</span><br><span class="line">    <span class="function"><span class="title">getLists</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="built_in">this</span>.$http.get(url).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.imgs = res.data.lists</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">this</span>.imgs)</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;,</span><br><span class="line"><span class="function"><span class="title">created</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.getLists()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="beforeMount"><a href="#beforeMount" class="headerlink" title="beforeMount"></a>beforeMount</h3><blockquote>
+<p>在初始挂载开始前被调用：相关的<code>render</code>函数首次被调用。<br>不管是<code>created</code>还是<code>beforeMount</code>在它们里面都拿不到真实<code>dom</code>元素，如果我们需要拿到<code>dom</code>元素就需要在<code>mounted</code>里面操作。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">	&lt;ul&gt;</span><br><span class="line">        &lt;li v-<span class="keyword">for</span>=<span class="string">&quot;(item,index) in arr&quot;</span> :key=<span class="string">&quot;index&quot;</span>&gt;&#123;&#123;item&#125;&#125;&lt;/li&gt;</span><br><span class="line">	&lt;/ul&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">let</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">	data: &#123;</span><br><span class="line">    	arr: [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="function"><span class="title">created</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">&#x27;created&#x27;</span>,<span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;li&#x27;</span>).length)</span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="function"><span class="title">beforeMount</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">&#x27;beforeMount&#x27;</span>,<span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;li&#x27;</span>).length)</span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="function"><span class="title">mounted</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">&#x27;mounted&#x27;</span>,<span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;li&#x27;</span>).length)</span><br><span class="line">	&#125;,</span><br><span class="line">&#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20201217203453536.png#pic_center" alt="beforeMount"></p>
+<h3 id="mounted"><a href="#mounted" class="headerlink" title="mounted"></a>mounted</h3><blockquote>
+<p>上面的案例<code>mounted</code>可以拿到<code>dom</code>元素，但是也只是能拿到初始化数据里的<code>dom</code>元素，如果是存在异步对<code>dom</code>元素数据进行更改我们就只能在<code>updated</code>里获取，**应用场景：初始数据（在<code>data</code>中有的）的<code>dom</code>渲染完毕，可以获取<code>dom</code>**。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">	&lt;ul&gt;</span><br><span class="line">		&lt;li v-<span class="keyword">for</span>=<span class="string">&quot;(item,index) in arr&quot;</span> :key=<span class="string">&quot;index&quot;</span>&gt;&#123;&#123;item&#125;&#125;&lt;/li&gt;</span><br><span class="line">	&lt;/ul&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">created</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">	<span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">		<span class="built_in">this</span>.arr = [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>]</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">&#x27;created&#x27;</span>,<span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;li&#x27;</span>).length)</span><br><span class="line">	&#125;)   </span><br><span class="line">&#125;,</span><br><span class="line"><span class="function"><span class="title">mounted</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">&#x27;mounted&#x27;</span>,<span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;li&#x27;</span>).length)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>执行上面代码，发现不管是<code>mounted</code>还是<code>created</code>里拿到的都是<code>3</code>，而不是<code>4</code>。<br><img src="https://img-blog.csdnimg.cn/20201218090825433.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pPS0V0aGVs,size_16,color_FFFFFF,t_70#pic_center" alt="mounted"></p>
+<p>这里之所以先打印出<code>mounted</code>是因为<code>created</code>里面的是异步操作所以最后才执行完，而我们如果想要拿到正确的<code>dom</code>元素的个数就需要在<code>updated</code>里面获取。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">updated</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;updated&#x27;</span>,<span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;li&#x27;</span>).length)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/202012180910072.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pPS0V0aGVs,size_16,color_FFFFFF,t_70#pic_center" alt="mounted2"></p>
+<p>另外<code>$children</code>子组件的获取也需要在<code>mounted</code>里</p>
+<h3 id="beforeUpdate"><a href="#beforeUpdate" class="headerlink" title="beforeUpdate"></a>beforeUpdate</h3><blockquote>
+<p>当数据更新后触发的钩子函数，这个钩子函数里拿到的是更改之前的数据，<strong>虚拟DOM重新渲染</strong>和打补丁之前被调用。<br>可以在这个钩子函数中新一步修改<code>data</code>，这不会触发附加的重渲染过程。</p>
+</blockquote>
+<h3 id="updated"><a href="#updated" class="headerlink" title="updated"></a>updated</h3><blockquote>
+<p>上面虽然能在<code>update</code>里拿到更改后的数据，但是并不建议在这里面进行对异步数据得到的<code>dom</code>操作，因为有可能你当前的数据不止更改一次，而<code>update</code>只要相关的数据更改一次就会执行一次，注意：<code>updated</code>是指<code>mounted</code>钩子后（包括<code>mounted</code>）的数据更改，在<code>created</code>里的数据更改不叫更改叫做初始化，所以我们下面在<code>created</code>里修改数据是通过一个异步来确保<code>updated</code>可以执行的。我们一般都是在事件方法里更改数据，然后通过<code>updated</code>对其操作。<strong>应用场景：如果<code>dom</code>操作依赖的数据是在异步操作中获取，并且只有一次数据的更改 ，也可以说是数据更新完毕：如果对数据更新做一些统一处理在<code>updated</code>钩子中处理即可</strong>。</p>
+</blockquote>
+<p><strong>注意：</strong> 当这个钩子被调用时，组件<code>DOM</code>的<code>data</code>已经更新，所以你现在可以执行依赖于<code>DOM</code>的操作。但是不要在当前钩子里修改当前组件中的<code>data</code>，否则会继续触发<code>beforeUpdate</code>、<code>updated</code>这两个生命周期，进入死循环！</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">created</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">	<span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">		<span class="built_in">this</span>.arr = [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>]</span><br><span class="line">      	<span class="built_in">console</span>.log(<span class="string">&#x27;created&#x27;</span>,<span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;li&#x27;</span>).length)</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">      	<span class="built_in">this</span>.arr = [<span class="number">10</span>,<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>,<span class="number">14</span>]</span><br><span class="line">      	<span class="built_in">console</span>.log(<span class="string">&#x27;created&#x27;</span>,<span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;li&#x27;</span>).length)</span><br><span class="line">    &#125;,<span class="number">1000</span>)    </span><br><span class="line">&#125;,</span><br><span class="line"><span class="function"><span class="title">beforeUpdate</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;beforeUpdate&#x27;</span>,<span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;li&#x27;</span>).length)</span><br><span class="line">&#125;,</span><br><span class="line"><span class="function"><span class="title">updated</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;updated&#x27;</span>,<span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;li&#x27;</span>).length)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20201218091117177.jpg#pic_center" alt="updated"></p>
+<p>上面<code>updated</code>执行了两遍，之所以一开始<code>created</code>是<code>3</code>是因为上面我们说的他是在一个异步里，也是在<code>mounted</code>后获取的所以是<code>3</code>。</p>
+<h4 id="在事件方法里更改数据"><a href="#在事件方法里更改数据" class="headerlink" title="在事件方法里更改数据"></a>在事件方法里更改数据</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">	&lt;ul&gt;</span><br><span class="line">		&lt;li v-<span class="keyword">for</span>=<span class="string">&quot;(item,index) in arr&quot;</span> :key=<span class="string">&quot;index&quot;</span> @click=<span class="string">&quot;getAdd&quot;</span>&gt;&#123;&#123;item&#125;&#125;&lt;/li&gt;</span><br><span class="line">	&lt;/ul&gt;</span><br><span class="line">	&lt;div&gt;&#123;&#123;msg&#125;&#125;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">data: &#123;</span><br><span class="line">	arr: [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],</span><br><span class="line">&#125;,</span><br><span class="line">methods: &#123;</span><br><span class="line">    <span class="function"><span class="title">getAdd</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      	<span class="built_in">this</span>.arr = [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br><span class="line"><span class="function"><span class="title">updated</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.arr)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20201217205246730.png#pic_center" alt="updated2"><br><strong>如果想分别区别不同的数据更新，同时要对<code>dom</code>进行操作那么需要使用<code>nextTick</code>函数处理</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">created</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">	<span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">      	<span class="built_in">this</span>.arr = [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>]</span><br><span class="line">      	<span class="built_in">this</span>.$nextTick(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">        	<span class="built_in">console</span>.log(<span class="string">&#x27;nextTick&#x27;</span>,<span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;li&#x27;</span>).length)</span><br><span class="line">      	&#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">      	<span class="built_in">this</span>.arr = [<span class="number">10</span>,<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>,<span class="number">14</span>]</span><br><span class="line">      	<span class="built_in">this</span>.$nextTick(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">        	<span class="built_in">console</span>.log(<span class="string">&#x27;nextTick&#x27;</span>,<span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;li&#x27;</span>).length)</span><br><span class="line">      	&#125;)</span><br><span class="line">    &#125;,<span class="number">1000</span>)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20201217205518203.png#pic_center" alt="updated3"><br>这样我们想对哪一次的数据进行操作就直接在<code>this.$nextTick</code>里面写就行</p>
+<h4 id="在updated中修改数据陷入死循环"><a href="#在updated中修改数据陷入死循环" class="headerlink" title="在updated中修改数据陷入死循环"></a>在updated中修改数据陷入死循环</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">	&#123;&#123;a&#125;&#125;</span><br><span class="line">    &lt;button @click=<span class="string">&quot;a=2&quot;</span>&gt;点我&lt;/button&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">	<span class="keyword">new</span> Vue(&#123;</span><br><span class="line">      	el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">      	data: &#123;</span><br><span class="line">        	a: [<span class="number">1</span>]</span><br><span class="line">		&#125;,</span><br><span class="line">		<span class="function"><span class="title">beforeUpdate</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="string">&#x27;beforeUpdate&#x27;</span>)</span><br><span class="line">		&#125;,</span><br><span class="line">		<span class="function"><span class="title">updated</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">	        <span class="built_in">console</span>.log(<span class="built_in">this</span>.a)</span><br><span class="line">	        <span class="built_in">console</span>.log(<span class="string">&#x27;updated&#x27;</span>)</span><br><span class="line">	        <span class="built_in">this</span>.a = [<span class="number">2</span>]</span><br><span class="line">		&#125;,</span><br><span class="line">	&#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p><strong><code>updated</code>，<code>watch</code>和<code>nextTick</code>区别</strong></p>
+<p><strong><code>updated</code>对所有数据的变化进行统一处理</strong></p>
+<p><strong><code>watch</code>对具体某个数据变化做统一处理</strong></p>
+<p><strong><code>nextTick</code>是对某个数据的某一次变化进行处理</strong></p>
+<p><strong>如果实例里面没写<code>el</code>挂载点你就需要在实例后面通过<code>.$mount(&#39;#app&#39;)</code>来手动触发</strong></p>
+<h3 id="beforeDestory"><a href="#beforeDestory" class="headerlink" title="beforeDestory"></a>beforeDestory</h3><blockquote>
+<p>实例销毁之前调用。在这一步，实例仍然完全可用</p>
+</blockquote>
+<h3 id="destoryed"><a href="#destoryed" class="headerlink" title="destoryed"></a>destoryed</h3><blockquote>
+<p>vue 实例销毁后调用。调用后，vue 实例指示的所有东西都会解绑定，所有的事件监听器会被移除，所有的子实例也会被销毁。</p>
+</blockquote>
+<p><strong>beforeDestroy和destroyed只能通过手动触发$destroy来调用</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">	<span class="function"><span class="title">beforeDestroy</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    	<span class="built_in">console</span>.log(<span class="string">&#x27;beforeDestroy&#x27;</span>)</span><br><span class="line">  	&#125;,</span><br><span class="line">  	<span class="function"><span class="title">destroyed</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    	<span class="built_in">console</span>.log(<span class="string">&#x27;destroyed&#x27;</span>)</span><br><span class="line">  	&#125;</span><br><span class="line">&#125;)</span><br><span class="line">app.$destroy()</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20201217210048514.png#pic_center" alt="destoryed"></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/uncategorized/js%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/%E5%A4%B4%E5%83%8F12.jpeg">
+      <meta itemprop="name" content="Ethel">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JOKEthel的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/uncategorized/js%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6/" class="post-title-link" itemprop="url">js运行机制</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-09-26 10:28:15" itemprop="dateCreated datePublished" datetime="2019-09-26T10:28:15+08:00">2019-09-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="js运行机制：异步和单线程"><a href="#js运行机制：异步和单线程" class="headerlink" title="js运行机制：异步和单线程"></a>js运行机制：异步和单线程</h2><h3 id="js的异步和单线程"><a href="#js的异步和单线程" class="headerlink" title="js的异步和单线程"></a>js的异步和单线程</h3><blockquote>
+<p>因为是单线程，所以必须异步</p>
+</blockquote>
+<h4 id="例子一：异步"><a href="#例子一：异步" class="headerlink" title="例子一：异步"></a>例子一：异步</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span>);</span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="number">2</span>);</span><br><span class="line">&#125;, <span class="number">1000</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">3</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">4</span>);</span><br></pre></td></tr></table></figure>
+<p>上面的代码中，我们很容易知道，打印的顺序是<code>1，3，4，2</code>。因为你会想到，要等一秒之后再打印<code>2</code>。</p>
+<p>可如果我把延时的时间从<code>1000</code>改成<code>0</code>：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span>);</span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="number">2</span>);</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">3</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">4</span>);</span><br></pre></td></tr></table></figure>
+<p>上方代码中，打印的顺序仍然是<code>1，3，4，2</code>。这是为什么呢？我们来分析一下。</p>
+<h4 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h4><p> js 是单线程（同一时间只能做一件事），而且有一个任务队列：全部的同步任务执行完毕后，再来执行异步任务。第一行代码和最后一行代码是同步任务；但是，setTimeout是异步任务。</p>
+<p>于是，执行的顺序是：</p>
+<ul>
+<li>先执行同步任务<code>console.log(1)</code></li>
+<li>遇到异步<code>setTimeout</code>，要<strong>挂起</strong></li>
+<li>执行同步任务<code>console.log(3)</code></li>
+<li><strong>全部的同步任务执行完毕后，再来执行异步任务</strong><code>console.log(2)</code></li>
+</ul>
+<p>很多人会把这个题目答错，这是因为他们不懂 js 的运行机制。</p>
+<p>注意上面那句话：同步任务执行完毕后，再来执行异步任务。也就是说， <strong>如果同步任务没有执行完，异步任务是不会执行的。</strong> 为了解释这句话，我们来看下面这个例子。</p>
+<hr>
+<h4 id="例子二：异步"><a href="#例子二：异步" class="headerlink" title="例子二：异步"></a>例子二：异步</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;A&#x27;</span>);</span><br><span class="line"><span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;B&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<p>我们很容易想到，上方代码的打印结果是<code>A</code>，因为while是同步任务，代码会陷入死循环里出不来，自然也就无法打印<code>B</code>。可如果我把代码改成下面的样子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;A&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">&#x27;B&#x27;</span>);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上方代码的打印结果仍然是<code>A</code>。因为while是同步任务，setTimeout是异步任务，所以还是那句话：<strong>如果同步任务没有执行完，队列里的异步任务是不会执行的。</strong></p>
+<hr>
+<h4 id="例子三：同步"><a href="#例子三：同步" class="headerlink" title="例子三：同步"></a>例子三：同步</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;A&#x27;</span>);</span><br><span class="line"></span><br><span class="line">alert(<span class="string">&#x27;haha&#x27;</span>); <span class="comment">//1秒之后点击确认</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;B&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<p><code>alert</code>函数是同步任务，我只有点击了确认，才会继续打印B。</p>
+<h3 id="异步和同步的对比"><a href="#异步和同步的对比" class="headerlink" title="异步和同步的对比"></a>异步和同步的对比</h3><p>我们在上面列举了异步和同步的例子。现在来描述一下区别：【重要】</p>
+<p>因为<code>setTimeout</code>是<strong>异步任务</strong>，所以程序并不会卡在那里，而是继续向下执行（即使setTimeout设置了倒计时一万秒）；但是<code>alert</code>函数是<strong>同步</strong>任务，程序会<strong>卡在那里</strong>，如果它没有执行，后面的也不会执行（卡在那里，自然也就造成了<strong>阻塞</strong>）。</p>
+<h3 id="前端使用异步的场景"><a href="#前端使用异步的场景" class="headerlink" title="前端使用异步的场景"></a>前端使用异步的场景</h3><p>什么时候需要等待，就什么时候用异步。</p>
+<ul>
+<li>定时任务：setTimeout（定时炸弹）、setInterval（循环执行）</li>
+<li>网络请求：ajax请求、动态<code>&lt;img&gt;</code>加载</li>
+<li>事件绑定（比如说，按钮绑定点击事件之后，用户爱点不点。我们不可能卡在按钮那里，什么都不做。所以，应该用异步）</li>
+<li>ES6中的Promise</li>
+</ul>
+<p>代码举例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;start&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> img = <span class="built_in">document</span>.createElement(<span class="string">&#x27;img&#x27;</span>);</span><br><span class="line">img.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">&#x27;loaded&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line">img.src = <span class="string">&#x27;/xxx.png&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;end&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<p>上图中，先打印<code>start</code>，然后执行<code>img.src = &#39;/xxx.png&#39;</code>，然后打印<code>end</code>，最后打印<code>loaded</code>。</p>
+<h2 id="任务队列和Event-Loop（事件循环）"><a href="#任务队列和Event-Loop（事件循环）" class="headerlink" title="任务队列和Event Loop（事件循环）"></a>任务队列和Event Loop（事件循环）</h2><h3 id="任务队列"><a href="#任务队列" class="headerlink" title="任务队列"></a>任务队列</h3><p>所有任务可以分成两种，一种是同步任务（synchronous），另一种是异步任务（asynchronous）。同步任务指的是，在主线程上排队执行的任务，只有前一个任务执行完毕，才能执行后一个任务。异步任务指的是，不进入主线程、而进入”任务队列”（task queue）的任务，只有”任务队列”通知主线程，某个异步任务可以执行了，该任务才会进入主线程执行。</p>
+<p>###总结：<br>只要主线程空了，就会去读取”任务队列”，这就是JavaScript的运行机制。【重要】</p>
+<h3 id="Event-Loop"><a href="#Event-Loop" class="headerlink" title="Event Loop"></a>Event Loop</h3><p>主线程从”任务队列”中读取事件，这个过程是循环不断的，所以整个的这种运行机制又称为Event Loop（事件循环）。<br><img src="https://img-blog.csdnimg.cn/20201215191836335.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pPS0V0aGVs,size_16,color_FFFFFF,t_70#pic_center" alt="Event Loop"><br>在理解Event Loop时，要理解两句话：</p>
+<ul>
+<li>理解哪些语句会放入异步任务队列</li>
+<li>理解语句放入异步任务队列的<strong>时机</strong></li>
+</ul>
+<h2 id="容易答错的题目"><a href="#容易答错的题目" class="headerlink" title="容易答错的题目"></a>容易答错的题目</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</span><br><span class="line">	<span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(i);</span><br><span class="line">	&#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>很多人以为上面的题目，答案是<code>0,1,2,3</code>。其实，正确的答案是：<code>3,3,3,3</code>。</p>
+<h3 id="分析："><a href="#分析：" class="headerlink" title="分析："></a>分析：</h3><p>for 循环是同步任务，setTimeout是异步任务。for循环每次遍历的时候，遇到settimeout，就先暂留着，等同步任务全部执行完毕（此时，i已经等于3了），再执行异步任务。</p>
+<p>我们把上面的题目再加一行代码。最终代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</span><br><span class="line">	<span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(i);</span><br><span class="line">	&#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(i);</span><br></pre></td></tr></table></figure>
+<p>如果我们约定，用箭头表示其前后的两次输出之间有 1 秒的时间间隔，而逗号表示其前后的两次输出之间的时间间隔可以忽略，代码实际运行的结果该如何描述？可能会有两种答案：</p>
+<ul>
+<li>A. 60% 的人会描述为：3 -&gt; 3 -&gt; 3 -&gt; 3，即每个 3 之间都有 1 秒的时间间隔；</li>
+<li>B. 40% 的人会描述为：3 -&gt; 3,3,3，即第 1 个 3 直接输出，1 秒之后，连续输出 3 个 3。</li>
+</ul>
+<p>循环执行过程中，几乎同时设置了 3 个定时器，这些定时器都会在 1 秒之后触发，而循环完的输出是立即执行的，显而易见，正确的描述是 B。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/uncategorized/JavaScript%E4%B8%AD%E7%9A%84%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/%E5%A4%B4%E5%83%8F12.jpeg">
+      <meta itemprop="name" content="Ethel">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JOKEthel的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/uncategorized/JavaScript%E4%B8%AD%E7%9A%84%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/" class="post-title-link" itemprop="url">JavaScript中的垃圾回收机制</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-09-18 12:57:58" itemprop="dateCreated datePublished" datetime="2019-09-18T12:57:58+08:00">2019-09-18</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>根据 Wiki 的定义，垃圾回收是一种自动的内存管理机制。当计算机上的动态内存不再需要时，就应该予以释放，以让出内存。直白点讲，就是程序是运行在内存里的，当声明一个变量、定义一个函数时都会占用内存。内存的容量是有限的，如果变量、函数等只有产生没有消亡的过程，那迟早内存有被完全占用的时候。这个时候，不仅自己的程序无法正常运行，连其他程序也会受到影响。好比生物只有出生没有死亡，地球总有被撑爆的一天。所以，在计算机中，我们需要垃圾回收。需要注意的是，定义中的“自动”的意思是语言可以帮助我们回收内存垃圾，但并不代表我们不用关心内存管理，如果操作失当，JavaScript 中依旧会出现内存溢出的情况。</p>
+<p>垃圾回收基于两个原理：</p>
+<ul>
+<li>考虑某个变量或对象在未来的程序运行中将不会被访问</li>
+<li>向这些对象要求归还内存</li>
+</ul>
+<p>而这两个原理中，最主要的也是最艰难的部分就是找到“所分配的内存确实已经不再需要了”。</p>
+<h2 id="垃圾回收方法"><a href="#垃圾回收方法" class="headerlink" title="垃圾回收方法"></a>垃圾回收方法</h2><p>下面我们看看在 JavaScript 中是如何找到不再使用的内存的。主要有两种方式：引用计数和标记清除。</p>
+<h3 id="引用计数（reference-counting）"><a href="#引用计数（reference-counting）" class="headerlink" title="引用计数（reference counting）"></a>引用计数（reference counting）</h3><p>在内存管理环境中，对象 A 如果有访问对象 B 的权限，叫做对象 A 引用对象 B。引用计数的策略是将“对象是否不再需要”简化成“对象有没有其他对象引用到它”，如果没有对象引用这个对象，那么这个对象将会被回收。上例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj1 = &#123; <span class="attr">a</span>: <span class="number">1</span> &#125;; <span class="comment">// 一个对象（称之为 A）被创建，赋值给 obj1，A 的引用个数为 1 </span></span><br><span class="line"><span class="keyword">let</span> obj2 = obj1; <span class="comment">// A 的引用个数变为 2</span></span><br><span class="line"></span><br><span class="line">obj1 = <span class="number">0</span>; <span class="comment">// A 的引用个数变为 1</span></span><br><span class="line">obj2 = <span class="number">0</span>; <span class="comment">// A 的引用个数变为 0，此时对象 A 就可以被垃圾回收了</span></span><br></pre></td></tr></table></figure>
+<p>但是引用计数有个最大的问题： 循环引用。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> obj1 = &#123;&#125;;</span><br><span class="line">    <span class="keyword">let</span> obj2 = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">    obj1.a = obj2; <span class="comment">// obj1 引用 obj2</span></span><br><span class="line">    obj2.a = obj1; <span class="comment">// obj2 引用 obj1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当函数 func 执行结束后，返回值为 undefined，所以整个函数以及内部的变量都应该被回收，但根据引用计数方法，obj1 和 obj2 的引用次数都不为 0，所以他们不会被回收。</p>
+<p>要解决循环引用的问题，最好是在不使用它们的时候手工将它们设为空。上面的例子可以这么做：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">obj1 = <span class="literal">null</span>;</span><br><span class="line">obj2 = <span class="literal">null</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="标记-清除（mark-and-sweep）"><a href="#标记-清除（mark-and-sweep）" class="headerlink" title="标记-清除（mark and sweep）"></a>标记-清除（mark and sweep）</h3><p>这是 JavaScript 中最常见的垃圾回收方式。为什么说这是种最常见的方法，因为从 2012 年起，所有现代浏览器都使用了标记-清除的垃圾回收方法，除了低版本 IE…它们采用的是引用计数方法。</p>
+<p>那什么叫标记清除呢？JavaScript 中有个全局对象，浏览器中是 window。定期的，垃圾回收期将从这个全局对象开始，找所有从这个全局对象开始引用的对象，再找这些对象引用的对象…对这些活着的对象进行标记，这是标记阶段。清除阶段就是清除那些没有被标记的对象。</p>
+<p>标记－清除法的一个问题就是不那么有效率，因为在标记－清除阶段，整个程序将会等待，所以如果程序出现卡顿的情况，那有可能是收集垃圾的过程。</p>
+<p>2012 年起，所有现代浏览器都使用了这个方法，所有的改进也都是基于这个方法，比如标记-整理方法。</p>
+<p>标记清除有一个问题，就是在清除之后，内存空间是不连续的，即出现了内存碎片。如果后面需要一个比较大的连续的内存空间时，那将不能满足要求。而标记-整理方法可以有效地解决这个问题。标记阶段没有什么不同，只是标记结束后，标记-整理方法会将活着的对象向内存的一边移动，最后清理掉边界的内存。不过可以想象，这种做法的效率没有标记-清除高。计算机中的很多做法都是互相妥协的结果，哪有什么十全十美的事儿呢。</p>
+<h4 id="内存泄漏"><a href="#内存泄漏" class="headerlink" title="内存泄漏"></a>内存泄漏</h4><p>在谈什么是良好实践（这里指有益于内存管理）之前，我想先谈谈内存泄漏，也就是差的实践。内存泄漏是指计算机可用的内存越来越少，主要是因为程序不能释放那些不再使用的内存。</p>
+<h4 id="循环引用"><a href="#循环引用" class="headerlink" title="循环引用"></a>循环引用</h4><p>这个没什么好说的，上面已经介绍了。</p>
+<p>需要强调的一点就是，一旦数据不再使用，最好通过将其值设为 null 来释放其引用，这个方法被称为“解除引用”。</p>
+<h4 id="无意的全局变量"><a href="#无意的全局变量" class="headerlink" title="无意的全局变量"></a>无意的全局变量</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">arg</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> bar = <span class="string">&quot;&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo();</span><br></pre></td></tr></table></figure>
+<p>当 foo 函数执行后，变量 bar 就会被标记为可回收。因为当函数执行时，函数创造了一个作用域来让函数里的变量在里面声明。进入这个作用域后，浏览器就会为变量 bar 创建一个内存空间。当这个函数结束后，其所创建的作用域里的变量也会被标记为垃圾，在下一个垃圾回收周期到来时，这些变量将会被回收。</p>
+<p>但事情并不会那么顺利。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">arg</span>) </span>&#123;</span><br><span class="line">    bar = <span class="string">&quot;&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo();</span><br></pre></td></tr></table></figure>
+<p>上面的代码就无意中声明了一个全局变量，会得到 window 的引用，bar 实际上是 window.bar，它的作用域在 window 上，所以 foo 函数执行结束后，bar 也不会被内存收回。</p>
+<p>另外一种无意的全局变量的情况是：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.bar = <span class="string">&quot;&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在 foo 函数中，this 指的是 window（详细内容可参见我的另一篇博客：JavaScript this 讲解），犯的错误跟上面类似。</p>
+<h4 id="被遗忘的计时器和回调函数"><a href="#被遗忘的计时器和回调函数" class="headerlink" title="被遗忘的计时器和回调函数"></a>被遗忘的计时器和回调函数</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> someResource = getData();</span><br><span class="line"><span class="built_in">setInterval</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> node = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;Node&#x27;</span>);</span><br><span class="line">    <span class="keyword">if</span>(node) &#123;</span><br><span class="line">        node.innerHTML = <span class="built_in">JSON</span>.stringify(someResource));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;, <span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
+<p>上面的例子中，我们每隔一秒就将得到的数据放入到文档节点中去。但在 setInterval 没有结束前，回调函数里的变量以及回调函数本身都无法被回收。那什么才叫结束呢？就是调用了 clearInterval。如果回调函数内没有做什么事情，并且也没有被 clear 掉的话，就会造成内存泄漏。不仅如此，如果回调函数没有被回收，那么回调函数内依赖的变量也没法被回收。上面的例子中，someResource 就没法被回收。同样的，setTiemout 也会有同样的问题。所以，当不需要 interval 或者 timeout 时，最好调用 clearInterval 或者 clearTimeout。</p>
+<p><strong>DOM</strong></p>
+<p>在 IE8 以下的版本里，DOM 对象经常会跟 JavaScript 之间产生循环引用。看一个例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setHandler</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> ele = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;id&#x27;</span>);</span><br><span class="line">    ele.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在这个例子中，DOM 对象通过 onclick 引用了一个函数，然而这个函数通过外部的词法环境引用了这个 DOM 对象，形成了循环引用。不过现在不必担心，因为所有现代浏览器都采用了标记－整理方法，避免了循环引用的问题。</p>
+<p>除了这种情况，我们现在还会在其他时候在使用 DOM 时出现内存泄漏的问题。当我们需要多次访问同一个 DOM 元素时，一个好的做法是将 DOM 元素用一个变量存储在内存中，因为访问 DOM 的效率一般比较低，应该避免频繁地反问 DOM 元素。所以我们会这样写：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> button = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;button&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<p>当删除这个按钮时：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.body.removeChild(<span class="built_in">document</span>.getElementById(<span class="string">&#x27;button&#x27;</span>));</span><br></pre></td></tr></table></figure>
+<p>虽然这样看起来删除了这个 DOM 元素，但这个 DOM 元素仍然被 button 这个变量引用，所以在内存上，这个 DOM 元素是没法被回收的。所以在使用结束后，还需要将 button 设成 null。</p>
+<p>另外一个值得注意的是，代码中保存了一个列表 ul 的某一项 li 的引用，将来决定删除整个列表时，我们自觉上会认为内存仅仅会保留那个特定的 li，而将其他列表项都删除。但事实并非如此，因为 li 是 ul 的子元素，子元素与父元素是引用关系，所以如果代码保存 li 的引用，那么整个 ul 将会继续呆在内存里。</p>
+<h2 id="良好实践"><a href="#良好实践" class="headerlink" title="良好实践"></a>良好实践</h2><ol>
+<li><p>优化内存的一个最好的衡量方式就是只保留程序运行时需要的数据，对于已经使用的或者不需要的数据，应该将其值设为 null，这上面说过，叫“解除引用”。需要注意的是，解除一个值的引用不代表垃圾回收器会立即将这段内存回收，这样做的目的是让垃圾回收器在下一个回收周期到来时知道这段内存需要回收。在内存泄漏部分，我们讨论了无意的全局变量会带来无法回收的内存垃圾。但有些时候，我们会有意识地声明一些全局变量，这个时候需要注意，如果声明的变量占用大量的内存，那么在使用完后将变量声明为 null。</p>
+</li>
+<li><p>减少内存垃圾的另一个方法就是避免创建对象。new Object() 是一个比较明显的创建对象的方式，另外 const arr = [];、const obj = {};也会创建新的对象。另外下面这种写法在每次调用函数时都会创建一个新的对象：</p>
+</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>另外，当清空一个数组时，我们通常的做法是 array = []，但这种做法的背后是新建了一个新的数组然后将原来的数组当作内存垃圾。建议的做法是 array.length = 0，这样做不仅可以重用原来的变量，而且还避免创建了新的数组。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/uncategorized/ES6-Symbol/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/%E5%A4%B4%E5%83%8F12.jpeg">
+      <meta itemprop="name" content="Ethel">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JOKEthel的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/uncategorized/ES6-Symbol/" class="post-title-link" itemprop="url">ES6-Symbol</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-09-15 10:20:58" itemprop="dateCreated datePublished" datetime="2019-09-15T10:20:58+08:00">2019-09-15</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>ES6引入了一种新的原始数据类型Symbol，表示独一无二的值。</p>
+<blockquote>
+<p>Symbol 值通过<code>Symbol</code>函数生成。这就是说，对象的属性名现在可以有两种类型，一种是原来就有的字符串，另一种就是新增的 Symbol 类型。凡是属性名属于 Symbol 类型，就都是独一无二的，可以保证不会与其他属性名产生冲突。</p>
+</blockquote>
+<p>Symbol函数前不能使用new命令，因为生成的Symbol是一个原始类型的值，不是对象，所以不能添加属性。基本上，它是一个类似于字符串的数据类型。</p>
+<p>Symbol函数的参数只是表示对当前 Symbol 值的描述，因此相同参数的Symbol函数的返回值是不相等的。`</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> s1 = <span class="built_in">Symbol</span>();</span><br><span class="line"><span class="keyword">let</span> s2 = <span class="built_in">Symbol</span>();</span><br><span class="line">s1 === s2 <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> s3 = <span class="built_in">Symbol</span>(<span class="string">&#x27;foo&#x27;</span>);</span><br><span class="line"><span class="keyword">let</span> s4 = <span class="built_in">Symbol</span>(<span class="string">&#x27;foo&#x27;</span>);</span><br><span class="line">s3 === s4 <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>上面代码中，s1和s2都是Symbol函数的返回值，而且参数相同，但是它们是不相等的。</p>
+</blockquote>
+<h3 id="Symbol-for"><a href="#Symbol-for" class="headerlink" title="Symbol.for()"></a>Symbol.for()</h3><p>如果想重新使用同一个 Symbol 值，Symbol.for()方法可以做到这一点。它接受一个字符串作为参数，然后搜索有没有以该参数作为名称的 Symbol 值。如果有，就返回这个 Symbol 值，否则就新建一个以该字符串为名称的 Symbol 值，并将其注册到全局。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> s1 = <span class="built_in">Symbol</span>.for(<span class="string">&#x27;foo&#x27;</span>);</span><br><span class="line"><span class="keyword">let</span> s2 = <span class="built_in">Symbol</span>.for(<span class="string">&#x27;foo&#x27;</span>);</span><br><span class="line">s1 === s2 <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Symbol</span>(<span class="string">&#x27;foo&#x27;</span>) === <span class="built_in">Symbol</span>(<span class="string">&#x27;foo&#x27;</span>) <span class="comment">// false</span></span><br><span class="line"><span class="built_in">Symbol</span>.for(<span class="string">&#x27;foo&#x27;</span>) === <span class="built_in">Symbol</span>.for(<span class="string">&#x27;foo&#x27;</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<h3 id="Symbol-keyFor"><a href="#Symbol-keyFor" class="headerlink" title="Symbol.keyFor()"></a>Symbol.keyFor()</h3><p>Symbol.keyFor()方法返回一个已登记的 Symbol 类型值的key。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> s1 = <span class="built_in">Symbol</span>.for(<span class="string">&quot;foo&quot;</span>);</span><br><span class="line"><span class="built_in">Symbol</span>.keyFor(s1) <span class="comment">// &quot;foo&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> s2 = <span class="built_in">Symbol</span>(<span class="string">&quot;foo&quot;</span>);</span><br><span class="line"><span class="built_in">Symbol</span>.keyFor(s2) <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/uncategorized/cookie%E3%80%81sessionStorage%E5%92%8ClocalStorage%E7%9A%84%E5%8C%BA%E5%88%AB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/%E5%A4%B4%E5%83%8F12.jpeg">
+      <meta itemprop="name" content="Ethel">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JOKEthel的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/uncategorized/cookie%E3%80%81sessionStorage%E5%92%8ClocalStorage%E7%9A%84%E5%8C%BA%E5%88%AB/" class="post-title-link" itemprop="url">cookie、sessionStorage和localStorage的区别</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-09-08 08:57:07" itemprop="dateCreated datePublished" datetime="2019-09-08T08:57:07+08:00">2019-09-08</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ol>
+<li>cookie：主要用来保存登录信息，像现在有的网站会有“记住密码”，这就是通过cookie中存入一段辨别用户身份的数据来实现的。</li>
+<li>sessionStorage：可以将一段数据在当前的会话中保存下来，刷新页面数据依旧存在，但页面关闭时，sessionStorage中的数据就会被清空。</li>
+<li>localStorage：在IE6时代，就有一个userData的东西用来本地储存，当时考虑到浏览器的兼容性，更通用的是flash，现在localStorage被大多数浏览器所支持。localStorage中的键值以字符串的形式储存。localStorage类似于sessionStorage，但区别在于储存在localStorage的数据可以长期保留。</li>
+<li>补充：同源：协议相同、域名相同、端口相同。</li>
+</ol>
+<h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><ul>
+<li>cookie：一般不超过4k</li>
+<li>sessionStorage：5M甚至更多</li>
+<li>localStorage：5M甚至更多</li>
+</ul>
+<h3 id="数据有效期"><a href="#数据有效期" class="headerlink" title="数据有效期"></a>数据有效期</h3><ul>
+<li>cookie：般由服务器生成，可以设置失效时间；若没有设置时间，关闭浏览器cookie失效，如果设置了时间，cookie就会存储在硬盘中，过期失效</li>
+<li>sessionStorage：仅在当前浏览器窗口关闭之前有效，关闭页面或者浏览器会被清除</li>
+<li>localStorage：永久有效，窗口或者浏览器关闭也会一直保存，除非手动永久删除</li>
+</ul>
+<h3 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h3><ul>
+<li>cookie：在所有同源窗口中都是共享的</li>
+<li>sessionStorage：在同一个浏览器窗口是共享的（不同浏览器，即使是统一页面也不共享）</li>
+<li>localStorage：在所有同源窗口中共享</li>
+</ul>
+<h3 id="通信"><a href="#通信" class="headerlink" title="通信"></a>通信</h3><ul>
+<li>cookie：cookie在浏览器和服务器之间来回传递，如果使用cookie保存过多数据会造成性能问题</li>
+<li>sessionStorage：仅在客户端（浏览器）中保存，不参与服务器的通信</li>
+<li>localStorage：仅在客户端（浏览器）中保存，不参与服务器的通信</li>
+</ul>
+<h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><ul>
+<li>cookie：判断用户是否登录过网站，以便实现下次自动登录或记住密码；保存事件信息</li>
+<li>sessionStorage：敏感账号一次性登录，单页面用的较多</li>
+<li>localStorage：用于长期登录，适于长期保存在本地的数据</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/uncategorized/BFC%EF%BC%88%E8%BE%B9%E8%B7%9D%E9%87%8D%E5%8F%A0%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/%E5%A4%B4%E5%83%8F12.jpeg">
+      <meta itemprop="name" content="Ethel">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JOKEthel的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/uncategorized/BFC%EF%BC%88%E8%BE%B9%E8%B7%9D%E9%87%8D%E5%8F%A0%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%EF%BC%89/" class="post-title-link" itemprop="url">BFC（边距重叠解决方案）</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-09-03 12:03:40" itemprop="dateCreated datePublished" datetime="2019-09-03T12:03:40+08:00">2019-09-03</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="BFC的概念"><a href="#BFC的概念" class="headerlink" title="BFC的概念"></a>BFC的概念</h2><p>BFC（Block Formatting Context）：块级格式化上下文，也可以把它理解成一个独立的区域。</p>
+<h3 id="BFC的原理-BFC的布局规则"><a href="#BFC的原理-BFC的布局规则" class="headerlink" title="BFC的原理/BFC的布局规则"></a>BFC的原理/BFC的布局规则</h3><ol>
+<li>BFC内部的子元素，在垂直方向边距会发生重叠。</li>
+<li>BFC在页面中是独立的容器，在页面中外部元素不会影响内部元素，反之亦然。</li>
+<li>BFC区域不与旁边的<em>float box</em>区域重叠，可以用来清除浮动带来的影响。</li>
+<li>计算BFC的高度时，浮动的子元素也参与计算。</li>
+</ol>
+<h3 id="如何生成BFC"><a href="#如何生成BFC" class="headerlink" title="如何生成BFC"></a>如何生成BFC</h3><ul>
+<li>方法一：overflow：属性值不为visible，可以是auto，hidden。</li>
+<li>方法二：float：属性值不为none，意思是，只要设置了浮动，当前元素就创建了BFC。</li>
+<li>方法三：position的值只要不为static或relative，可以是absolute或fixed，就生成了一个BFC。</li>
+<li>方法四：display为inline-block、table-cell、table-caption、flex、inline-flex</li>
+</ul>
+<h2 id="BFC的应用"><a href="#BFC的应用" class="headerlink" title="BFC的应用"></a>BFC的应用</h2><p><strong>例子1</strong> 解决margin重叠</p>
+<blockquote>
+<p>当父元素与子元素margin发生重叠时，解决办法：给父元素或子元素创建BFC。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;father&quot;</span>&gt;</span><br><span class="line">	&lt;p <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;son&quot;</span>&gt;&lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>上面的div元素中，如果父元素与子元素发生margin重合，就可以给子元素创建一个BFC</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;father&quot;</span>&gt;</span><br><span class="line">	&lt;p <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;son&quot;</span> style=<span class="string">&quot;overflow: hidden&quot;</span>&gt;&lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>因为第二条：BFC区域是一个独立的区域，不会影响外面的元素。</p>
+<hr>
+<p><strong>例子2</strong> BFC区域不与float区域重叠</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">&quot;en&quot;</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">    </span><br><span class="line">    	.father-layout &#123;</span><br><span class="line">            background: pink;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        .father-layout .left &#123;</span><br><span class="line">            float: left;</span><br><span class="line">            width: 100px;</span><br><span class="line">            height: 100px;</span><br><span class="line">            background: pink;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .father-layout .right &#123;</span><br><span class="line">            height: 150px;  <span class="comment">/*右侧标准流里的元素，比左侧浮动的元素要高*/</span></span><br><span class="line">            background: black;</span><br><span class="line">            color: #fff;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;section <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;father-layout&quot;</span>&gt;</span><br><span class="line">    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;left&quot;</span>&gt;</span><br><span class="line">        左侧，我是一句话</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;right&quot;</span>&gt;</span><br><span class="line">        右侧，我是一句话，我是一句话，我是一句话，我是一句话，我是一句话，我是一句话，我是一句话，我是一句话，我是一句话，我是一句话，我是一句话，我是一句话，</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/section&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>效果如下<br><img src="https://img-blog.csdnimg.cn/20201212100858926.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pPS0V0aGVs,size_16,color_FFFFFF,t_70#pic_center" alt="效果图"></p>
+<p>上图中，由于右侧标准流里的元素，比左侧浮动的元素要高，导致右侧有一部分会跑到左边的下面去。</p>
+<blockquote>
+<p>如果要解决这个问题，可以将右侧的元素创建BFC，因为第三条：BFC区域不与float<br>box区域重叠。解决办法如下：（将right区域添加overflow属性）</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;right&quot;</span> style=<span class="string">&quot;overflow: hidden&quot;</span>&gt;</span><br><span class="line">        右侧，我是一句话，我是一句话，我是一句话，我是一句话，我是一句话，我是一句话，我是一句话，我是一句话，我是一句话，我是一句话，我是一句话，我是一句话，</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20201212100915575.png#pic_center" alt="解决后效果图"><br>上图表明，解决之后，father-layout的背景色显现出来了，说明问题解决了。</p>
+<hr>
+<p><strong>例子3</strong> 清除浮动</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">&quot;en&quot;</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line"></span><br><span class="line">        .father &#123;</span><br><span class="line">            background: pink;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .son &#123;</span><br><span class="line">            float: left;</span><br><span class="line">            background: black;</span><br><span class="line">            color: #fff;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;section <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;father&quot;</span>&gt;</span><br><span class="line">    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;son&quot;</span>&gt;</span><br><span class="line">        我是一句话</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/section&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>效果如下<br><img src="https://img-blog.csdnimg.cn/2020121210142989.png#pic_center" alt="效果图"><br>上面的代码中，儿子浮动了，但由于父亲没有设置高度，导致看不到父亲的背景色（此时父亲的高度为0）。正所谓有高度的盒子，才能关住浮动。</p>
+<blockquote>
+<p>如果想要清除浮动带来的影响，方法一是给父亲设置高度，然后采用隔墙法。方法二是 BFC：给父亲增加 overflow=hidden属性即可。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;section <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;father&quot;</span> style=<span class="string">&quot;overflow: hidden&quot;</span>&gt;</span><br><span class="line">    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;son&quot;</span>&gt;</span><br><span class="line">        我是一句话</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/section&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20201212101613654.png#pic_center" alt="解决后效果图"><br>因为第四条：计算BFC的高度时，浮动元素也参与计算。意思是，在计算BFC的高度时，子元素的float box也会参与计算。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/uncategorized/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%9A%E7%B1%BB%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E7%BB%A7%E6%89%BF%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/%E5%A4%B4%E5%83%8F12.jpeg">
+      <meta itemprop="name" content="Ethel">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JOKEthel的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/uncategorized/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%9A%E7%B1%BB%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E7%BB%A7%E6%89%BF%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/" class="post-title-link" itemprop="url">面向对象：类的定义和继承的几种方式</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-08-26 10:34:06" itemprop="dateCreated datePublished" datetime="2019-08-26T10:34:06+08:00">2019-08-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="类的定义、实例化"><a href="#类的定义、实例化" class="headerlink" title="类的定义、实例化"></a>类的定义、实例化</h2><h3 id="类的定义-类的声明"><a href="#类的定义-类的声明" class="headerlink" title="类的定义/类的声明"></a>类的定义/类的声明</h3><p><strong>方式一：</strong> 用构造函数模拟类（传统写法）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Animal1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">this</span>.name = <span class="string">&#x27;smyhvae&#x27;</span>; <span class="comment">//通过this，表明这是一个构造函数</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>方式二：</strong> 用 class 声明（ES6的写法）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal2</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="title">constructor</span>(<span class="params"></span>)</span> &#123;  <span class="comment">//可以在构造函数里写属性</span></span><br><span class="line">		<span class="built_in">this</span>.name = name;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>控制台的效果：<br><img src="https://img-blog.csdnimg.cn/20201221204212436.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pPS0V0aGVs,size_16,color_FFFFFF,t_70" alt="控制台"></p>
+<h3 id="实例化"><a href="#实例化" class="headerlink" title="实例化"></a>实例化</h3><p>类的实例化很简单，直接 new 出来即可。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="keyword">new</span> Animal1(),<span class="keyword">new</span> Animal2()); <span class="comment">//实例化。如果括号里没有参数，则括号可以省略</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20201221204246108.png" alt="控制台"></p>
+<h2 id="继承的几种方式"><a href="#继承的几种方式" class="headerlink" title="继承的几种方式"></a>继承的几种方式</h2><p><strong>继承的本质就是原型链。</strong></p>
+<p><strong>方式一：</strong> 借助构造函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">this</span>.name = <span class="string">&#x27;parent1 的属性&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	Parent1.call(<span class="built_in">this</span>);         <span class="comment">//【重要】此处用 call 或 apply 都行：改变 this 的指向</span></span><br><span class="line">	<span class="built_in">this</span>.type = <span class="string">&#x27;child1 的属性&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">new</span> Child1);</span><br></pre></td></tr></table></figure>
+<p>【重要】上方代码中，最重要的那行代码：在子类的构造函数里写了<code>Parent1.call(this)</code>;，意思是：<strong>让<code>Parent</code>的构造函数在<code>child</code>的构造函数中执行</strong>。发生的变化是：<strong>改变<code>this</code>的指向</strong>，<code>parent</code>的实例 –&gt; 改为指向<code>child</code>的实例。导致 <code>parent</code>的实例的属性挂在到了<code>child</code>的实例上，这就实现了继承。</p>
+<p>打印结果：<br><img src="https://img-blog.csdnimg.cn/20201221204439182.png" alt="控制台"></p>
+<blockquote>
+<p><strong>上方结果表明</strong>：<code>child</code>先有了 <code>parent</code> 实例的属性（继承得以实现），再有了<code>child</code> 实例的属性。</p>
+</blockquote>
+<h3 id="分析："><a href="#分析：" class="headerlink" title="分析："></a>分析：</h3><p>这种方式，虽然改变了 <code>this</code> 的指向，但是，<code>Child1</code> 无法继承 <code>Parent1</code> 的原型。也就是说，如果我给 <code>Parent1</code> 的原型增加一个方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Parent1.prototype.say = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>上面这个方法是无法被 Child1 继承的。如下：<br><img src="https://img-blog.csdnimg.cn/20201221204547714.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pPS0V0aGVs,size_16,color_FFFFFF,t_70" alt="例子"><br><strong>方法二：</strong> 通过原型链实现继承</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">通过原型链实现继承</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">this</span>.name = <span class="string">&#x27;Parent 的属性&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">this</span>.type = <span class="string">&#x27;Child 的属性&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Child.prototype = <span class="keyword">new</span> Parent(); <span class="comment">//【重要】</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">new</span> Child());</span><br></pre></td></tr></table></figure>
+<p>打印结果：<br><img src="https://img-blog.csdnimg.cn/20201221204646590.png" alt="控制台"><br>【重要】上方代码中，最重要的那行：每个函数都有<code>prototype</code>属性，于是，构造函数也有这个属性，这个属性是一个对象。现在，<strong>我们把Parent的实例赋值给了Child的prototye</strong>，从而实现<strong>继承</strong>。此时，<code>Child</code>构造函数、<code>Parent</code>的实例、<code>Child</code>的实例构成一个三角关系。于是：</p>
+<ul>
+<li><code>new Child.__proto__ === new Parent()</code>的结果为true</li>
+</ul>
+<h3 id="分析：-1"><a href="#分析：-1" class="headerlink" title="分析："></a>分析：</h3><p>这种继承方式，<code>Child</code> <strong>可以继承 <code>Parent</code> 的原型</strong>，但有个缺点：</p>
+<p>缺点是：<strong>如果修改 <code>child1</code>实例的<code>name</code>属性，<code>child2</code>实例中的<code>name</code>属性也会跟着改变。</strong></p>
+<p>如下：<br><img src="https://img-blog.csdnimg.cn/20201221205028363.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pPS0V0aGVs,size_16,color_FFFFFF,t_70" alt="例子"><br>上面的代码中， <code>child1</code>修改了<code>arr</code>属性，却发现，<code>child2</code>的<code>arr</code>属性也跟着改变了。这显然不太好，在业务中，两个子模块应该隔离才对。如果改了一个对象，另一个对象却发生了改变，就不太好。</p>
+<p>造成这种缺点的原因是：<code>child1和child2共用原型。即：chi1d1.__proto__ === child2__proto__</code>是严格相同。而 <code>arr</code>方法是在 <code>Parent</code> 的实例上（即 <code>Child</code>实例的原型）的。</p>
+<p><strong>方式三：</strong> 组合的方式：构造函数 + 原型链</p>
+<p>就是把上面的两种方式组合起来：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">/*</span></span><br><span class="line"><span class="comment">组合方式实现继承：构造函数、原型链</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent3</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">this</span>.name = <span class="string">&#x27;Parent 的属性&#x27;</span>;</span><br><span class="line">	<span class="built_in">this</span>.arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child3</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	Parent3.call(<span class="built_in">this</span>); <span class="comment">//【重要1】执行 parent方法</span></span><br><span class="line">	<span class="built_in">this</span>.type = <span class="string">&#x27;Child 的属性&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line">Child3.prototype = <span class="keyword">new</span> Parent3(); <span class="comment">//【重要2】第二次执行parent方法</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> child = <span class="keyword">new</span> Child3();</span><br></pre></td></tr></table></figure>
+<p>这种方式，能解决之前两种方式的问题：既可以继承父类原型的内容，也不会造成原型里属性的修改。</p>
+<p>这种方式的缺点是：让父亲<code>Parent</code>的构造方法执行了两次。</p>
+<p>ES6中的继承方式，一带而过即可，重点是要掌握ES5中的继承。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
 
 
 <script>

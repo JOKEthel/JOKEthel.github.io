@@ -23,21 +23,21 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
-<meta name="description" content="方法一：resolve 这一种方法较常见。它主要是使用了resolve的异步机制，用require代替了import,实现按需加载，下面是代码示例：  123456789101112131415161718import Vue from &amp;#x27;vue&amp;#x27;import Router from &amp;#x27;vue-router&amp;#x27;&#x2F;&#x2F; import HelloWorld from">
+<meta name="description" content="ES6引入了一种新的原始数据类型Symbol，表示独一无二的值。  Symbol 值通过Symbol函数生成。这就是说，对象的属性名现在可以有两种类型，一种是原来就有的字符串，另一种就是新增的 Symbol 类型。凡是属性名属于 Symbol 类型，就都是独一无二的，可以保证不会与其他属性名产生冲突。  Symbol函数前不能使用new命令，因为生成的Symbol是一个原始类型的值，不是对象，所以">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vue路由懒加载">
-<meta property="og:url" content="http://example.com/uncategorized/vue%E8%B7%AF%E7%94%B1%E6%87%92%E5%8A%A0%E8%BD%BD/index.html">
+<meta property="og:title" content="ES6-Symbol">
+<meta property="og:url" content="http://example.com/uncategorized/ES6-Symbol/index.html">
 <meta property="og:site_name" content="JOKEthel的个人博客">
-<meta property="og:description" content="方法一：resolve 这一种方法较常见。它主要是使用了resolve的异步机制，用require代替了import,实现按需加载，下面是代码示例：  123456789101112131415161718import Vue from &amp;#x27;vue&amp;#x27;import Router from &amp;#x27;vue-router&amp;#x27;&#x2F;&#x2F; import HelloWorld from">
+<meta property="og:description" content="ES6引入了一种新的原始数据类型Symbol，表示独一无二的值。  Symbol 值通过Symbol函数生成。这就是说，对象的属性名现在可以有两种类型，一种是原来就有的字符串，另一种就是新增的 Symbol 类型。凡是属性名属于 Symbol 类型，就都是独一无二的，可以保证不会与其他属性名产生冲突。  Symbol函数前不能使用new命令，因为生成的Symbol是一个原始类型的值，不是对象，所以">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2019-08-06T06:38:15.000Z">
-<meta property="article:modified_time" content="2020-12-26T01:28:25.282Z">
+<meta property="article:published_time" content="2019-09-15T02:20:58.000Z">
+<meta property="article:modified_time" content="2020-12-26T01:53:20.115Z">
 <meta property="article:author" content="Ethel">
-<meta property="article:tag" content="vue">
+<meta property="article:tag" content="es6">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/uncategorized/vue%E8%B7%AF%E7%94%B1%E6%87%92%E5%8A%A0%E8%BD%BD/">
+<link rel="canonical" href="http://example.com/uncategorized/ES6-Symbol/">
 
 
 <script class="page-configurations">
@@ -49,7 +49,7 @@
     lang   : 'zh-CN'
   };
 </script>
-<title>vue路由懒加载 | JOKEthel的个人博客</title>
+<title>ES6-Symbol | JOKEthel的个人博客</title>
   
 
 
@@ -180,7 +180,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9Aresolve"><span class="nav-number">1.</span> <span class="nav-text">方法一：resolve</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C-%E5%AE%98%E7%BD%91%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">方法二 官网方法</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Symbol-for"><span class="nav-number">1.</span> <span class="nav-text">Symbol.for()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Symbol-keyFor"><span class="nav-number">2.</span> <span class="nav-text">Symbol.keyFor()</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -247,7 +247,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/uncategorized/vue%E8%B7%AF%E7%94%B1%E6%87%92%E5%8A%A0%E8%BD%BD/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/uncategorized/ES6-Symbol/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/%E5%A4%B4%E5%83%8F12.jpeg">
@@ -260,7 +260,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          vue路由懒加载
+          ES6-Symbol
         </h1>
 
         <div class="post-meta-container">
@@ -271,7 +271,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2019-08-06 14:38:15" itemprop="dateCreated datePublished" datetime="2019-08-06T14:38:15+08:00">2019-08-06</time>
+      <time title="创建时间：2019-09-15 10:20:58" itemprop="dateCreated datePublished" datetime="2019-09-15T10:20:58+08:00">2019-09-15</time>
     </span>
 
   
@@ -284,15 +284,20 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h3 id="方法一：resolve"><a href="#方法一：resolve" class="headerlink" title="方法一：resolve"></a>方法一：resolve</h3><blockquote>
-<p>这一种方法较常见。它主要是使用了<code>resolve</code>的异步机制，用<code>require</code>代替了<code>import</code>,实现按需加载，下面是代码示例：</p>
+        <p>ES6引入了一种新的原始数据类型Symbol，表示独一无二的值。</p>
+<blockquote>
+<p>Symbol 值通过<code>Symbol</code>函数生成。这就是说，对象的属性名现在可以有两种类型，一种是原来就有的字符串，另一种就是新增的 Symbol 类型。凡是属性名属于 Symbol 类型，就都是独一无二的，可以保证不会与其他属性名产生冲突。</p>
 </blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> Router <span class="keyword">from</span> <span class="string">&#x27;vue-router&#x27;</span></span><br><span class="line"><span class="comment">// import HelloWorld from &#x27;@/components/HelloWorld&#x27;</span></span><br><span class="line">Vue.use(Router)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Router(&#123;</span><br><span class="line">  routes: [</span><br><span class="line"><span class="comment">//     &#123;</span></span><br><span class="line"><span class="comment">//       path: &#x27;/&#x27;,</span></span><br><span class="line"><span class="comment">//       name: &#x27;HelloWorld&#x27;,</span></span><br><span class="line"><span class="comment">//       component: HelloWorld</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line">        &#123;</span><br><span class="line">          path: <span class="string">&#x27;/&#x27;</span>,</span><br><span class="line">          name: <span class="string">&#x27;HelloWorld&#x27;</span>,</span><br><span class="line">          component: <span class="function"><span class="params">resolve</span> =&gt;</span> <span class="built_in">require</span>([<span class="string">&#x27;@/components/HelloWorld&#x27;</span>], resolve)</span><br><span class="line">        &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;) </span><br></pre></td></tr></table></figure>
-<hr>
-<h3 id="方法二-官网方法"><a href="#方法二-官网方法" class="headerlink" title="方法二 官网方法"></a>方法二 <a target="_blank" rel="noopener" href="https://router.vuejs.org/zh/guide/advanced/lazy-loading.html">官网方法</a></h3><blockquote>
-<p><code>vue-router</code>在官网提供了一种方法，可以理解也是为通过<code>Promise</code>的<code>resolve</code>机制。因为<code>Promise</code>函数返回的<code>Promise</code>为<code>resolve</code>组件本身，而我们又可以使用<code>import</code>来导入组件。整合起来代码示例如下：</p>
+<p>Symbol函数前不能使用new命令，因为生成的Symbol是一个原始类型的值，不是对象，所以不能添加属性。基本上，它是一个类似于字符串的数据类型。</p>
+<p>Symbol函数的参数只是表示对当前 Symbol 值的描述，因此相同参数的Symbol函数的返回值是不相等的。`</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> s1 = <span class="built_in">Symbol</span>();</span><br><span class="line"><span class="keyword">let</span> s2 = <span class="built_in">Symbol</span>();</span><br><span class="line">s1 === s2 <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> s3 = <span class="built_in">Symbol</span>(<span class="string">&#x27;foo&#x27;</span>);</span><br><span class="line"><span class="keyword">let</span> s4 = <span class="built_in">Symbol</span>(<span class="string">&#x27;foo&#x27;</span>);</span><br><span class="line">s3 === s4 <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>上面代码中，s1和s2都是Symbol函数的返回值，而且参数相同，但是它们是不相等的。</p>
 </blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> Router <span class="keyword">from</span> <span class="string">&#x27;vue-router&#x27;</span></span><br><span class="line"><span class="comment">// import HelloWorld from &#x27;@/components/HelloWorld&#x27;</span></span><br><span class="line">Vue.use(Router)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Router(&#123;</span><br><span class="line">  routes: [</span><br><span class="line"><span class="comment">//     &#123;</span></span><br><span class="line"><span class="comment">//       path: &#x27;/&#x27;,</span></span><br><span class="line"><span class="comment">//       name: &#x27;HelloWorld&#x27;,</span></span><br><span class="line"><span class="comment">//       component: HelloWorld</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line">        &#123;</span><br><span class="line">          path: <span class="string">&#x27;/&#x27;</span>,</span><br><span class="line">          name: <span class="string">&#x27;HelloWorld&#x27;</span>,</span><br><span class="line">          component: <span class="function">() =&gt;</span> <span class="keyword">import</span>(<span class="string">&#x27;@/components/HelloWorld.vue&#x27;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;) </span><br></pre></td></tr></table></figure>
+<h3 id="Symbol-for"><a href="#Symbol-for" class="headerlink" title="Symbol.for()"></a>Symbol.for()</h3><p>如果想重新使用同一个 Symbol 值，Symbol.for()方法可以做到这一点。它接受一个字符串作为参数，然后搜索有没有以该参数作为名称的 Symbol 值。如果有，就返回这个 Symbol 值，否则就新建一个以该字符串为名称的 Symbol 值，并将其注册到全局。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> s1 = <span class="built_in">Symbol</span>.for(<span class="string">&#x27;foo&#x27;</span>);</span><br><span class="line"><span class="keyword">let</span> s2 = <span class="built_in">Symbol</span>.for(<span class="string">&#x27;foo&#x27;</span>);</span><br><span class="line">s1 === s2 <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Symbol</span>(<span class="string">&#x27;foo&#x27;</span>) === <span class="built_in">Symbol</span>(<span class="string">&#x27;foo&#x27;</span>) <span class="comment">// false</span></span><br><span class="line"><span class="built_in">Symbol</span>.for(<span class="string">&#x27;foo&#x27;</span>) === <span class="built_in">Symbol</span>.for(<span class="string">&#x27;foo&#x27;</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<h3 id="Symbol-keyFor"><a href="#Symbol-keyFor" class="headerlink" title="Symbol.keyFor()"></a>Symbol.keyFor()</h3><p>Symbol.keyFor()方法返回一个已登记的 Symbol 类型值的key。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> s1 = <span class="built_in">Symbol</span>.for(<span class="string">&quot;foo&quot;</span>);</span><br><span class="line"><span class="built_in">Symbol</span>.keyFor(s1) <span class="comment">// &quot;foo&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> s2 = <span class="built_in">Symbol</span>(<span class="string">&quot;foo&quot;</span>);</span><br><span class="line"><span class="built_in">Symbol</span>.keyFor(s2) <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -301,20 +306,20 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/vue/" rel="tag"># vue</a>
+              <a href="/tags/es6/" rel="tag"># es6</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/uncategorized/http%E5%8D%8F%E8%AE%AE/" rel="prev" title="http协议">
-                  <i class="fa fa-chevron-left"></i> http协议
+                <a href="/uncategorized/cookie%E3%80%81sessionStorage%E5%92%8ClocalStorage%E7%9A%84%E5%8C%BA%E5%88%AB/" rel="prev" title="cookie、sessionStorage和localStorage的区别">
+                  <i class="fa fa-chevron-left"></i> cookie、sessionStorage和localStorage的区别
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/uncategorized/%E5%8E%9F%E5%9E%8B%EF%BC%8C%E5%8E%9F%E5%9E%8B%E9%93%BE/" rel="next" title="原型，原型链">
-                  原型，原型链 <i class="fa fa-chevron-right"></i>
+                <a href="/uncategorized/JavaScript%E4%B8%AD%E7%9A%84%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/" rel="next" title="JavaScript中的垃圾回收机制">
+                  JavaScript中的垃圾回收机制 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
