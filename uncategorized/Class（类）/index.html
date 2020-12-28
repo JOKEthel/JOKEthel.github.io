@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+<meta name="description" content="前言 ES6引入了 Class（类）这个概念，作为对象的模板。通过class关键字，可以定义类。  但是JS 中并没有一个真正的 class 原始类型， class 仅仅只是对原型对象运用语法糖。所以，只有理解如何使用原型对象实现类和类继承，才能真正地用好 class。 基本语法1234567891011class Person&amp;#123;    constructor(name,age)&amp;#12">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Class（类）">
+<meta property="og:url" content="http://example.com/uncategorized/Class%EF%BC%88%E7%B1%BB%EF%BC%89/index.html">
+<meta property="og:site_name" content="JOKEthel的个人博客">
+<meta property="og:description" content="前言 ES6引入了 Class（类）这个概念，作为对象的模板。通过class关键字，可以定义类。  但是JS 中并没有一个真正的 class 原始类型， class 仅仅只是对原型对象运用语法糖。所以，只有理解如何使用原型对象实现类和类继承，才能真正地用好 class。 基本语法1234567891011class Person&amp;#123;    constructor(name,age)&amp;#12">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201228200031918.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pPS0V0aGVs,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2019-10-20T11:56:48.000Z">
+<meta property="article:modified_time" content="2020-12-28T12:40:19.921Z">
+<meta property="article:author" content="Ethel">
+<meta property="article:tag" content="es6">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20201228200031918.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pPS0V0aGVs,size_16,color_FFFFFF,t_70">
+
+
+<link rel="canonical" href="http://example.com/uncategorized/Class%EF%BC%88%E7%B1%BB%EF%BC%89/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+<title>Class（类） | JOKEthel的个人博客</title>
+  
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="JOKEthel的个人博客" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">JOKEthel的个人博客</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">基本语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90"><span class="nav-number">2.1.</span> <span class="nav-text">代码解析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#class%E7%B1%BB%E4%B8%8E%E5%8E%9F%E5%9E%8B%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-number">3.</span> <span class="nav-text">class类与原型的关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E4%BE%8B%E5%B1%9E%E6%80%A7%E5%92%8C%E5%8E%9F%E5%9E%8B%E5%B1%9E%E6%80%A7"><span class="nav-number">4.</span> <span class="nav-text">实例属性和原型属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#class%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF"><span class="nav-number">5.</span> <span class="nav-text">class类的继承</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9A%E8%BF%87extends%E5%85%B3%E9%94%AE%E5%AD%97%E5%AE%9E%E7%8E%B0%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF"><span class="nav-number">5.1.</span> <span class="nav-text">通过extends关键字实现类的继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9A%E8%BF%87super%E5%85%B3%E9%94%AE%E5%AD%97%E8%BF%9B%E8%A1%8C%E6%8B%93%E5%B1%95%E7%88%B6%E7%B1%BB%E6%9E%84%E9%80%A0%E5%99%A8%E6%88%96%E6%96%B9%E6%B3%95"><span class="nav-number">5.2.</span> <span class="nav-text">通过super关键字进行拓展父类构造器或方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#static%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">6.</span> <span class="nav-text">static关键字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#class-%E5%AE%9E%E4%BE%8B%E5%8C%96%E7%9A%84%E8%83%8C%E5%90%8E%E5%8E%9F%E7%90%86"><span class="nav-number">7.</span> <span class="nav-text">class 实例化的背后原理</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ethel"
+      src="/images/%E5%A4%B4%E5%83%8F12.jpeg">
+  <p class="site-author-name" itemprop="name">Ethel</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/JOKEthel" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;JOKEthel" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/931199480@qq.com" title="E-Mail → 931199480@qq.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/uncategorized/Class%EF%BC%88%E7%B1%BB%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/%E5%A4%B4%E5%83%8F12.jpeg">
+      <meta itemprop="name" content="Ethel">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JOKEthel的个人博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Class（类）
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-10-20 19:56:48" itemprop="dateCreated datePublished" datetime="2019-10-20T19:56:48+08:00">2019-10-20</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+<p>ES6引入了 <code>Class</code>（类）这个概念，作为对象的模板。通过class关键字，可以定义类。</p>
+</blockquote>
+<p>但是JS 中并没有一个真正的 <code>class</code> 原始类型， <code>class</code> 仅仅只是对原型对象运用语法糖。所以，只有理解如何使用原型对象实现类和类继承，才能真正地用好 <code>class</code>。</p>
+<h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="title">constructor</span>(<span class="params">name,age</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">        <span class="built_in">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">Say</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;My name is &#x27;</span> + <span class="built_in">this</span>.name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> Person(<span class="string">&#x27;Ethel&#x27;</span>,<span class="number">18</span>);</span><br><span class="line"><span class="built_in">console</span>.log(person1.Say());<span class="comment">//My name is Ethel</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20201228200031918.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pPS0V0aGVs,size_16,color_FFFFFF,t_70" alt="图片"></p>
+<h3 id="代码解析"><a href="#代码解析" class="headerlink" title="代码解析"></a>代码解析</h3><blockquote>
+<p><code>person1</code> 是通过类 <code>Person</code> 实例化出来的对象。对象 <code>person1</code> 是按照类 <code>Person</code> 这个模板，实例化出来的对象。实例化出来的对象拥有类预先订制好的结构和功能。</p>
+</blockquote>
+<ol>
+<li><code>constructor</code>是一个构造函数方法，创建对象时自动调用该方法</li>
+<li><code>constructor</code>是默认存在的，可以省略，程序也可以调用</li>
+<li><code>this</code>指的是<strong>实例化对象</strong></li>
+<li>类中声明的方法不能加<code>function</code>关键字</li>
+<li>方法之间不要用逗号分隔，否则会报错</li>
+</ol>
+<h2 id="class类与原型的关系"><a href="#class类与原型的关系" class="headerlink" title="class类与原型的关系"></a>class类与原型的关系</h2><p><code>class</code>类本质上就是一个函数，自身指向的就是构造函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> Person);<span class="comment">// function</span></span><br><span class="line"><span class="built_in">console</span>.log(Person.prototype.constructor === Person);<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<p><code>class</code>类是构造函数的另一种写法，仍然存在<code>prototype</code>方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(Person.prototype);<span class="comment">//object</span></span><br></pre></td></tr></table></figure>
+<p>可以通过原型<code>prototype</code>修改类方法和新增方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Person.prototype.Say = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;My name is &#x27;</span> + <span class="built_in">this</span>.name+<span class="string">&#x27;,我是原型prototype声明同样的Say方法，把原有Say方法覆盖了&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line">person2 = <span class="keyword">new</span> Person(<span class="string">&#x27;Frank&#x27;</span>,<span class="number">20</span>);</span><br><span class="line"><span class="built_in">console</span>.log(person2.Say());<span class="comment">//My name is Frank，我是原型prototype声明同样的Say方法，把原有Say方法覆盖了</span></span><br><span class="line">Person.prototype.Go = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;I am &#x27;</span> + <span class="built_in">this</span>.age + <span class="string">&#x27; years old&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(person2.Go());<span class="comment">//I am 20 years old</span></span><br></pre></td></tr></table></figure>
+<p>还可以通过<code>Object.assign</code>方法来为对象动态增加方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.assign(Person.prototype,&#123;</span><br><span class="line">    Eat:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.name;</span><br><span class="line">    &#125;,</span><br><span class="line">    Run:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.age;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">person3 = <span class="keyword">new</span> Person(<span class="string">&#x27;Allen&#x27;</span>,<span class="number">20</span>);</span><br><span class="line"><span class="built_in">console</span>.log(person3.Eat());<span class="comment">//Allen</span></span><br><span class="line"><span class="built_in">console</span>.log(person3.Run());<span class="comment">//20</span></span><br></pre></td></tr></table></figure>
+<p>也可以使用实例对象的<code>__proto__</code>属性新增类的方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">person3 = <span class="keyword">new</span> Person(<span class="string">&#x27;Allen&#x27;</span>,<span class="number">20</span>);</span><br><span class="line">person4 = <span class="keyword">new</span> Person(<span class="string">&#x27;Morgan&#x27;</span>,<span class="number">21</span>);</span><br><span class="line">person3.__proto__.Play = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.name;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(person3.Play());<span class="comment">// Allen</span></span><br><span class="line"><span class="built_in">console</span>.log(person4.Play());<span class="comment">// Morgan</span></span><br></pre></td></tr></table></figure>
+<h2 id="实例属性和原型属性"><a href="#实例属性和原型属性" class="headerlink" title="实例属性和原型属性"></a>实例属性和原型属性</h2><p><strong>实例属性</strong>：<code>constructor</code>里面的属性为实例属性，即定义在<code>this</code>对象上<br><strong>原型属性</strong>：除去实例属性都称为原型属性，即定义在<code>class</code>类上<br><code>hasOwnProperty</code>方法：可以通过<code>hasOwnProperty()</code>方法进行判断属性是否是实例属性<br><code>in</code>操作符：能够访问到属性时返回<code>true</code>,无论是实例属性还是原型属性</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="title">constructor</span>(<span class="params">person1,person2</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.person1 = person1;</span><br><span class="line">        <span class="built_in">this</span>.person2 = person2;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">Say</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> person1+person2;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> box = <span class="keyword">new</span> Person(<span class="string">&#x27;Emily&#x27;</span>,<span class="string">&#x27;Kristina&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(Person.hasOwnProperty(<span class="string">&quot;person1&quot;</span>));<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(Person.hasOwnProperty(<span class="string">&quot;person1&quot;</span>));<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(Person.hasOwnProperty(<span class="string">&quot;Say&quot;</span>));<span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;person1&quot;</span> <span class="keyword">in</span> Person);<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;person2&quot;</span> <span class="keyword">in</span> Person);<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;Say&quot;</span> <span class="keyword">in</span> Person);<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;Go&quot;</span> <span class="keyword">in</span> Person);<span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+<h2 id="class类的继承"><a href="#class类的继承" class="headerlink" title="class类的继承"></a>class类的继承</h2><h3 id="通过extends关键字实现类的继承"><a href="#通过extends关键字实现类的继承" class="headerlink" title="通过extends关键字实现类的继承"></a>通过<code>extends</code>关键字实现类的继承</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="title">constructor</span>(<span class="params">name,age</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">        <span class="built_in">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">getName</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">getAge</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.age; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">extends</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="title">getName</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;我覆盖了父级的方法,&#x27;</span>+ <span class="built_in">this</span>.name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">getScore</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;我是子级新增的方法,&#x27;</span>+<span class="built_in">this</span>.name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> stu1 = <span class="keyword">new</span> Student(<span class="string">&#x27;Ethel&#x27;</span>,<span class="number">18</span>);</span><br><span class="line"><span class="built_in">console</span>.log(sut1.getName());<span class="comment">// 我覆盖了父级的方法,Ethel</span></span><br><span class="line"><span class="built_in">console</span>.log(sut1.getAge());<span class="comment">//18</span></span><br><span class="line"><span class="built_in">console</span>.log(sut1.getScore());<span class="comment">// 我是子级新增的方法,Ethel</span></span><br></pre></td></tr></table></figure>
+<h3 id="通过super关键字进行拓展父类构造器或方法"><a href="#通过super关键字进行拓展父类构造器或方法" class="headerlink" title="通过super关键字进行拓展父类构造器或方法"></a>通过<code>super</code>关键字进行拓展父类构造器或方法</h3><p><strong>super作用</strong></p>
+<ol>
+<li>子类使用构造器<code>constructor</code>的时候，必须使用<code>super</code>关键字，用来扩展构造器</li>
+<li>子类同名方法会覆盖父类同名方法，使用<code>super</code>关键字后则可以调用到父类的同名函数</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="title">constructor</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">getName</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;我是父级类getName方法输出来的&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">getAge</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">this</span>.age); </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">extends</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="title">constructor</span>(<span class="params">name,age,sex</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">super</span>();<span class="comment">//必须先调用super，才能使用constructor，才能使用this对象</span></span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">        <span class="built_in">this</span>.age = age;</span><br><span class="line">        <span class="built_in">this</span>.sex = sex;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">getName</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">super</span>.getName();<span class="comment">//调用super，才能调用父类同名函数getName</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;我是子级类getName方法输出来的&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> stu1 = <span class="keyword">new</span> Student(<span class="string">&#x27;Ethel&#x27;</span>,<span class="number">18</span>);</span><br><span class="line">stu1.getName();</span><br><span class="line"><span class="comment">// 我是父级类getName方法输出来的</span></span><br><span class="line"><span class="comment">// 我是子级类getName方法输出来的</span></span><br></pre></td></tr></table></figure>
+<h2 id="static关键字"><a href="#static关键字" class="headerlink" title="static关键字"></a>static关键字</h2><ol>
+<li><code>static</code>关键字是类的方法</li>
+<li>只能通过类名来调用，不能被实例对象调用</li>
+<li><code>static</code>方法也可以被继承</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="title">constructor</span>(<span class="params">name,age</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">        <span class="built_in">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">static</span> <span class="function"><span class="title">getAge</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;我是静态属性static&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">extends</span> <span class="title">Person</span></span>&#123;&#125;</span><br><span class="line"><span class="keyword">var</span> stu1 = <span class="keyword">new</span> Student(<span class="string">&#x27;Ethel&#x27;</span>,<span class="number">2</span>);</span><br><span class="line">Person.getAge();<span class="comment">//我是静态属性static</span></span><br><span class="line">Student.getAge();<span class="comment">//我是静态属性static</span></span><br><span class="line">stu1.getAge();<span class="comment">//stu1.getAge is not a function</span></span><br></pre></td></tr></table></figure>
+<h2 id="class-实例化的背后原理"><a href="#class-实例化的背后原理" class="headerlink" title="class 实例化的背后原理"></a>class 实例化的背后原理</h2><p>使用 <code>class</code> 的语法，让开发者告别了使用 <code>prototype</code> 模仿面向对象的时代。但是，<code>class</code> 并不是 <code>ES6</code> 引入的全新概念，它的原理依旧是原型继承。</p>
+<p><strong>typeof class == “function”</strong></p>
+<blockquote>
+<p>通过类型判断，我们可以得知，<code>class</code> 的并不是什么全新的数据类型，它实际只是 <code>function</code> (或者说 <code>object</code>)。</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/es6/" rel="tag"># es6</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/uncategorized/React%E4%B8%AD%E7%9A%84hook/" rel="prev" title="React中的hook">
+                  <i class="fa fa-chevron-left"></i> React中的hook
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ethel</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
