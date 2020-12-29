@@ -179,7 +179,7 @@
 <p>另外，当清空一个数组时，我们通常的做法是 array = []，但这种做法的背后是新建了一个新的数组然后将原来的数组当作内存垃圾。建议的做法是 array.length = 0，这样做不仅可以重用原来的变量，而且还避免创建了新的数组。</p>
 ]]></content>
       <tags>
-        <tag>js</tag>
+        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -298,6 +298,112 @@
 ]]></content>
       <tags>
         <tag>react</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>about TypeScript</title>
+    <url>/uncategorized/about-TypeScript/</url>
+    <content><![CDATA[<h2 id="TypeScript基本类型"><a href="#TypeScript基本类型" class="headerlink" title="TypeScript基本类型"></a>TypeScript基本类型</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> str: string = <span class="string">&#x27;字符串类型&#x27;</span>  <span class="comment">// 字符串类型</span></span><br><span class="line"><span class="keyword">let</span> num: number = <span class="number">24</span>  <span class="comment">// 数字类型</span></span><br><span class="line"><span class="keyword">let</span> bool: boolean = <span class="literal">true</span>  <span class="comment">// 布尔类型</span></span><br></pre></td></tr></table></figure>
+<h3 id="Array-数组类型（只能是单一类型，例如string或者number）"><a href="#Array-数组类型（只能是单一类型，例如string或者number）" class="headerlink" title="Array 数组类型（只能是单一类型，例如string或者number）"></a>Array 数组类型（只能是单一类型，例如string或者number）</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr: numer[] = [<span class="number">11</span>, <span class="number">22</span>, <span class="number">33</span>]  <span class="comment">// number表示数字类型 后面的 [] 表示数字类型的数组</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> list: <span class="built_in">Array</span>&lt;string&gt; = [<span class="string">&#x27;西安&#x27;</span>, <span class="string">&#x27;北京&#x27;</span>, <span class="string">&#x27;上海&#x27;</span>]  <span class="comment">// string表示数字类型，Array表示数组</span></span><br></pre></td></tr></table></figure>
+<h3 id="Tuple-元组类型-元组类型允许表示一个已知元素数量和类型的数组，各元素的类型不必相同"><a href="#Tuple-元组类型-元组类型允许表示一个已知元素数量和类型的数组，各元素的类型不必相同" class="headerlink" title="Tuple 元组类型(元组类型允许表示一个已知元素数量和类型的数组，各元素的类型不必相同)"></a>Tuple 元组类型(元组类型允许表示一个已知元素数量和类型的数组，各元素的类型不必相同)</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> tupleType: [string, number] = [<span class="string">&#x27;Ethel&#x27;</span>, <span class="number">18</span>]</span><br></pre></td></tr></table></figure>
+<h3 id="Enum-枚举类型"><a href="#Enum-枚举类型" class="headerlink" title="Enum 枚举类型"></a>Enum 枚举类型</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">enum Animal &#123;Cat, Dog, Dragon&#125;</span><br><span class="line"><span class="keyword">let</span> cat: Animal = Animal.Cat</span><br><span class="line"><span class="built_in">console</span>.log(cat)  <span class="comment">// 0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> whiteCat = Animal[<span class="number">0</span>]</span><br><span class="line">cosole.log(whiteCat)  <span class="comment">// Cat</span></span><br></pre></td></tr></table></figure>
+<h3 id="Any类型-变量赋值不受类型限制，可以赋值任意类型"><a href="#Any类型-变量赋值不受类型限制，可以赋值任意类型" class="headerlink" title="Any类型(变量赋值不受类型限制，可以赋值任意类型)"></a>Any类型(变量赋值不受类型限制，可以赋值任意类型)</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> notSure: any = <span class="number">23</span></span><br><span class="line">notSure = <span class="string">&#x27;some&#x27;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Void类型"><a href="#Void类型" class="headerlink" title="Void类型"></a>Void类型</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">vacancy</span>(<span class="params"></span>): <span class="title">void</span> </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;没有任何类型返回&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>声明一个<code>void</code>类型的变量没什么用，因为只能赋予它<code>undefined</code>和<code>null</code></p>
+<h3 id="Null和Undefined-使用的作用不大"><a href="#Null和Undefined-使用的作用不大" class="headerlink" title="Null和Undefined (使用的作用不大)"></a>Null和Undefined (使用的作用不大)</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> user: <span class="literal">undefined</span> = <span class="literal">undefined</span></span><br><span class="line"><span class="keyword">let</span> name: <span class="literal">null</span> = <span class="literal">null</span></span><br></pre></td></tr></table></figure>
+<h3 id="Never类型-（永不存在的值的类型-不常用）"><a href="#Never类型-（永不存在的值的类型-不常用）" class="headerlink" title="Never类型 （永不存在的值的类型,不常用）"></a>Never类型 （永不存在的值的类型,不常用）</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 返回never的函数必须存在</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">error</span>(<span class="params"></span>):<span class="title">never</span> </span>&#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(message)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Object-非原始类型，除了number，string，boolean，symbol，null或undefined之外的类型"><a href="#Object-非原始类型，除了number，string，boolean，symbol，null或undefined之外的类型" class="headerlink" title="Object(非原始类型，除了number，string，boolean，symbol，null或undefined之外的类型)"></a>Object(非原始类型，除了number，string，boolean，symbol，null或undefined之外的类型)</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">create</span>(<span class="params">O: object</span>): <span class="title">void</span></span></span><br><span class="line"><span class="function"><span class="title">create</span>(<span class="params">&#123;props: <span class="number">999</span>&#125;</span>) // <span class="title">ok</span></span></span><br><span class="line"><span class="function"><span class="title">create</span>(<span class="params"><span class="string">&#x27;test&#x27;</span></span>) // <span class="title">Error</span></span></span><br><span class="line"><span class="function"><span class="title">create</span>(<span class="params"><span class="number">22</span></span>) // <span class="title">Error</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="类型断言（告诉编译器，不必提示我的问题，我自己知道我在干什么）"><a href="#类型断言（告诉编译器，不必提示我的问题，我自己知道我在干什么）" class="headerlink" title="类型断言（告诉编译器，不必提示我的问题，我自己知道我在干什么）"></a>类型断言（告诉编译器，不必提示我的问题，我自己知道我在干什么）</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> value: any = <span class="string">&#x27;How are you&#x27;</span></span><br><span class="line"><span class="keyword">let</span> valueStr: number = (&lt;string&gt;value).length</span><br><span class="line"></span><br><span class="line"><span class="comment">//另外一种写法就是：</span></span><br><span class="line"><span class="keyword">let</span> valueSecond: any = <span class="string">&quot;I&#x27;m OK&quot;</span></span><br><span class="line"><span class="keyword">let</span> valueLength: number = (valueSecond <span class="keyword">as</span> string).length</span><br></pre></td></tr></table></figure>
+<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><p>在ts中基础类型有以下几种：</p>
+<ul>
+<li>String</li>
+<li>Boolean</li>
+<li>Number</li>
+<li>Tuple</li>
+<li>Enum</li>
+<li>Any</li>
+<li>Void</li>
+<li>Null / Undefined</li>
+<li>Never</li>
+<li>Object</li>
+</ul>
+<blockquote>
+<p>在TS中只要声明变量就需要设定类型，只要创建函数就需要设置返回值的类型</p>
+</blockquote>
+<h2 id="TypeScript-NameSpace（命名空间）"><a href="#TypeScript-NameSpace（命名空间）" class="headerlink" title="TypeScript NameSpace（命名空间）"></a>TypeScript NameSpace（命名空间）</h2><h3 id="命名空间"><a href="#命名空间" class="headerlink" title="命名空间"></a>命名空间</h3><p>在 ts 中,为了避免对全局的污染，可以使用命名空间</p>
+<blockquote>
+<p>使用<code>namespace</code>关键字声明ts命名空间 在命名空间内可定义任意变量，仅能在命名空间下可见 。如果要使命名空间内的变量全局可见，需要使用<code>export</code>关键字导出。</p>
+</blockquote>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 命名空间</span></span><br><span class="line"><span class="keyword">namespace</span> Shape &#123;</span><br><span class="line">    <span class="keyword">const</span> pi = <span class="built_in">Math</span>.PI</span><br><span class="line">    <span class="comment">// 全局可见</span></span><br><span class="line">    <span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">cricle</span>(<span class="params">r: <span class="built_in">number</span></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> pi * r ** <span class="number">2</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以上代码会被编译成</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="meta">&quot;use strict&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> Shape;</span><br><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params">Shape</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> pi = <span class="built_in">Math</span>.PI;</span><br><span class="line">    <span class="comment">// 全局可见</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">cricle</span>(<span class="params">r</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> pi * r ** <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    Shape.cricle = cricle;</span><br><span class="line">&#125;)(Shape || (Shape = &#123;&#125;));</span><br></pre></td></tr></table></figure>
+<h3 id="命名空间的拆分"><a href="#命名空间的拆分" class="headerlink" title="命名空间的拆分"></a>命名空间的拆分</h3><p>随着命名空间的增大,命名空间也是可以进行拆分的 。</p>
+<p>如果 namespace2.ts 中有一个和 namespace1.ts 同名的命名空间</p>
+<p><strong>namespace1.ts</strong></p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">namespace</span> Shape &#123;</span><br><span class="line">    <span class="keyword">const</span> pi = <span class="built_in">Math</span>.PI</span><br><span class="line">    <span class="comment">// 全局可见</span></span><br><span class="line">    <span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">cricle</span>(<span class="params">r: <span class="built_in">number</span></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> pi * r ** <span class="number">2</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>namespace2.ts</strong></p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">namespace</span> Shape &#123;</span><br><span class="line">    <span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">square</span>(<span class="params">x: <span class="built_in">number</span></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> x * x</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这样，相当于一个命名空间分布在两个ts文件中，共享一个命名空间 。</p>
+</blockquote>
+<h3 id="命名空间的使用"><a href="#命名空间的使用" class="headerlink" title="命名空间的使用"></a>命名空间的使用</h3><p>直接使用命名空间名称进行访问即可</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 命名空间</span></span><br><span class="line"><span class="keyword">namespace</span> Shape &#123;</span><br><span class="line">    <span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">square</span>(<span class="params">x: <span class="built_in">number</span></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> x * x</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(Shape.cricle(<span class="number">1</span>)) <span class="comment">// namespace1.ts</span></span><br><span class="line"><span class="built_in">console</span>.log(Shape.square(<span class="number">1</span>)) <span class="comment">// namespace2.ts</span></span><br></pre></td></tr></table></figure>
+<p>如果 namespace2.ts 引用 namespace1.ts ，需要使用三斜线指令</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/// &lt;reference path=&quot;引用文件的相对路径&quot;&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/// &lt;reference path=&quot;namespace.ts&quot;/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 命名空间</span></span><br><span class="line"><span class="keyword">namespace</span> Shape &#123;</span><br><span class="line">    <span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">square</span>(<span class="params">x: <span class="built_in">number</span></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> x * x</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(Shape.cricle(<span class="number">1</span>)) <span class="comment">// namespace1.ts</span></span><br><span class="line"><span class="built_in">console</span>.log(Shape.square(<span class="number">1</span>)) <span class="comment">// namespace2.ts</span></span><br></pre></td></tr></table></figure>
+<p>如何要在html中引入 typescript 编译后的 js文件，需要把这两个文件都引入。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;app&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;src/namespace.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;src/namespace2.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="命名空间的别名"><a href="#命名空间的别名" class="headerlink" title="命名空间的别名"></a>命名空间的别名</h3><p>在引用命名空间时，可以通过import关键字起一个别名</p>
+<p>例如 particular.ts</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">namespace</span> Particular &#123;</span><br><span class="line">     <span class="keyword">export</span> <span class="keyword">interface</span> Animal &#123;</span><br><span class="line">         name: <span class="built_in">string</span>;</span><br><span class="line">         eat(): <span class="built_in">void</span>;</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/// &lt;reference path=&quot;particular.ts&quot; /&gt;</span></span><br><span class="line"><span class="keyword">import</span> part = Particular <span class="comment">// 别名</span></span><br></pre></td></tr></table></figure>
+<h2 id="Symbol类型"><a href="#Symbol类型" class="headerlink" title="Symbol类型"></a>Symbol类型</h2><h3 id="认识Symbol"><a href="#认识Symbol" class="headerlink" title="认识Symbol"></a>认识Symbol</h3><h4 id="Symbol是一种原生类型"><a href="#Symbol是一种原生类型" class="headerlink" title="Symbol是一种原生类型"></a><code>Symbol</code>是一种原生类型</h4><p><code>symbol</code>类型的值是通过<code>Symbol</code>构造函数创建的，且传入的值只能是<code>number</code>、<code>string</code>。</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> s1 = <span class="built_in">Symbol</span>()</span><br><span class="line"><span class="keyword">let</span> s2 = <span class="built_in">Symbol</span>(<span class="string">&#x27;str&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="Symbol是不可改变且唯一的。"><a href="#Symbol是不可改变且唯一的。" class="headerlink" title="Symbol是不可改变且唯一的。"></a><code>Symbol</code>是不可改变且唯一的。</h4><figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> s1 = <span class="built_in">Symbol</span>();</span><br><span class="line"><span class="keyword">let</span> s2 = <span class="built_in">Symbol</span>();</span><br><span class="line">s1 === s2 <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> s3 = <span class="built_in">Symbol</span>(<span class="string">&#x27;foo&#x27;</span>);</span><br><span class="line"><span class="keyword">let</span> s4 = <span class="built_in">Symbol</span>(<span class="string">&#x27;foo&#x27;</span>);</span><br><span class="line">s3 === s4 <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<h4 id="Symbol也可以被用做对象属性的键。"><a href="#Symbol也可以被用做对象属性的键。" class="headerlink" title="Symbol也可以被用做对象属性的键。"></a><code>Symbol</code>也可以被用做对象属性的键。</h4><figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> s1 = <span class="built_in">Symbol</span>(<span class="string">&#x27;name&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> info = &#123;</span><br><span class="line">    [s1]: <span class="string">&#x27;Ethel&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(info[sym1]) <span class="comment">// Ethel</span></span><br></pre></td></tr></table></figure>
+<h4 id="遍历用Symbol做为键的对象"><a href="#遍历用Symbol做为键的对象" class="headerlink" title="遍历用Symbol做为键的对象"></a>遍历用<code>Symbol</code>做为键的对象</h4><p>与常规的对象遍历不同(<code>for...in</code>、<code>Object.keys()</code>、…)，<code>Symbol</code>所构成的对象键不能被这样遍历出来。</p>
+<p>可以使用<code>ES6</code>中的<code>Reflect.ownKeys()</code>可以打印出含有<code>Symbol</code>做为键的所有对象</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> s1 = <span class="built_in">Symbol</span>(<span class="string">&#x27;name&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> info = &#123;</span><br><span class="line">    [s1]: <span class="string">&#x27;Ethel&#x27;</span>,</span><br><span class="line">    age: <span class="number">18</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Reflect</span>.ownKeys(info)) <span class="comment">// [&quot;age&quot;, Symbol(name)]</span></span><br></pre></td></tr></table></figure>
+<h4 id="返回由Symbol创建的值-for"><a href="#返回由Symbol创建的值-for" class="headerlink" title="返回由Symbol创建的值 .for()"></a>返回由<code>Symbol</code>创建的值 <code>.for()</code></h4><figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> s1 = <span class="built_in">Symbol</span>(<span class="string">&#x27;name&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> s2 = <span class="built_in">Symbol</span>.for(<span class="string">&#x27;name&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(s2) <span class="comment">// Symbol(name)</span></span><br></pre></td></tr></table></figure>
+<h4 id="查找由Symbol-for-所创建值的键-keyfor"><a href="#查找由Symbol-for-所创建值的键-keyfor" class="headerlink" title="查找由Symbol.for()所创建值的键.keyfor()"></a>查找由<code>Symbol.for()</code>所创建值的键<code>.keyfor()</code></h4><figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> s1 = <span class="built_in">Symbol</span>(<span class="string">&#x27;name&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> s2 = <span class="built_in">Symbol</span>.for(<span class="string">&#x27;name&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> s3 = <span class="built_in">Symbol</span>.keyfor(s2)</span><br><span class="line"><span class="built_in">console</span>.log(s3) <span class="comment">// name</span></span><br></pre></td></tr></table></figure>
+<h3 id="Symbols的内置方法（了解）"><a href="#Symbols的内置方法（了解）" class="headerlink" title="Symbols的内置方法（了解）"></a>Symbols的内置方法（了解）</h3><p>除了用户定义的<code>symbols</code>，还有一些已经众所周知的内置<code>symbols</code>。 内置<code>symbols</code>用来表示语言内部的行为。</p>
+<p>以下为这些symbols的列表：</p>
+<blockquote>
+<p><strong><code>Symbol.hasInstance</code></strong> 方法，会被<code>instanceof</code>运算符调用。构造器对象用来识别一个对象是否是其实例。</p>
+</blockquote>
+<blockquote>
+<p><strong><code>Symbol.isConcatSpreadable</code></strong> 布尔值，表示当在一个对象上调用<code>Array.prototype.concat</code>时，这个对象的数组元素是否可展开。</p>
+</blockquote>
+<blockquote>
+<p><strong><code>Symbol.iterator</code></strong> 方法，被<code>for-of</code>语句调用。返回对象的默认迭代器。</p>
+</blockquote>
+<blockquote>
+<p><strong><code>Symbol.match</code></strong> 方法，被<code>String.prototype.match</code>调用。正则表达式用来匹配字符串。</p>
+</blockquote>
+<blockquote>
+<p><strong><code>Symbol.replace</code></strong> 方法，被<code>String.prototype.replace</code>调用。正则表达式用来替换字符串中匹配的子串。</p>
+</blockquote>
+<blockquote>
+<p><strong><code>Symbol.search</code></strong> 方法，被<code>String.prototype.search</code>调用。正则表达式返回被匹配部分在字符串中的索引。</p>
+</blockquote>
+<blockquote>
+<p><strong><code>Symbol.species</code></strong> 函数值，为一个构造函数。用来创建派生对象。</p>
+</blockquote>
+<blockquote>
+<p><strong><code>Symbol.split</code></strong> 方法，被<code>String.prototype.split</code>调用。正则表达式来用分割字符串。</p>
+</blockquote>
+<blockquote>
+<p><strong><code>Symbol.toPrimitive</code></strong> 方法，被<code>ToPrimitive</code>抽象操作调用。把对象转换为相应的原始值。</p>
+</blockquote>
+<blockquote>
+<p><strong><code>Symbol.toStringTag</code></strong> 方法，被内置方法<code>Object.prototype.toString</code>调用。返回创建对象时默认的字符串描述。</p>
+</blockquote>
+<blockquote>
+<p><strong><code>Symbol.unscopables</code></strong> 对象，它自己拥有的属性会被with作用域排除在外。</p>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>typescript</tag>
       </tags>
   </entry>
   <entry>
@@ -514,23 +620,7 @@
 <p>循环执行过程中，几乎同时设置了 3 个定时器，这些定时器都会在 1 秒之后触发，而循环完的输出是立即执行的，显而易见，正确的描述是 B。</p>
 ]]></content>
       <tags>
-        <tag>js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>vue路由懒加载</title>
-    <url>/uncategorized/vue%E8%B7%AF%E7%94%B1%E6%87%92%E5%8A%A0%E8%BD%BD/</url>
-    <content><![CDATA[<h3 id="方法一：resolve"><a href="#方法一：resolve" class="headerlink" title="方法一：resolve"></a>方法一：resolve</h3><blockquote>
-<p>这一种方法较常见。它主要是使用了<code>resolve</code>的异步机制，用<code>require</code>代替了<code>import</code>,实现按需加载，下面是代码示例：</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> Router <span class="keyword">from</span> <span class="string">&#x27;vue-router&#x27;</span></span><br><span class="line"><span class="comment">// import HelloWorld from &#x27;@/components/HelloWorld&#x27;</span></span><br><span class="line">Vue.use(Router)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Router(&#123;</span><br><span class="line">  routes: [</span><br><span class="line"><span class="comment">//     &#123;</span></span><br><span class="line"><span class="comment">//       path: &#x27;/&#x27;,</span></span><br><span class="line"><span class="comment">//       name: &#x27;HelloWorld&#x27;,</span></span><br><span class="line"><span class="comment">//       component: HelloWorld</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line">        &#123;</span><br><span class="line">          path: <span class="string">&#x27;/&#x27;</span>,</span><br><span class="line">          name: <span class="string">&#x27;HelloWorld&#x27;</span>,</span><br><span class="line">          component: <span class="function"><span class="params">resolve</span> =&gt;</span> <span class="built_in">require</span>([<span class="string">&#x27;@/components/HelloWorld&#x27;</span>], resolve)</span><br><span class="line">        &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;) </span><br></pre></td></tr></table></figure>
-<hr>
-<h3 id="方法二-官网方法"><a href="#方法二-官网方法" class="headerlink" title="方法二 官网方法"></a>方法二 <a href="https://router.vuejs.org/zh/guide/advanced/lazy-loading.html">官网方法</a></h3><blockquote>
-<p><code>vue-router</code>在官网提供了一种方法，可以理解也是为通过<code>Promise</code>的<code>resolve</code>机制。因为<code>Promise</code>函数返回的<code>Promise</code>为<code>resolve</code>组件本身，而我们又可以使用<code>import</code>来导入组件。整合起来代码示例如下：</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> Router <span class="keyword">from</span> <span class="string">&#x27;vue-router&#x27;</span></span><br><span class="line"><span class="comment">// import HelloWorld from &#x27;@/components/HelloWorld&#x27;</span></span><br><span class="line">Vue.use(Router)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Router(&#123;</span><br><span class="line">  routes: [</span><br><span class="line"><span class="comment">//     &#123;</span></span><br><span class="line"><span class="comment">//       path: &#x27;/&#x27;,</span></span><br><span class="line"><span class="comment">//       name: &#x27;HelloWorld&#x27;,</span></span><br><span class="line"><span class="comment">//       component: HelloWorld</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line">        &#123;</span><br><span class="line">          path: <span class="string">&#x27;/&#x27;</span>,</span><br><span class="line">          name: <span class="string">&#x27;HelloWorld&#x27;</span>,</span><br><span class="line">          component: <span class="function">() =&gt;</span> <span class="keyword">import</span>(<span class="string">&#x27;@/components/HelloWorld.vue&#x27;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;) </span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>vue</tag>
+        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -594,6 +684,22 @@
       </tags>
   </entry>
   <entry>
+    <title>vue路由懒加载</title>
+    <url>/uncategorized/vue%E8%B7%AF%E7%94%B1%E6%87%92%E5%8A%A0%E8%BD%BD/</url>
+    <content><![CDATA[<h3 id="方法一：resolve"><a href="#方法一：resolve" class="headerlink" title="方法一：resolve"></a>方法一：resolve</h3><blockquote>
+<p>这一种方法较常见。它主要是使用了<code>resolve</code>的异步机制，用<code>require</code>代替了<code>import</code>,实现按需加载，下面是代码示例：</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> Router <span class="keyword">from</span> <span class="string">&#x27;vue-router&#x27;</span></span><br><span class="line"><span class="comment">// import HelloWorld from &#x27;@/components/HelloWorld&#x27;</span></span><br><span class="line">Vue.use(Router)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Router(&#123;</span><br><span class="line">  routes: [</span><br><span class="line"><span class="comment">//     &#123;</span></span><br><span class="line"><span class="comment">//       path: &#x27;/&#x27;,</span></span><br><span class="line"><span class="comment">//       name: &#x27;HelloWorld&#x27;,</span></span><br><span class="line"><span class="comment">//       component: HelloWorld</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line">        &#123;</span><br><span class="line">          path: <span class="string">&#x27;/&#x27;</span>,</span><br><span class="line">          name: <span class="string">&#x27;HelloWorld&#x27;</span>,</span><br><span class="line">          component: <span class="function"><span class="params">resolve</span> =&gt;</span> <span class="built_in">require</span>([<span class="string">&#x27;@/components/HelloWorld&#x27;</span>], resolve)</span><br><span class="line">        &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;) </span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="方法二-官网方法"><a href="#方法二-官网方法" class="headerlink" title="方法二 官网方法"></a>方法二 <a href="https://router.vuejs.org/zh/guide/advanced/lazy-loading.html">官网方法</a></h3><blockquote>
+<p><code>vue-router</code>在官网提供了一种方法，可以理解也是为通过<code>Promise</code>的<code>resolve</code>机制。因为<code>Promise</code>函数返回的<code>Promise</code>为<code>resolve</code>组件本身，而我们又可以使用<code>import</code>来导入组件。整合起来代码示例如下：</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> Router <span class="keyword">from</span> <span class="string">&#x27;vue-router&#x27;</span></span><br><span class="line"><span class="comment">// import HelloWorld from &#x27;@/components/HelloWorld&#x27;</span></span><br><span class="line">Vue.use(Router)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Router(&#123;</span><br><span class="line">  routes: [</span><br><span class="line"><span class="comment">//     &#123;</span></span><br><span class="line"><span class="comment">//       path: &#x27;/&#x27;,</span></span><br><span class="line"><span class="comment">//       name: &#x27;HelloWorld&#x27;,</span></span><br><span class="line"><span class="comment">//       component: HelloWorld</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line">        &#123;</span><br><span class="line">          path: <span class="string">&#x27;/&#x27;</span>,</span><br><span class="line">          name: <span class="string">&#x27;HelloWorld&#x27;</span>,</span><br><span class="line">          component: <span class="function">() =&gt;</span> <span class="keyword">import</span>(<span class="string">&#x27;@/components/HelloWorld.vue&#x27;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;) </span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>函数的声明及函数表达式</title>
     <url>/uncategorized/%E5%87%BD%E6%95%B0%E7%9A%84%E5%A3%B0%E6%98%8E%E5%8F%8A%E5%87%BD%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F/</url>
     <content><![CDATA[<h2 id="函数声明"><a href="#函数声明" class="headerlink" title="函数声明"></a>函数声明</h2><p>使用function关键字声明一个函数，再指定一个函数名，叫函数声明。</p>
@@ -625,7 +731,7 @@
 </blockquote>
 ]]></content>
       <tags>
-        <tag>js</tag>
+        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -650,7 +756,7 @@
 </blockquote>
 ]]></content>
       <tags>
-        <tag>js</tag>
+        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -726,7 +832,7 @@
 <p>父组件传给子组件的attr，在子组件通过props.attr直接复制给childAttr，这就是浅拷贝，父组件的attr与子组件的childAttr指向同一个地址，在子组件中改变childAttr，那么父组件中的attr也会随之改变。这时再将attr传入这个子组件，attr的值就是被改变之后的值。所以要想数据源头attr不会被改变，这时就需要在父组件中深拷贝attr，然后再一一传入子组件；或者在子组件中将props.attr深拷贝给childAttr。</p>
 <h3 id="对于数组的浅拷贝与深拷贝的数据格式："><a href="#对于数组的浅拷贝与深拷贝的数据格式：" class="headerlink" title="对于数组的浅拷贝与深拷贝的数据格式："></a>对于数组的浅拷贝与深拷贝的数据格式：</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//浅拷贝：</span></span><br><span class="line">newArray = array</span><br><span class="line"><span class="comment">//深拷贝：</span></span><br><span class="line">newArray = _.map(array,  <span class="function">(<span class="params">a</span>) =&gt;</span> &#123; <span class="keyword">return</span> a &#125;) </span><br></pre></td></tr></table></figure>]]></content>
       <tags>
-        <tag>js</tag>
+        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -763,7 +869,7 @@
 </blockquote>
 ]]></content>
       <tags>
-        <tag>js</tag>
+        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -805,7 +911,7 @@
 <p>ES6中的继承方式，一带而过即可，重点是要掌握ES5中的继承。</p>
 ]]></content>
       <tags>
-        <tag>js</tag>
+        <tag>javascript</tag>
       </tags>
   </entry>
 </search>
