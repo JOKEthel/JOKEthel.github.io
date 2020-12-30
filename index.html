@@ -189,7 +189,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-count">19</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -231,6 +231,117 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/uncategorized/%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/%E5%A4%B4%E5%83%8F12.jpeg">
+      <meta itemprop="name" content="Ethel">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JOKEthel的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/uncategorized/%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F/" class="post-title-link" itemprop="url">严格模式</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-12-30 21:06:05" itemprop="dateCreated datePublished" datetime="2020-12-30T21:06:05+08:00">2020-12-30</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><strong>严格模式</strong>（Strict mode）是由ECMA-262规范定义的新兴JavaScript标准</p>
+<h2 id="一、严格模式的使用"><a href="#一、严格模式的使用" class="headerlink" title="一、严格模式的使用"></a>一、严格模式的使用</h2><p><strong>严格模式</strong> 的使用很简单，只有在代码首部加入字符串 “use strict”。有两种应用场景，一种是全局模式，一种是局部模式。</p>
+<h3 id="1）全局模式"><a href="#1）全局模式" class="headerlink" title="1）全局模式"></a>1）全局模式</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span></span><br><span class="line"><span class="comment">//code</span></span><br></pre></td></tr></table></figure>
+<h3 id="2）局部模式"><a href="#2）局部模式" class="headerlink" title="2）局部模式"></a>2）局部模式</h3><p>将”use strict”放到函数内的第一行，如下</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="meta">    &quot;use strict&quot;</span>;</span><br><span class="line">    <span class="comment">//code</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="二、严格模式下的执行限制"><a href="#二、严格模式下的执行限制" class="headerlink" title="二、严格模式下的执行限制"></a><strong>二、严格模式下的执行限制</strong></h2><h3 id="1）不使用var声明变量严格模式中将不通过"><a href="#1）不使用var声明变量严格模式中将不通过" class="headerlink" title="1）不使用var声明变量严格模式中将不通过"></a>1）不使用var声明变量严格模式中将不通过</h3><p>我们知道JS中，不使用var声明的变量默认转为全局变量。但在严格模式中将不允许，会报语法错误。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span></span><br><span class="line">g = <span class="number">100</span> <span class="comment">//错误</span></span><br></pre></td></tr></table></figure>
+<p>比如for循环</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span></span><br><span class="line"><span class="keyword">for</span> (i=<span class="number">0</span>; i&lt;<span class="number">5</span>; i++) &#123;  <span class="comment">//错误</span></span><br><span class="line">    <span class="built_in">console</span>.log(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2）任何使用’eval’的操作都会被禁止"><a href="#2）任何使用’eval’的操作都会被禁止" class="headerlink" title="2）任何使用’eval’的操作都会被禁止"></a>2）任何使用’eval’的操作都会被禁止</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;&#125;</span><br><span class="line"><span class="keyword">var</span> <span class="built_in">eval</span> = <span class="number">3</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> <span class="built_in">eval</span> <span class="keyword">in</span> obj) &#123;&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">eval</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"><span class="built_in">eval</span></span>) </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3）eval作用域"><a href="#3）eval作用域" class="headerlink" title="3）eval作用域"></a>3）eval作用域</h3><p>JS中作用域有两种，全局作用域和函数作用域。严格模式带来了第三种作用域：eval作用域，如下</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">10</span></span><br><span class="line"><span class="built_in">eval</span>(<span class="string">&#x27;var a = 20; console.log(a)&#x27;</span>); <span class="comment">//20</span></span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">//10</span></span><br></pre></td></tr></table></figure>
+<h3 id="4）with被禁用"><a href="#4）with被禁用" class="headerlink" title="4）with被禁用"></a>4）with被禁用</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line"> name:<span class="string">&#x27;zhangsan&#x27;</span>,</span><br><span class="line"> age:<span class="number">100</span>,</span><br><span class="line"> sex:<span class="string">&#x27;男&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">with</span>(<span class="params">obj</span>)</span> &#123;  <span class="comment">//报错</span></span><br><span class="line">    <span class="built_in">console</span>.log(name);</span><br><span class="line">    <span class="built_in">console</span>.log(age);</span><br><span class="line">    <span class="built_in">console</span>.log(sex);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="5）caller-callee-被禁用"><a href="#5）caller-callee-被禁用" class="headerlink" title="5）caller/callee 被禁用"></a>5）caller/callee 被禁用</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="meta">    &#x27;use strict&#x27;</span></span><br><span class="line">    <span class="built_in">arguments</span>.callee</span><br><span class="line">    <span class="built_in">arguments</span>.caller</span><br><span class="line">&#125;</span><br><span class="line">func()</span><br></pre></td></tr></table></figure>
+<h3 id="6）对禁止扩展的对象添加新属性会报错"><a href="#6）对禁止扩展的对象添加新属性会报错" class="headerlink" title="6）对禁止扩展的对象添加新属性会报错"></a>6）对禁止扩展的对象添加新属性会报错</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;&#125;</span><br><span class="line"><span class="built_in">Object</span>.preventExtensions(obj)</span><br><span class="line">obj.a = <span class="number">1</span> <span class="comment">// 报错</span></span><br></pre></td></tr></table></figure>
+<h3 id="7）删除系统内置的属性会报错"><a href="#7）删除系统内置的属性会报错" class="headerlink" title="7）删除系统内置的属性会报错"></a>7）删除系统内置的属性会报错</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span></span><br><span class="line"><span class="keyword">delete</span> <span class="built_in">Object</span>.prototype    <span class="comment">// 报错</span></span><br><span class="line"><span class="keyword">delete</span> <span class="built_in">Function</span>.prototype <span class="comment">// 报错</span></span><br></pre></td></tr></table></figure>
+<h3 id="8）delete使用var声明的变量或挂在window上的变量报错"><a href="#8）delete使用var声明的变量或挂在window上的变量报错" class="headerlink" title="8）delete使用var声明的变量或挂在window上的变量报错"></a>8）delete使用var声明的变量或挂在window上的变量报错</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;<span class="attr">a</span>:<span class="number">1</span>&#125;</span><br><span class="line"><span class="built_in">window</span>.a = <span class="number">1</span></span><br><span class="line"><span class="keyword">delete</span> obj <span class="comment">// 报错</span></span><br><span class="line"><span class="keyword">delete</span> a   <span class="comment">// 报错</span></span><br></pre></td></tr></table></figure>
+<h3 id="9）delete不可删除属性-isSealed或isFrozen-的对象时报错"><a href="#9）delete不可删除属性-isSealed或isFrozen-的对象时报错" class="headerlink" title="9）delete不可删除属性(isSealed或isFrozen)的对象时报错"></a>9）delete不可删除属性(isSealed或isFrozen)的对象时报错</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;<span class="attr">a</span>: <span class="number">1</span>&#125;</span><br><span class="line"><span class="built_in">Object</span>.seal(obj)</span><br><span class="line"><span class="keyword">delete</span> obj.a <span class="comment">//报错</span></span><br></pre></td></tr></table></figure>
+<h3 id="10）对一个对象的只读属性进行赋值将报错"><a href="#10）对一个对象的只读属性进行赋值将报错" class="headerlink" title="10）对一个对象的只读属性进行赋值将报错"></a>10）对一个对象的只读属性进行赋值将报错</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;&#125;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(obj, <span class="string">&#x27;a&#x27;</span>, &#123;<span class="attr">value</span>: <span class="number">1</span>, <span class="attr">writable</span>: <span class="literal">false</span>&#125;)</span><br><span class="line">obj.a = <span class="number">2</span> <span class="comment">// 报错</span></span><br></pre></td></tr></table></figure>
+<h3 id="11）函数有重名的参数将报错"><a href="#11）函数有重名的参数将报错" class="headerlink" title="11）函数有重名的参数将报错"></a>11）函数有重名的参数将报错</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">a, a</span>) </span>&#123;</span><br><span class="line">    alert(a)</span><br><span class="line">&#125;</span><br><span class="line">func()</span><br></pre></td></tr></table></figure>
+<p>而在非严格模式中，后面的同名参数将覆盖前面的。</p>
+<h3 id="12）八进制表示法被禁用"><a href="#12）八进制表示法被禁用" class="headerlink" title="12）八进制表示法被禁用"></a>12）八进制表示法被禁用</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span></span><br><span class="line"><span class="keyword">var</span> num = <span class="number">022</span></span><br></pre></td></tr></table></figure>
+<h3 id="13）arguments严格定义为参数，不再与形参绑定"><a href="#13）arguments严格定义为参数，不再与形参绑定" class="headerlink" title="13）arguments严格定义为参数，不再与形参绑定"></a>13）arguments严格定义为参数，不再与形参绑定</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">a</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">arguments</span>[<span class="number">0</span>] = <span class="number">2</span></span><br><span class="line">    alert(a) <span class="comment">// 2</span></span><br><span class="line">&#125;  </span><br><span class="line">func(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<p>func调用时传参为1，函数内部通过arguments修改为2，此时alert的为修改后的2。 而在严格模式中则不能被修改，如下</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">a</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">arguments</span>[<span class="number">0</span>] = <span class="number">2</span></span><br><span class="line">    alert(a) <span class="comment">// 1</span></span><br><span class="line">&#125;  </span><br><span class="line">func(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="14）函数必须声明在顶层"><a href="#14）函数必须声明在顶层" class="headerlink" title="14）函数必须声明在顶层"></a>14）函数必须声明在顶层</h3><p>我们知道函数声明和函数表达式是两个不同的概念。一般函数声明都在最顶层，ES5前的JS宽松，你可以写在if或for内。当然Firefox的解析方式与其他浏览器不同，见SJ9002。而在严格模式中这些写法将直接报错</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span></span><br><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">func1</span>(<span class="params"></span>) </span>&#123; &#125; <span class="comment">// 语法错误</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">func2</span>(<span class="params"></span>) </span>&#123; &#125; <span class="comment">// 语法错误</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="15）ES5里新增的关键字不能当做变量标示符使用，如implements-interface-let-package-private-protected-public-static-yield"><a href="#15）ES5里新增的关键字不能当做变量标示符使用，如implements-interface-let-package-private-protected-public-static-yield" class="headerlink" title="15）ES5里新增的关键字不能当做变量标示符使用，如implements, interface, let, package, private, protected, public, static, yield"></a>15）ES5里新增的关键字不能当做变量标示符使用，如implements, interface, let, package, private, protected, public, static, yield</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span></span><br><span class="line"><span class="keyword">var</span> <span class="keyword">let</span> = <span class="number">10</span> <span class="comment">//报错</span></span><br><span class="line"><span class="keyword">var</span> <span class="keyword">yield</span> = <span class="number">20</span></span><br></pre></td></tr></table></figure>
+<h3 id="16）call-apply的第一个参数直接传入不包装为对象"><a href="#16）call-apply的第一个参数直接传入不包装为对象" class="headerlink" title="16）call/apply的第一个参数直接传入不包装为对象"></a>16）call/apply的第一个参数直接传入不包装为对象</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="built_in">this</span>)</span><br><span class="line">&#125;</span><br><span class="line">func.call(<span class="string">&#x27;abcd&#x27;</span>) <span class="comment">// string</span></span><br><span class="line">func.apply(<span class="number">1</span>)     <span class="comment">// number</span></span><br></pre></td></tr></table></figure>
+<p>依次为”string”，”number”。而在非严格模式中call/apply将对值类型的”abcd”，1包装为对象后传入，即两次输出都为”object”。</p>
+<h3 id="17）call-apply的第一个参数为null-undefined时，this为null-undefined"><a href="#17）call-apply的第一个参数为null-undefined时，this为null-undefined" class="headerlink" title="17）call/apply的第一个参数为null/undefined时，this为null/undefined*"></a>17）call/apply的第一个参数为null/undefined时，this为null/undefined*</h3><p>这里以call来示例</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>)</span><br><span class="line">&#125;</span><br><span class="line">func.call(<span class="literal">undefined</span>) <span class="comment">// undefined</span></span><br><span class="line">func.call(<span class="literal">null</span>)      <span class="comment">// null</span></span><br></pre></td></tr></table></figure>
+<p>依次是undefined，null。而非严格模式中则是宿主对象，浏览器里是window，node.js环境则是global。</p>
+<h3 id="18）bind的第一个参数为null-undefined时，this为null-undefined"><a href="#18）bind的第一个参数为null-undefined时，this为null-undefined" class="headerlink" title="18）bind的第一个参数为null/undefined时，this为null/undefined"></a>18）bind的第一个参数为null/undefined时，this为null/undefined</h3><p>bind是ES5给Function.prototype新增的一个方法，它和call/apply一样在function上直接调用。它返回一个指定了上下文和参数的函数。当它的第一个参数为null/undefined时，情形和call/apply一样，this也为null/undefined。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> f1 = func.bind(<span class="literal">null</span>)</span><br><span class="line"><span class="keyword">var</span> f2 = func.bind(<span class="literal">undefined</span>)</span><br><span class="line">f1() <span class="comment">// null</span></span><br><span class="line">f2() <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+<p>而在非严格模式中输出的都是window（或global）。</p>
+<h2 id="“use-strict”-的位置必须在首部。首部指其前面没有任何有效js代码。以下都是无效的，将不会触发严格模式。"><a href="#“use-strict”-的位置必须在首部。首部指其前面没有任何有效js代码。以下都是无效的，将不会触发严格模式。" class="headerlink" title="“use strict” 的位置必须在首部。首部指其前面没有任何有效js代码。以下都是无效的，将不会触发严格模式。"></a>“use strict” 的位置必须在首部。首部指其前面没有任何有效js代码。以下都是无效的，将不会触发严格模式。</h2><p>a）“use strict” 前有代码， <strong>无效</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> width = <span class="number">10</span></span><br><span class="line"><span class="meta">&#x27;use strict&#x27;</span> </span><br><span class="line">g = <span class="number">100</span></span><br></pre></td></tr></table></figure>
+<p>b）“use strict” 前有个空语句，<strong>无效</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">;<span class="comment">//这里是空语句</span></span><br><span class="line"><span class="meta">&#x27;use strict&#x27;</span>  </span><br><span class="line">g = <span class="number">100</span></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    ;</span><br><span class="line"><span class="meta">    &#x27;use strict&#x27;</span></span><br><span class="line">    g = <span class="number">200</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    ;<span class="string">&#x27;use strict&#x27;</span></span><br><span class="line">    localVar = <span class="number">200</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当然，“use strict”前加注释是可以的</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// strict mode</span></span><br><span class="line"><span class="meta">&#x27;use strict&#x27;</span></span><br><span class="line">g = <span class="number">100</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// strict mode</span></span><br><span class="line"><span class="meta">    &#x27;use strict&#x27;</span></span><br><span class="line">    g = <span class="number">200</span></span><br><span class="line">&#125;</span><br><span class="line">func()</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1230,109 +1341,6 @@
 <li>sessionStorage：敏感账号一次性登录，单页面用的较多</li>
 <li>localStorage：用于长期登录，适于长期保存在本地的数据</li>
 </ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/uncategorized/BFC%EF%BC%88%E8%BE%B9%E8%B7%9D%E9%87%8D%E5%8F%A0%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/%E5%A4%B4%E5%83%8F12.jpeg">
-      <meta itemprop="name" content="Ethel">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="JOKEthel的个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/uncategorized/BFC%EF%BC%88%E8%BE%B9%E8%B7%9D%E9%87%8D%E5%8F%A0%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%EF%BC%89/" class="post-title-link" itemprop="url">BFC（边距重叠解决方案）</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-09-03 12:03:40" itemprop="dateCreated datePublished" datetime="2019-09-03T12:03:40+08:00">2019-09-03</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="BFC的概念"><a href="#BFC的概念" class="headerlink" title="BFC的概念"></a>BFC的概念</h2><p>BFC（Block Formatting Context）：块级格式化上下文，也可以把它理解成一个独立的区域。</p>
-<h3 id="BFC的原理-BFC的布局规则"><a href="#BFC的原理-BFC的布局规则" class="headerlink" title="BFC的原理/BFC的布局规则"></a>BFC的原理/BFC的布局规则</h3><ol>
-<li>BFC内部的子元素，在垂直方向边距会发生重叠。</li>
-<li>BFC在页面中是独立的容器，在页面中外部元素不会影响内部元素，反之亦然。</li>
-<li>BFC区域不与旁边的<em>float box</em>区域重叠，可以用来清除浮动带来的影响。</li>
-<li>计算BFC的高度时，浮动的子元素也参与计算。</li>
-</ol>
-<h3 id="如何生成BFC"><a href="#如何生成BFC" class="headerlink" title="如何生成BFC"></a>如何生成BFC</h3><ul>
-<li>方法一：overflow：属性值不为visible，可以是auto，hidden。</li>
-<li>方法二：float：属性值不为none，意思是，只要设置了浮动，当前元素就创建了BFC。</li>
-<li>方法三：position的值只要不为static或relative，可以是absolute或fixed，就生成了一个BFC。</li>
-<li>方法四：display为inline-block、table-cell、table-caption、flex、inline-flex</li>
-</ul>
-<h2 id="BFC的应用"><a href="#BFC的应用" class="headerlink" title="BFC的应用"></a>BFC的应用</h2><p><strong>例子1</strong> 解决margin重叠</p>
-<blockquote>
-<p>当父元素与子元素margin发生重叠时，解决办法：给父元素或子元素创建BFC。</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;father&quot;</span>&gt;</span><br><span class="line">	&lt;p <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;son&quot;</span>&gt;&lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<p>上面的div元素中，如果父元素与子元素发生margin重合，就可以给子元素创建一个BFC</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;father&quot;</span>&gt;</span><br><span class="line">	&lt;p <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;son&quot;</span> style=<span class="string">&quot;overflow: hidden&quot;</span>&gt;&lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<p>因为第二条：BFC区域是一个独立的区域，不会影响外面的元素。</p>
-<hr>
-<p><strong>例子2</strong> BFC区域不与float区域重叠</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">&quot;en&quot;</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">    </span><br><span class="line">    	.father-layout &#123;</span><br><span class="line">            background: pink;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        .father-layout .left &#123;</span><br><span class="line">            float: left;</span><br><span class="line">            width: 100px;</span><br><span class="line">            height: 100px;</span><br><span class="line">            background: pink;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .father-layout .right &#123;</span><br><span class="line">            height: 150px;  <span class="comment">/*右侧标准流里的元素，比左侧浮动的元素要高*/</span></span><br><span class="line">            background: black;</span><br><span class="line">            color: #fff;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;section <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;father-layout&quot;</span>&gt;</span><br><span class="line">    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;left&quot;</span>&gt;</span><br><span class="line">        左侧，我是一句话</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;right&quot;</span>&gt;</span><br><span class="line">        右侧，我是一句话，我是一句话，我是一句话，我是一句话，我是一句话，我是一句话，我是一句话，我是一句话，我是一句话，我是一句话，我是一句话，我是一句话，</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/section&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<p>效果如下<br><img src="https://img-blog.csdnimg.cn/20201212100858926.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pPS0V0aGVs,size_16,color_FFFFFF,t_70#pic_center" alt="效果图"></p>
-<p>上图中，由于右侧标准流里的元素，比左侧浮动的元素要高，导致右侧有一部分会跑到左边的下面去。</p>
-<blockquote>
-<p>如果要解决这个问题，可以将右侧的元素创建BFC，因为第三条：BFC区域不与float<br>box区域重叠。解决办法如下：（将right区域添加overflow属性）</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;right&quot;</span> style=<span class="string">&quot;overflow: hidden&quot;</span>&gt;</span><br><span class="line">        右侧，我是一句话，我是一句话，我是一句话，我是一句话，我是一句话，我是一句话，我是一句话，我是一句话，我是一句话，我是一句话，我是一句话，我是一句话，</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20201212100915575.png#pic_center" alt="解决后效果图"><br>上图表明，解决之后，father-layout的背景色显现出来了，说明问题解决了。</p>
-<hr>
-<p><strong>例子3</strong> 清除浮动</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">&quot;en&quot;</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line"></span><br><span class="line">        .father &#123;</span><br><span class="line">            background: pink;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .son &#123;</span><br><span class="line">            float: left;</span><br><span class="line">            background: black;</span><br><span class="line">            color: #fff;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;section <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;father&quot;</span>&gt;</span><br><span class="line">    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;son&quot;</span>&gt;</span><br><span class="line">        我是一句话</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/section&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<p>效果如下<br><img src="https://img-blog.csdnimg.cn/2020121210142989.png#pic_center" alt="效果图"><br>上面的代码中，儿子浮动了，但由于父亲没有设置高度，导致看不到父亲的背景色（此时父亲的高度为0）。正所谓有高度的盒子，才能关住浮动。</p>
-<blockquote>
-<p>如果想要清除浮动带来的影响，方法一是给父亲设置高度，然后采用隔墙法。方法二是 BFC：给父亲增加 overflow=hidden属性即可。</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;section <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;father&quot;</span> style=<span class="string">&quot;overflow: hidden&quot;</span>&gt;</span><br><span class="line">    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;son&quot;</span>&gt;</span><br><span class="line">        我是一句话</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/section&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20201212101613654.png#pic_center" alt="解决后效果图"><br>因为第四条：计算BFC的高度时，浮动元素也参与计算。意思是，在计算BFC的高度时，子元素的float box也会参与计算。</p>
 
       
     </div>

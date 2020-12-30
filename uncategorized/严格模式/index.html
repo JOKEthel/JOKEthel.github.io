@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+<meta name="description" content="严格模式（Strict mode）是由ECMA-262规范定义的新兴JavaScript标准 一、严格模式的使用严格模式 的使用很简单，只有在代码首部加入字符串 “use strict”。有两种应用场景，一种是全局模式，一种是局部模式。 1）全局模式12&amp;#x27;use strict&amp;#x27;&#x2F;&#x2F;code 2）局部模式将”use strict”放到函数内的第一行，如下 1234function">
+<meta property="og:type" content="article">
+<meta property="og:title" content="严格模式">
+<meta property="og:url" content="http://example.com/uncategorized/%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F/index.html">
+<meta property="og:site_name" content="JOKEthel的个人博客">
+<meta property="og:description" content="严格模式（Strict mode）是由ECMA-262规范定义的新兴JavaScript标准 一、严格模式的使用严格模式 的使用很简单，只有在代码首部加入字符串 “use strict”。有两种应用场景，一种是全局模式，一种是局部模式。 1）全局模式12&amp;#x27;use strict&amp;#x27;&#x2F;&#x2F;code 2）局部模式将”use strict”放到函数内的第一行，如下 1234function">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-12-30T13:06:05.000Z">
+<meta property="article:modified_time" content="2020-12-30T13:07:19.859Z">
+<meta property="article:author" content="Ethel">
+<meta property="article:tag" content="javascript">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/uncategorized/%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+<title>严格模式 | JOKEthel的个人博客</title>
+  
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="JOKEthel的个人博客" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">JOKEthel的个人博客</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">一、严格模式的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%BC%89%E5%85%A8%E5%B1%80%E6%A8%A1%E5%BC%8F"><span class="nav-number">1.1.</span> <span class="nav-text">1）全局模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%BC%89%E5%B1%80%E9%83%A8%E6%A8%A1%E5%BC%8F"><span class="nav-number">1.2.</span> <span class="nav-text">2）局部模式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F%E4%B8%8B%E7%9A%84%E6%89%A7%E8%A1%8C%E9%99%90%E5%88%B6"><span class="nav-number">2.</span> <span class="nav-text">二、严格模式下的执行限制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%BC%89%E4%B8%8D%E4%BD%BF%E7%94%A8var%E5%A3%B0%E6%98%8E%E5%8F%98%E9%87%8F%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F%E4%B8%AD%E5%B0%86%E4%B8%8D%E9%80%9A%E8%BF%87"><span class="nav-number">2.1.</span> <span class="nav-text">1）不使用var声明变量严格模式中将不通过</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%BC%89%E4%BB%BB%E4%BD%95%E4%BD%BF%E7%94%A8%E2%80%99eval%E2%80%99%E7%9A%84%E6%93%8D%E4%BD%9C%E9%83%BD%E4%BC%9A%E8%A2%AB%E7%A6%81%E6%AD%A2"><span class="nav-number">2.2.</span> <span class="nav-text">2）任何使用’eval’的操作都会被禁止</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%EF%BC%89eval%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-number">2.3.</span> <span class="nav-text">3）eval作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%EF%BC%89with%E8%A2%AB%E7%A6%81%E7%94%A8"><span class="nav-number">2.4.</span> <span class="nav-text">4）with被禁用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5%EF%BC%89caller-callee-%E8%A2%AB%E7%A6%81%E7%94%A8"><span class="nav-number">2.5.</span> <span class="nav-text">5）caller&#x2F;callee 被禁用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6%EF%BC%89%E5%AF%B9%E7%A6%81%E6%AD%A2%E6%89%A9%E5%B1%95%E7%9A%84%E5%AF%B9%E8%B1%A1%E6%B7%BB%E5%8A%A0%E6%96%B0%E5%B1%9E%E6%80%A7%E4%BC%9A%E6%8A%A5%E9%94%99"><span class="nav-number">2.6.</span> <span class="nav-text">6）对禁止扩展的对象添加新属性会报错</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7%EF%BC%89%E5%88%A0%E9%99%A4%E7%B3%BB%E7%BB%9F%E5%86%85%E7%BD%AE%E7%9A%84%E5%B1%9E%E6%80%A7%E4%BC%9A%E6%8A%A5%E9%94%99"><span class="nav-number">2.7.</span> <span class="nav-text">7）删除系统内置的属性会报错</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8%EF%BC%89delete%E4%BD%BF%E7%94%A8var%E5%A3%B0%E6%98%8E%E7%9A%84%E5%8F%98%E9%87%8F%E6%88%96%E6%8C%82%E5%9C%A8window%E4%B8%8A%E7%9A%84%E5%8F%98%E9%87%8F%E6%8A%A5%E9%94%99"><span class="nav-number">2.8.</span> <span class="nav-text">8）delete使用var声明的变量或挂在window上的变量报错</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9%EF%BC%89delete%E4%B8%8D%E5%8F%AF%E5%88%A0%E9%99%A4%E5%B1%9E%E6%80%A7-isSealed%E6%88%96isFrozen-%E7%9A%84%E5%AF%B9%E8%B1%A1%E6%97%B6%E6%8A%A5%E9%94%99"><span class="nav-number">2.9.</span> <span class="nav-text">9）delete不可删除属性(isSealed或isFrozen)的对象时报错</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10%EF%BC%89%E5%AF%B9%E4%B8%80%E4%B8%AA%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%8F%AA%E8%AF%BB%E5%B1%9E%E6%80%A7%E8%BF%9B%E8%A1%8C%E8%B5%8B%E5%80%BC%E5%B0%86%E6%8A%A5%E9%94%99"><span class="nav-number">2.10.</span> <span class="nav-text">10）对一个对象的只读属性进行赋值将报错</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11%EF%BC%89%E5%87%BD%E6%95%B0%E6%9C%89%E9%87%8D%E5%90%8D%E7%9A%84%E5%8F%82%E6%95%B0%E5%B0%86%E6%8A%A5%E9%94%99"><span class="nav-number">2.11.</span> <span class="nav-text">11）函数有重名的参数将报错</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12%EF%BC%89%E5%85%AB%E8%BF%9B%E5%88%B6%E8%A1%A8%E7%A4%BA%E6%B3%95%E8%A2%AB%E7%A6%81%E7%94%A8"><span class="nav-number">2.12.</span> <span class="nav-text">12）八进制表示法被禁用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13%EF%BC%89arguments%E4%B8%A5%E6%A0%BC%E5%AE%9A%E4%B9%89%E4%B8%BA%E5%8F%82%E6%95%B0%EF%BC%8C%E4%B8%8D%E5%86%8D%E4%B8%8E%E5%BD%A2%E5%8F%82%E7%BB%91%E5%AE%9A"><span class="nav-number">2.13.</span> <span class="nav-text">13）arguments严格定义为参数，不再与形参绑定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14%EF%BC%89%E5%87%BD%E6%95%B0%E5%BF%85%E9%A1%BB%E5%A3%B0%E6%98%8E%E5%9C%A8%E9%A1%B6%E5%B1%82"><span class="nav-number">2.14.</span> <span class="nav-text">14）函数必须声明在顶层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#15%EF%BC%89ES5%E9%87%8C%E6%96%B0%E5%A2%9E%E7%9A%84%E5%85%B3%E9%94%AE%E5%AD%97%E4%B8%8D%E8%83%BD%E5%BD%93%E5%81%9A%E5%8F%98%E9%87%8F%E6%A0%87%E7%A4%BA%E7%AC%A6%E4%BD%BF%E7%94%A8%EF%BC%8C%E5%A6%82implements-interface-let-package-private-protected-public-static-yield"><span class="nav-number">2.15.</span> <span class="nav-text">15）ES5里新增的关键字不能当做变量标示符使用，如implements, interface, let, package, private, protected, public, static, yield</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16%EF%BC%89call-apply%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8F%82%E6%95%B0%E7%9B%B4%E6%8E%A5%E4%BC%A0%E5%85%A5%E4%B8%8D%E5%8C%85%E8%A3%85%E4%B8%BA%E5%AF%B9%E8%B1%A1"><span class="nav-number">2.16.</span> <span class="nav-text">16）call&#x2F;apply的第一个参数直接传入不包装为对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#17%EF%BC%89call-apply%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8F%82%E6%95%B0%E4%B8%BAnull-undefined%E6%97%B6%EF%BC%8Cthis%E4%B8%BAnull-undefined"><span class="nav-number">2.17.</span> <span class="nav-text">17）call&#x2F;apply的第一个参数为null&#x2F;undefined时，this为null&#x2F;undefined*</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#18%EF%BC%89bind%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8F%82%E6%95%B0%E4%B8%BAnull-undefined%E6%97%B6%EF%BC%8Cthis%E4%B8%BAnull-undefined"><span class="nav-number">2.18.</span> <span class="nav-text">18）bind的第一个参数为null&#x2F;undefined时，this为null&#x2F;undefined</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%80%9Cuse-strict%E2%80%9D-%E7%9A%84%E4%BD%8D%E7%BD%AE%E5%BF%85%E9%A1%BB%E5%9C%A8%E9%A6%96%E9%83%A8%E3%80%82%E9%A6%96%E9%83%A8%E6%8C%87%E5%85%B6%E5%89%8D%E9%9D%A2%E6%B2%A1%E6%9C%89%E4%BB%BB%E4%BD%95%E6%9C%89%E6%95%88js%E4%BB%A3%E7%A0%81%E3%80%82%E4%BB%A5%E4%B8%8B%E9%83%BD%E6%98%AF%E6%97%A0%E6%95%88%E7%9A%84%EF%BC%8C%E5%B0%86%E4%B8%8D%E4%BC%9A%E8%A7%A6%E5%8F%91%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F%E3%80%82"><span class="nav-number">3.</span> <span class="nav-text">“use strict” 的位置必须在首部。首部指其前面没有任何有效js代码。以下都是无效的，将不会触发严格模式。</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ethel"
+      src="/images/%E5%A4%B4%E5%83%8F12.jpeg">
+  <p class="site-author-name" itemprop="name">Ethel</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/JOKEthel" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;JOKEthel" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/931199480@qq.com" title="E-Mail → 931199480@qq.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/uncategorized/%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/%E5%A4%B4%E5%83%8F12.jpeg">
+      <meta itemprop="name" content="Ethel">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JOKEthel的个人博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          严格模式
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-12-30 21:06:05" itemprop="dateCreated datePublished" datetime="2020-12-30T21:06:05+08:00">2020-12-30</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><strong>严格模式</strong>（Strict mode）是由ECMA-262规范定义的新兴JavaScript标准</p>
+<h2 id="一、严格模式的使用"><a href="#一、严格模式的使用" class="headerlink" title="一、严格模式的使用"></a>一、严格模式的使用</h2><p><strong>严格模式</strong> 的使用很简单，只有在代码首部加入字符串 “use strict”。有两种应用场景，一种是全局模式，一种是局部模式。</p>
+<h3 id="1）全局模式"><a href="#1）全局模式" class="headerlink" title="1）全局模式"></a>1）全局模式</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span></span><br><span class="line"><span class="comment">//code</span></span><br></pre></td></tr></table></figure>
+<h3 id="2）局部模式"><a href="#2）局部模式" class="headerlink" title="2）局部模式"></a>2）局部模式</h3><p>将”use strict”放到函数内的第一行，如下</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="meta">    &quot;use strict&quot;</span>;</span><br><span class="line">    <span class="comment">//code</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="二、严格模式下的执行限制"><a href="#二、严格模式下的执行限制" class="headerlink" title="二、严格模式下的执行限制"></a><strong>二、严格模式下的执行限制</strong></h2><h3 id="1）不使用var声明变量严格模式中将不通过"><a href="#1）不使用var声明变量严格模式中将不通过" class="headerlink" title="1）不使用var声明变量严格模式中将不通过"></a>1）不使用var声明变量严格模式中将不通过</h3><p>我们知道JS中，不使用var声明的变量默认转为全局变量。但在严格模式中将不允许，会报语法错误。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span></span><br><span class="line">g = <span class="number">100</span> <span class="comment">//错误</span></span><br></pre></td></tr></table></figure>
+<p>比如for循环</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span></span><br><span class="line"><span class="keyword">for</span> (i=<span class="number">0</span>; i&lt;<span class="number">5</span>; i++) &#123;  <span class="comment">//错误</span></span><br><span class="line">    <span class="built_in">console</span>.log(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2）任何使用’eval’的操作都会被禁止"><a href="#2）任何使用’eval’的操作都会被禁止" class="headerlink" title="2）任何使用’eval’的操作都会被禁止"></a>2）任何使用’eval’的操作都会被禁止</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;&#125;</span><br><span class="line"><span class="keyword">var</span> <span class="built_in">eval</span> = <span class="number">3</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> <span class="built_in">eval</span> <span class="keyword">in</span> obj) &#123;&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">eval</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"><span class="built_in">eval</span></span>) </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3）eval作用域"><a href="#3）eval作用域" class="headerlink" title="3）eval作用域"></a>3）eval作用域</h3><p>JS中作用域有两种，全局作用域和函数作用域。严格模式带来了第三种作用域：eval作用域，如下</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">10</span></span><br><span class="line"><span class="built_in">eval</span>(<span class="string">&#x27;var a = 20; console.log(a)&#x27;</span>); <span class="comment">//20</span></span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">//10</span></span><br></pre></td></tr></table></figure>
+<h3 id="4）with被禁用"><a href="#4）with被禁用" class="headerlink" title="4）with被禁用"></a>4）with被禁用</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line"> name:<span class="string">&#x27;zhangsan&#x27;</span>,</span><br><span class="line"> age:<span class="number">100</span>,</span><br><span class="line"> sex:<span class="string">&#x27;男&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">with</span>(<span class="params">obj</span>)</span> &#123;  <span class="comment">//报错</span></span><br><span class="line">    <span class="built_in">console</span>.log(name);</span><br><span class="line">    <span class="built_in">console</span>.log(age);</span><br><span class="line">    <span class="built_in">console</span>.log(sex);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="5）caller-callee-被禁用"><a href="#5）caller-callee-被禁用" class="headerlink" title="5）caller/callee 被禁用"></a>5）caller/callee 被禁用</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="meta">    &#x27;use strict&#x27;</span></span><br><span class="line">    <span class="built_in">arguments</span>.callee</span><br><span class="line">    <span class="built_in">arguments</span>.caller</span><br><span class="line">&#125;</span><br><span class="line">func()</span><br></pre></td></tr></table></figure>
+<h3 id="6）对禁止扩展的对象添加新属性会报错"><a href="#6）对禁止扩展的对象添加新属性会报错" class="headerlink" title="6）对禁止扩展的对象添加新属性会报错"></a>6）对禁止扩展的对象添加新属性会报错</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;&#125;</span><br><span class="line"><span class="built_in">Object</span>.preventExtensions(obj)</span><br><span class="line">obj.a = <span class="number">1</span> <span class="comment">// 报错</span></span><br></pre></td></tr></table></figure>
+<h3 id="7）删除系统内置的属性会报错"><a href="#7）删除系统内置的属性会报错" class="headerlink" title="7）删除系统内置的属性会报错"></a>7）删除系统内置的属性会报错</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span></span><br><span class="line"><span class="keyword">delete</span> <span class="built_in">Object</span>.prototype    <span class="comment">// 报错</span></span><br><span class="line"><span class="keyword">delete</span> <span class="built_in">Function</span>.prototype <span class="comment">// 报错</span></span><br></pre></td></tr></table></figure>
+<h3 id="8）delete使用var声明的变量或挂在window上的变量报错"><a href="#8）delete使用var声明的变量或挂在window上的变量报错" class="headerlink" title="8）delete使用var声明的变量或挂在window上的变量报错"></a>8）delete使用var声明的变量或挂在window上的变量报错</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;<span class="attr">a</span>:<span class="number">1</span>&#125;</span><br><span class="line"><span class="built_in">window</span>.a = <span class="number">1</span></span><br><span class="line"><span class="keyword">delete</span> obj <span class="comment">// 报错</span></span><br><span class="line"><span class="keyword">delete</span> a   <span class="comment">// 报错</span></span><br></pre></td></tr></table></figure>
+<h3 id="9）delete不可删除属性-isSealed或isFrozen-的对象时报错"><a href="#9）delete不可删除属性-isSealed或isFrozen-的对象时报错" class="headerlink" title="9）delete不可删除属性(isSealed或isFrozen)的对象时报错"></a>9）delete不可删除属性(isSealed或isFrozen)的对象时报错</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;<span class="attr">a</span>: <span class="number">1</span>&#125;</span><br><span class="line"><span class="built_in">Object</span>.seal(obj)</span><br><span class="line"><span class="keyword">delete</span> obj.a <span class="comment">//报错</span></span><br></pre></td></tr></table></figure>
+<h3 id="10）对一个对象的只读属性进行赋值将报错"><a href="#10）对一个对象的只读属性进行赋值将报错" class="headerlink" title="10）对一个对象的只读属性进行赋值将报错"></a>10）对一个对象的只读属性进行赋值将报错</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;&#125;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(obj, <span class="string">&#x27;a&#x27;</span>, &#123;<span class="attr">value</span>: <span class="number">1</span>, <span class="attr">writable</span>: <span class="literal">false</span>&#125;)</span><br><span class="line">obj.a = <span class="number">2</span> <span class="comment">// 报错</span></span><br></pre></td></tr></table></figure>
+<h3 id="11）函数有重名的参数将报错"><a href="#11）函数有重名的参数将报错" class="headerlink" title="11）函数有重名的参数将报错"></a>11）函数有重名的参数将报错</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">a, a</span>) </span>&#123;</span><br><span class="line">    alert(a)</span><br><span class="line">&#125;</span><br><span class="line">func()</span><br></pre></td></tr></table></figure>
+<p>而在非严格模式中，后面的同名参数将覆盖前面的。</p>
+<h3 id="12）八进制表示法被禁用"><a href="#12）八进制表示法被禁用" class="headerlink" title="12）八进制表示法被禁用"></a>12）八进制表示法被禁用</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span></span><br><span class="line"><span class="keyword">var</span> num = <span class="number">022</span></span><br></pre></td></tr></table></figure>
+<h3 id="13）arguments严格定义为参数，不再与形参绑定"><a href="#13）arguments严格定义为参数，不再与形参绑定" class="headerlink" title="13）arguments严格定义为参数，不再与形参绑定"></a>13）arguments严格定义为参数，不再与形参绑定</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">a</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">arguments</span>[<span class="number">0</span>] = <span class="number">2</span></span><br><span class="line">    alert(a) <span class="comment">// 2</span></span><br><span class="line">&#125;  </span><br><span class="line">func(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<p>func调用时传参为1，函数内部通过arguments修改为2，此时alert的为修改后的2。 而在严格模式中则不能被修改，如下</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">a</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">arguments</span>[<span class="number">0</span>] = <span class="number">2</span></span><br><span class="line">    alert(a) <span class="comment">// 1</span></span><br><span class="line">&#125;  </span><br><span class="line">func(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="14）函数必须声明在顶层"><a href="#14）函数必须声明在顶层" class="headerlink" title="14）函数必须声明在顶层"></a>14）函数必须声明在顶层</h3><p>我们知道函数声明和函数表达式是两个不同的概念。一般函数声明都在最顶层，ES5前的JS宽松，你可以写在if或for内。当然Firefox的解析方式与其他浏览器不同，见SJ9002。而在严格模式中这些写法将直接报错</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span></span><br><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">func1</span>(<span class="params"></span>) </span>&#123; &#125; <span class="comment">// 语法错误</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">func2</span>(<span class="params"></span>) </span>&#123; &#125; <span class="comment">// 语法错误</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="15）ES5里新增的关键字不能当做变量标示符使用，如implements-interface-let-package-private-protected-public-static-yield"><a href="#15）ES5里新增的关键字不能当做变量标示符使用，如implements-interface-let-package-private-protected-public-static-yield" class="headerlink" title="15）ES5里新增的关键字不能当做变量标示符使用，如implements, interface, let, package, private, protected, public, static, yield"></a>15）ES5里新增的关键字不能当做变量标示符使用，如implements, interface, let, package, private, protected, public, static, yield</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span></span><br><span class="line"><span class="keyword">var</span> <span class="keyword">let</span> = <span class="number">10</span> <span class="comment">//报错</span></span><br><span class="line"><span class="keyword">var</span> <span class="keyword">yield</span> = <span class="number">20</span></span><br></pre></td></tr></table></figure>
+<h3 id="16）call-apply的第一个参数直接传入不包装为对象"><a href="#16）call-apply的第一个参数直接传入不包装为对象" class="headerlink" title="16）call/apply的第一个参数直接传入不包装为对象"></a>16）call/apply的第一个参数直接传入不包装为对象</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="built_in">this</span>)</span><br><span class="line">&#125;</span><br><span class="line">func.call(<span class="string">&#x27;abcd&#x27;</span>) <span class="comment">// string</span></span><br><span class="line">func.apply(<span class="number">1</span>)     <span class="comment">// number</span></span><br></pre></td></tr></table></figure>
+<p>依次为”string”，”number”。而在非严格模式中call/apply将对值类型的”abcd”，1包装为对象后传入，即两次输出都为”object”。</p>
+<h3 id="17）call-apply的第一个参数为null-undefined时，this为null-undefined"><a href="#17）call-apply的第一个参数为null-undefined时，this为null-undefined" class="headerlink" title="17）call/apply的第一个参数为null/undefined时，this为null/undefined*"></a>17）call/apply的第一个参数为null/undefined时，this为null/undefined*</h3><p>这里以call来示例</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>)</span><br><span class="line">&#125;</span><br><span class="line">func.call(<span class="literal">undefined</span>) <span class="comment">// undefined</span></span><br><span class="line">func.call(<span class="literal">null</span>)      <span class="comment">// null</span></span><br></pre></td></tr></table></figure>
+<p>依次是undefined，null。而非严格模式中则是宿主对象，浏览器里是window，node.js环境则是global。</p>
+<h3 id="18）bind的第一个参数为null-undefined时，this为null-undefined"><a href="#18）bind的第一个参数为null-undefined时，this为null-undefined" class="headerlink" title="18）bind的第一个参数为null/undefined时，this为null/undefined"></a>18）bind的第一个参数为null/undefined时，this为null/undefined</h3><p>bind是ES5给Function.prototype新增的一个方法，它和call/apply一样在function上直接调用。它返回一个指定了上下文和参数的函数。当它的第一个参数为null/undefined时，情形和call/apply一样，this也为null/undefined。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> f1 = func.bind(<span class="literal">null</span>)</span><br><span class="line"><span class="keyword">var</span> f2 = func.bind(<span class="literal">undefined</span>)</span><br><span class="line">f1() <span class="comment">// null</span></span><br><span class="line">f2() <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+<p>而在非严格模式中输出的都是window（或global）。</p>
+<h2 id="“use-strict”-的位置必须在首部。首部指其前面没有任何有效js代码。以下都是无效的，将不会触发严格模式。"><a href="#“use-strict”-的位置必须在首部。首部指其前面没有任何有效js代码。以下都是无效的，将不会触发严格模式。" class="headerlink" title="“use strict” 的位置必须在首部。首部指其前面没有任何有效js代码。以下都是无效的，将不会触发严格模式。"></a>“use strict” 的位置必须在首部。首部指其前面没有任何有效js代码。以下都是无效的，将不会触发严格模式。</h2><p>a）“use strict” 前有代码， <strong>无效</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> width = <span class="number">10</span></span><br><span class="line"><span class="meta">&#x27;use strict&#x27;</span> </span><br><span class="line">g = <span class="number">100</span></span><br></pre></td></tr></table></figure>
+<p>b）“use strict” 前有个空语句，<strong>无效</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">;<span class="comment">//这里是空语句</span></span><br><span class="line"><span class="meta">&#x27;use strict&#x27;</span>  </span><br><span class="line">g = <span class="number">100</span></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    ;</span><br><span class="line"><span class="meta">    &#x27;use strict&#x27;</span></span><br><span class="line">    g = <span class="number">200</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    ;<span class="string">&#x27;use strict&#x27;</span></span><br><span class="line">    localVar = <span class="number">200</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当然，“use strict”前加注释是可以的</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// strict mode</span></span><br><span class="line"><span class="meta">&#x27;use strict&#x27;</span></span><br><span class="line">g = <span class="number">100</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// strict mode</span></span><br><span class="line"><span class="meta">    &#x27;use strict&#x27;</span></span><br><span class="line">    g = <span class="number">200</span></span><br><span class="line">&#125;</span><br><span class="line">func()</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/javascript/" rel="tag"># javascript</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/uncategorized/about-TypeScript/" rel="prev" title="about TypeScript">
+                  <i class="fa fa-chevron-left"></i> about TypeScript
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ethel</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-wanko"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+</html>
