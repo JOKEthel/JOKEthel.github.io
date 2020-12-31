@@ -189,7 +189,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-count">20</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -240,6 +240,134 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/uncategorized/%E5%B1%9E%E6%80%A7%E6%8F%8F%E8%BF%B0%E7%AC%A6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/%E5%A4%B4%E5%83%8F12.jpeg">
+      <meta itemprop="name" content="Ethel">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JOKEthel的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/uncategorized/%E5%B1%9E%E6%80%A7%E6%8F%8F%E8%BF%B0%E7%AC%A6/" class="post-title-link" itemprop="url">属性描述符</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-11-08 16:42:35" itemprop="dateCreated datePublished" datetime="2019-11-08T16:42:35+08:00">2019-11-08</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>ECMAScript 5 中定义了一个名叫“属性描述符”的对象，用于描述了的各种特征。属性描述符对象有4个属性：</p>
+<ul>
+<li><code>configurable</code>：可配置性，控制着其描述的属性的修改，表示能否修改属性的特性，能否把属性修改为访问器属性，或者能否通过<code>delete</code>删除属性从而重新定义属性。默认值为<code>true</code>。</li>
+<li><code>enumerable</code>：可枚举性，表示能否通过<code>for-in</code>遍历得到属性。默认值为<code>true</code>。</li>
+<li><code>writable</code>：可写性，表示能否修改属性的值。默认值为<code>true</code>。</li>
+<li><code>value</code>：<code>数据属性</code>，表示属性的值。默认值为<code>undefined</code>。</li>
+</ul>
+<p>除了上面的属性，还有两个<code>存取器属性</code>，分别是<code>get</code>和<code>set</code>，可以代替<code>value</code>和<code>writable</code>。</p>
+<ul>
+<li><code>get</code>：在读取属性时调用的函数。只指定<code>get</code>则表示属性为只读属性。默认值为<code>undefined</code>。</li>
+<li><code>set</code>：在写入属性时调用的函数。只指定<code>set</code>则表示属性为只写属性。默认值为<code>undefined</code>。</li>
+</ul>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>“属性描述符”对象只能在<code>Object.defineProperty</code>或<code>Object.defineProperties</code>中使用。</p>
+<blockquote>
+<p>API 用法<br>Object.defineProperty：<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty">https://developer.mozilla.org…</a><br>Object.defineProperties：<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperties"> </a><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperties">https://developer.mozilla.org…</a></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> hello = &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(hello, <span class="string">&#x27;girl&#x27;</span>, &#123;</span><br><span class="line">    configurable: <span class="literal">false</span>,</span><br><span class="line">    enumberable: <span class="literal">false</span>,</span><br><span class="line">    writable: <span class="literal">true</span>,</span><br><span class="line">    value: <span class="string">&#x27;sexy&#x27;</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 存取器</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(hello, <span class="string">&#x27;woman&#x27;</span>, &#123;</span><br><span class="line">    configurable: <span class="literal">false</span>,</span><br><span class="line">    enumberable: <span class="literal">false</span>,</span><br><span class="line">    get: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.girl</span><br><span class="line">    &#125;,</span><br><span class="line">    set: <span class="function"><span class="keyword">function</span>(<span class="params">val</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.girl = val</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义多个属性</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperties(hello, &#123;</span><br><span class="line">    boy: &#123;</span><br><span class="line">        configurable: <span class="literal">false</span>,</span><br><span class="line">        enumberable: <span class="literal">false</span>,</span><br><span class="line">        writable: <span class="literal">false</span>,</span><br><span class="line">        value: <span class="string">&#x27;handsome&#x27;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    man: &#123;</span><br><span class="line">        configurable: <span class="literal">false</span>,</span><br><span class="line">        enumberable: <span class="literal">false</span>,</span><br><span class="line">  <span class="comment">//      writable: true,</span></span><br><span class="line">        get: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">this</span>.boy</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>当用<code>Object.defineProperty</code>或<code>Object.defineProperties</code>操作（新建或者修改）那些不允许创建或修改的属性时，会抛出类型错误异常。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 此例子运行在前面的例子的基础上</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(hello, <span class="string">&#x27;boy&#x27;</span>, &#123;</span><br><span class="line">    writable: <span class="literal">true</span></span><br><span class="line">&#125;)    <span class="comment">// Uncaught TypeError: Cannot redefine property: boy</span></span><br><span class="line"><span class="number">1234</span></span><br></pre></td></tr></table></figure>
+<p>因为前面<code>boy</code>属性已经被设置为不可配置，所以这里修改<code>writable</code>会抛出类型错误异常。</p>
+<p>通过<code>Object.getOwnPropertyDescriptor</code>或者<code>Object.getOwnPropertyDescriptors</code>可以得到属性描述符。</p>
+<blockquote>
+<p>API 用法<br>Object.getOwnPropertyDescriptor：<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptor">https://developer.mozilla.org…</a><br>Object.getOwnPropertyDescriptors：<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptors">https://developer.mozilla.org…</a></p>
+</blockquote>
+<h2 id="规则"><a href="#规则" class="headerlink" title="规则"></a>规则</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> rules = &#123;</span><br><span class="line">    common: <span class="string">&#x27;test&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="number">123</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>如果属性是不可配置的，则不能修改它的可配置性和可枚举性。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.defineProperty(rules, <span class="string">&#x27;rule1&#x27;</span>, &#123;</span><br><span class="line">    configurable: <span class="literal">false</span>,</span><br><span class="line">    enumberable: <span class="literal">false</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 修改configurable会抛出类型错误异常</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(rules, <span class="string">&#x27;rule1&#x27;</span>, &#123;</span><br><span class="line">    configurable: <span class="literal">true</span></span><br><span class="line">&#125;)    <span class="comment">// Uncaught TypeError: Cannot redefine property: rule1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 修改enumberable不会抛出异常，但enmuberable没有被修改</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(rules, <span class="string">&#x27;rule1&#x27;</span>, &#123;</span><br><span class="line">    enumberable: <span class="literal">true</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">Object</span>.getOwnPropertyDescriptor(rules, <span class="string">&#x27;rule1&#x27;</span>)    <span class="comment">// Object &#123;value: undefined, writable: false, enumerable: false, configurable: false&#125;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>如果存取器属性是不可配置的，则不能修改<code>get</code>和<code>set</code>方法，也不能将它转换为数据属性。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.defineProperty(rules, <span class="string">&#x27;rule2&#x27;</span>, &#123;</span><br><span class="line">    configurable: <span class="literal">false</span>,</span><br><span class="line">    enumberable: <span class="literal">false</span>,</span><br><span class="line">    get: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.common</span><br><span class="line">    &#125;,</span><br><span class="line">    set: <span class="function"><span class="keyword">function</span>(<span class="params">val</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.common = val</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 修改get或者set方法会抛出类型错误异常</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(rules, <span class="string">&#x27;rule2&#x27;</span>, &#123;</span><br><span class="line">    get: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.common + <span class="string">&#x27;rule2&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)    <span class="comment">// Uncaught TypeError: Cannot redefine property: rule2</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(rules, <span class="string">&#x27;rule2&#x27;</span>, &#123;</span><br><span class="line">    set: <span class="function"><span class="keyword">function</span>(<span class="params">val</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.common = <span class="string">&#x27;rule2&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)    <span class="comment">// Uncaught TypeError: Cannot redefine property: rule2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 将它转换为数据属性同样会抛出类型错误异常</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(rules, <span class="string">&#x27;rule2&#x27;</span>, &#123;</span><br><span class="line">    value: <span class="string">&#x27;rule2&#x27;</span></span><br><span class="line">&#125;)    <span class="comment">// Uncaught TypeError: Cannot redefine property: rule2</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>如果数据属性是不可配置的，则不能将它转换为存取器属性；同时，也不能将它的可写性从<code>false</code>修改为<code>true</code>，但可以从<code>true</code>修改为<code>false</code>。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.defineProperty(rules, <span class="string">&#x27;rule3&#x27;</span>, &#123;</span><br><span class="line">    configurable: <span class="literal">false</span>,</span><br><span class="line">    writable: <span class="literal">false</span>,</span><br><span class="line">    value: <span class="string">&#x27;rule3&#x27;</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 修改writable为true会抛出类型错误异常</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(rules, <span class="string">&#x27;rule3&#x27;</span>, &#123;</span><br><span class="line">    writable: <span class="literal">true</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(rules, <span class="string">&#x27;rule4&#x27;</span>, &#123;</span><br><span class="line">    configurable: <span class="literal">false</span>,</span><br><span class="line">    writable: <span class="literal">true</span>,</span><br><span class="line">    value: <span class="string">&#x27;rule4&#x27;</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 可以修改writable为false</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(rules, <span class="string">&#x27;rule4&#x27;</span>, &#123;</span><br><span class="line">    writable: <span class="literal">false</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">Object</span>.getOwnPropertyDescriptor(rules, <span class="string">&#x27;rule4&#x27;</span>)    <span class="comment">//   Object &#123;value: &quot;rule4&quot;, writable: false, enumerable: false, configurable: false&#125;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>如果数据属性是不可配置且不可写的，则不能修改他的值；如果是可配置但不可写，则可以修改他的值（实际上是先将它标记为可写的，然后修改它的值，最后再将它标记回不可写）。</p>
+</blockquote>
+<p>其实这里所说的修改值，是通过<code>Object.defineProperty</code>或<code>Object.defineProperties</code>方法修改。通过直接赋值的方法在数据属性不可配置的情况下是不能修改属性值的。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.defineProperty(rules, <span class="string">&#x27;rule5&#x27;</span>, &#123;</span><br><span class="line">    configurable: <span class="literal">false</span>,</span><br><span class="line">    writable: <span class="literal">false</span>,</span><br><span class="line">    value: <span class="string">&#x27;rule5&#x27;</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 修改属性值会抛出类型错误异常</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(rules, <span class="string">&#x27;rule5&#x27;</span>, &#123;</span><br><span class="line">    value: <span class="string">&#x27;rule55&#x27;</span></span><br><span class="line">&#125;)    <span class="comment">// Uncaught TypeError: Cannot redefine property: rule5</span></span><br><span class="line"></span><br><span class="line">rules.rule5 = <span class="string">&#x27;rule55&#x27;</span></span><br><span class="line"><span class="comment">// 值没有被修改，也不会抛出异常</span></span><br><span class="line">rules.rule5            <span class="comment">// &#x27;rule5&#x27;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(rules, <span class="string">&#x27;rule6&#x27;</span>, &#123;</span><br><span class="line">    configurable: <span class="literal">true</span>,</span><br><span class="line">    writable: <span class="literal">false</span>,</span><br><span class="line">    value: <span class="string">&#x27;rule6&#x27;</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 修改属性值</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(rules, <span class="string">&#x27;rule6&#x27;</span>, &#123;</span><br><span class="line">    value: <span class="string">&#x27;rule66&#x27;</span></span><br><span class="line">&#125;)</span><br><span class="line">rules.rule6            <span class="comment">// &#x27;rule66&#x27;</span></span><br><span class="line"></span><br><span class="line">rules.rule6 = <span class="string">&#x27;rule6&#x27;</span></span><br><span class="line"><span class="comment">// 值没有被修改，也不会修改</span></span><br><span class="line">rules.rule6            <span class="comment">// &#x27;rule6&#x27;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>只指定<code>get</code>不能写，如果尝试对该属性赋值，会抛出类型错误异常。（红宝书上说只有在严格模式下才抛出异常）</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.defineProperty(rules, <span class="string">&#x27;rule7&#x27;</span>, &#123;</span><br><span class="line">    get: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.common</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">rules.rule7 = <span class="string">&#x27;rule7&#x27;</span>    <span class="comment">// Uncaught TypeError: Cannot redefine property: rule7</span></span><br><span class="line"><span class="number">123456</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>只指定<code>set</code>不能读，如果尝试读取该属性值，返回undefined。（红宝书上说在严格模式下才抛出异常，但没有）</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.defineProperty(rules, <span class="string">&#x27;rule8&#x27;</span>, &#123;</span><br><span class="line">    set: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.common = <span class="string">&#x27;rule8&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">rules.rule8    <span class="comment">// undefined</span></span><br><span class="line"><span class="number">123456</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>如果对象是不可扩展的，则可以编辑已有的自有属性，但不能给它添加新属性。</p>
+</blockquote>
+<p>操作对象可扩展性的API有三个：<code>Object.preventExtensions</code>、<code>Object.seal</code>、<code>Object.freeze</code>。</p>
+<blockquote>
+<p>API 用法<br>Object.preventExtensions：<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/preventExtensions">https://developer.mozilla.org…</a><br>Object.seal：<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/seal">https://developer.mozilla.org…</a><br>Object.freeze：<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze">https://developer.mozilla.org…</a><br>Object.isExtensions：<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/isExtensible">https://developer.mozilla.org…</a><br>Object.isSealed：<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/isSealed">https://developer.mozilla.org…</a><br>Object.isFrozen：<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/isFrozen">https://developer.mozilla.org…</a></p>
+</blockquote>
+<p>使用<code>Object.preventExtensions</code>可以将对象转换为不可扩展。</p>
+<p>使用<code>Object.isExtensions</code>来判断对象是否可扩展。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ex = &#123;&#125;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(ex, <span class="string">&#x27;ex1&#x27;</span>, &#123;</span><br><span class="line">    configurable: <span class="literal">true</span>,</span><br><span class="line">    writable: <span class="literal">true</span>,</span><br><span class="line">    value: <span class="string">&#x27;ex1&#x27;</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">Object</span>.isExtensible(ex)        <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Object</span>.preventExtensions(ex)</span><br><span class="line"><span class="built_in">Object</span>.isExtensible(ex)        <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 可以修改已有的属性</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(ex, <span class="string">&#x27;ex1&#x27;</span>, &#123;</span><br><span class="line">    writable: <span class="literal">false</span>,</span><br><span class="line">    value: <span class="string">&#x27;ex11&#x27;</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">Object</span>.getOwnPropertyDescriptor(ex, <span class="string">&#x27;ex1&#x27;</span>)    <span class="comment">// Object &#123;value: &quot;ex11&quot;, writable: false, enumerable: false, configurable: true&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加属性会抛出类型错误异常</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(ex, <span class="string">&#x27;ex2&#x27;</span>, &#123;</span><br><span class="line">    value: <span class="string">&#x27;ex2&#x27;</span></span><br><span class="line">&#125;)    <span class="comment">// Uncaught TypeError: Cannot define property:ex2, object is not extensible.</span></span><br></pre></td></tr></table></figure>
+<p>使用<code>Object.seal</code>除了可以将对象转换为不可扩展的，还可以将对象的所有自有属性都转换为不可配置的。即不能给对象添加新属性，而且它已有的属性也不能删除或者配置（这里同样会遵循前面的规则）。</p>
+<p>使用<code>Object.isSealed</code>来判断对象是否封闭（sealed）。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> se = &#123;&#125;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(se, <span class="string">&#x27;se1&#x27;</span>, &#123;</span><br><span class="line">    configurable: <span class="literal">true</span>,</span><br><span class="line">    writable: <span class="literal">false</span>,</span><br><span class="line">    value: <span class="string">&#x27;se1&#x27;</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">Object</span>.isSealed(se)        <span class="comment">// false</span></span><br><span class="line"><span class="built_in">Object</span>.seal(se)</span><br><span class="line"><span class="built_in">Object</span>.isSealed(se)        <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 修改已有的属性会抛出类型错误异常</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(se, <span class="string">&#x27;se1&#x27;</span>, &#123;</span><br><span class="line">    writable: <span class="literal">true</span>,</span><br><span class="line">    value: <span class="string">&#x27;se11&#x27;</span></span><br><span class="line">&#125;)    <span class="comment">// Uncaught TypeError: Cannot redefine property: se1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加属性会抛出类型错误异常</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(se, <span class="string">&#x27;se2&#x27;</span>, &#123;</span><br><span class="line">    value: <span class="string">&#x27;se2&#x27;</span></span><br><span class="line">&#125;)    <span class="comment">// Uncaught TypeError: Cannot define property:se2, object is not extensible.</span></span><br></pre></td></tr></table></figure>
+<p>使用<code>Object.freeze</code>除了将对象转换为不可扩展的和将其属性转换为不可配置的之外，还可以将自有属性转换为只读。（如果对象设置了<code>set</code>，存取器属性将不会受影响，仍可以调用<code>set</code>方法,而且不会抛出异常，但如果<code>set</code>方法是改变该对象的属性，则不能修改成功）</p>
+<p>使用<code>Object.isFrozen</code>来检测对象是否冻结（frozen）。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fr = &#123;&#125;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(fr, <span class="string">&#x27;fr1&#x27;</span>, &#123;</span><br><span class="line">    configurable: <span class="literal">true</span>,</span><br><span class="line">    writable: <span class="literal">false</span>,</span><br><span class="line">    value: <span class="string">&#x27;fr1&#x27;</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">Object</span>.isFrozen(fr)        <span class="comment">// false</span></span><br><span class="line"><span class="built_in">Object</span>.freeze(fr)</span><br><span class="line"><span class="built_in">Object</span>.isFrozen(fr)        <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 修改已有的属性会抛出类型错误异常</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(fr, <span class="string">&#x27;fr1&#x27;</span>, &#123;</span><br><span class="line">    writable: <span class="literal">true</span>,</span><br><span class="line">    value: <span class="string">&#x27;fr11&#x27;</span></span><br><span class="line">&#125;)    <span class="comment">// Uncaught TypeError: Cannot redefine property: fr1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加属性会抛出类型错误异常</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(fr, <span class="string">&#x27;fr2&#x27;</span>, &#123;</span><br><span class="line">    value: <span class="string">&#x27;fr2&#x27;</span></span><br><span class="line">&#125;)    <span class="comment">// Uncaught TypeError: Cannot define property:fr2, object is not extensible.</span></span><br><span class="line"></span><br><span class="line">fr.fr1 = <span class="string">&#x27;fr11&#x27;</span></span><br><span class="line"><span class="comment">// 不能修fr1属性</span></span><br><span class="line">fr.fr1            <span class="comment">// &#x27;fr1&#x27;</span></span><br><span class="line"><span class="keyword">var</span> set = &#123;&#125;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(set, <span class="string">&#x27;set1&#x27;</span>, &#123;</span><br><span class="line">    configurable: <span class="literal">true</span>,</span><br><span class="line">    value: <span class="string">&#x27;set1&#x27;</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(set, <span class="string">&#x27;set2&#x27;</span>, &#123;</span><br><span class="line">    configurable: <span class="literal">true</span>,</span><br><span class="line">    set: <span class="function"><span class="keyword">function</span>(<span class="params">val</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.set1 = val</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">Object</span>.isFrozen(set)        <span class="comment">// false</span></span><br><span class="line"><span class="built_in">Object</span>.freeze(set)</span><br><span class="line"><span class="built_in">Object</span>.isFrozen(set)        <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line">set.set2 = <span class="string">&#x27;set2&#x27;</span></span><br><span class="line">set.set1                    <span class="comment">// &#x27;set1&#x27;</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/uncategorized/%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -264,7 +392,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2020-12-30 21:06:05" itemprop="dateCreated datePublished" datetime="2020-12-30T21:06:05+08:00">2020-12-30</time>
+      <time title="创建时间：2019-11-01 21:06:05" itemprop="dateCreated datePublished" datetime="2019-11-01T21:06:05+08:00">2019-11-01</time>
     </span>
 
   
@@ -1265,100 +1393,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/uncategorized/cookie%E3%80%81sessionStorage%E5%92%8ClocalStorage%E7%9A%84%E5%8C%BA%E5%88%AB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/%E5%A4%B4%E5%83%8F12.jpeg">
-      <meta itemprop="name" content="Ethel">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="JOKEthel的个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/uncategorized/cookie%E3%80%81sessionStorage%E5%92%8ClocalStorage%E7%9A%84%E5%8C%BA%E5%88%AB/" class="post-title-link" itemprop="url">cookie、sessionStorage和localStorage的区别</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-09-08 08:57:07" itemprop="dateCreated datePublished" datetime="2019-09-08T08:57:07+08:00">2019-09-08</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ol>
-<li>cookie：主要用来保存登录信息，像现在有的网站会有“记住密码”，这就是通过cookie中存入一段辨别用户身份的数据来实现的。</li>
-<li>sessionStorage：可以将一段数据在当前的会话中保存下来，刷新页面数据依旧存在，但页面关闭时，sessionStorage中的数据就会被清空。</li>
-<li>localStorage：在IE6时代，就有一个userData的东西用来本地储存，当时考虑到浏览器的兼容性，更通用的是flash，现在localStorage被大多数浏览器所支持。localStorage中的键值以字符串的形式储存。localStorage类似于sessionStorage，但区别在于储存在localStorage的数据可以长期保留。</li>
-<li>补充：同源：协议相同、域名相同、端口相同。</li>
-</ol>
-<h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><ul>
-<li>cookie：一般不超过4k</li>
-<li>sessionStorage：5M甚至更多</li>
-<li>localStorage：5M甚至更多</li>
-</ul>
-<h3 id="数据有效期"><a href="#数据有效期" class="headerlink" title="数据有效期"></a>数据有效期</h3><ul>
-<li>cookie：般由服务器生成，可以设置失效时间；若没有设置时间，关闭浏览器cookie失效，如果设置了时间，cookie就会存储在硬盘中，过期失效</li>
-<li>sessionStorage：仅在当前浏览器窗口关闭之前有效，关闭页面或者浏览器会被清除</li>
-<li>localStorage：永久有效，窗口或者浏览器关闭也会一直保存，除非手动永久删除</li>
-</ul>
-<h3 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h3><ul>
-<li>cookie：在所有同源窗口中都是共享的</li>
-<li>sessionStorage：在同一个浏览器窗口是共享的（不同浏览器，即使是统一页面也不共享）</li>
-<li>localStorage：在所有同源窗口中共享</li>
-</ul>
-<h3 id="通信"><a href="#通信" class="headerlink" title="通信"></a>通信</h3><ul>
-<li>cookie：cookie在浏览器和服务器之间来回传递，如果使用cookie保存过多数据会造成性能问题</li>
-<li>sessionStorage：仅在客户端（浏览器）中保存，不参与服务器的通信</li>
-<li>localStorage：仅在客户端（浏览器）中保存，不参与服务器的通信</li>
-</ul>
-<h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><ul>
-<li>cookie：判断用户是否登录过网站，以便实现下次自动登录或记住密码；保存事件信息</li>
-<li>sessionStorage：敏感账号一次性登录，单页面用的较多</li>
-<li>localStorage：用于长期登录，适于长期保存在本地的数据</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
@@ -1424,5 +1458,5 @@
 
 
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-wanko"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/haruto.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
 </html>
